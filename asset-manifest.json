@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/project-team5-frontend/static/css/main.cd2e038f.css",
+    "main.js": "/project-team5-frontend/static/js/main.ea3b19f5.js",
+    "index.html": "/project-team5-frontend/index.html",
+    "main.cd2e038f.css.map": "/project-team5-frontend/static/css/main.cd2e038f.css.map",
+    "main.ea3b19f5.js.map": "/project-team5-frontend/static/js/main.ea3b19f5.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.cd2e038f.css",
+    "static/js/main.ea3b19f5.js"
+  ]
+}
