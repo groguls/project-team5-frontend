@@ -1,10 +1,7 @@
-import { GlobalStyle } from "./GlobalStyle";
-
 export const App = () => {
   return (
     <>
-      <GlobalStyle />
-      <div>Our Group Project</div>
+      <h2>Our Group Project</h2>
     </>
   );
 };
