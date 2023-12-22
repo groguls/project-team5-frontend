@@ -1,21 +1,16 @@
-import { Container, CssBaseline, Toolbar } from '@mui/material';
-import { ApplicationBar } from 'components/ApplicationBar';
 import { Suspense } from 'react';
 import { Toaster } from 'react-hot-toast';
 import { Outlet } from 'react-router-dom';
+import { Container } from 'styles/GlobalStyle';
 
 export const Layout = () => {
   return (
-    <>
-      <CssBaseline />
-      <ApplicationBar />
-      <Toolbar />
-      <Container component="main" maxWidth="md" sx={{ position: 'relative' }}>
-        <Suspense>
-          <Outlet />
-        </Suspense>
-        <Toaster position="top-center" />
-      </Container>
-    </>
+    <Container>
+      {/* Header here */}
+      <Suspense>
+        <Outlet />
+      </Suspense>
+      <Toaster position="top-center" />
+    </Container>
   );
 };
