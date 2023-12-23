@@ -2,31 +2,26 @@ import styled, { createGlobalStyle } from 'styled-components';
 import 'modern-normalize';
 
 export const GlobalStyle = createGlobalStyle`
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 html {
-    box-sizing: border-box;
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
   }
 
 body {
-    margin: 0;
-    font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto', sans-serif;
   }
-  
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-ul {
-  margin: 0;
-}
 
+button {
+  font-family: 'Roboto', sans-serif;
+}
+  
 ul, 
 ol {
-    margin: 0;
-    padding: 0;
     list-style: none;
   }
 
@@ -35,6 +30,7 @@ img {
     max-width: 100%;
     height: auto;
   }
+
 a {
     text-decoration: none;
     color: inherit;
