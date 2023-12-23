@@ -1,8 +1,8 @@
 import { MainTitle, Subtitle, ListTitle, Text } from './Typography.styled';
 
 const Typography = ({ children, styled }) => {
-  console.log('Typography   styled :', styled);
-  console.log('Typography  children:', children);
+  // передаємо у своєму компоненті пропсу styled один з варіантів
+  // 'MainTitle' -h1, 'Subtitle' -h2, 'ListTitle' -h3, 'Text' -p
 
   switch (styled) {
     case 'MainTitle':
