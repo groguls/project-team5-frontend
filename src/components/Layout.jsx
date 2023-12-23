@@ -7,6 +7,7 @@ export const Layout = () => {
   return (
     <Container>
       {/* Header here */}
+      <h2>Our Group Project</h2>
       <Suspense>
         <Outlet />
       </Suspense>
