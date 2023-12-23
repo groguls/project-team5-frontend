@@ -8,11 +8,11 @@ export function Plus() {
       width="16"
       height="16"
       viewBox="0 0 16 16"
-      fill="none"
+      // fill="currentColor"
     >
       <path
         d="M8 4V12M12 8H4"
-        stroke="#407BFF"
+        stroke="currentColor"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
