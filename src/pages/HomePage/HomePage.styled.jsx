@@ -21,7 +21,7 @@ export const MainContainer = styled.main`
     (min-resolution: 192dpi),
     (min-resolution: 2dppx) {
     background-image: url(${background.mobile.backgroundRetina}),
-      url(${({ $page }) => handleBackgroundBottle('sm', $page, true)});
+      url(${({ $page }) => handleBackgroundBottle('mobile', $page, true)});
   }
 
   @media screen and (min-width: 768px) {
