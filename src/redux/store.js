@@ -11,6 +11,7 @@ import {
   REGISTER,
 } from 'redux-persist';
 import { authReducer } from './auth/slice';
+import { loadingReducer } from './loading/LoadingSlice';
 
 const persistConfig = {
   key: 'auth',
@@ -20,6 +21,7 @@ const persistConfig = {
 
 export const store = configureStore({
   reducer: {
+    loading: loadingReducer,
     auth: persistReducer(persistConfig, authReducer),
   },
   middleware: getDefaultMiddleware =>
