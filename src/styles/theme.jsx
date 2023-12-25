@@ -10,6 +10,30 @@ export const theme = Object.freeze({
     secondaryGrayBlue: '#D7E3FF',
   },
 
+  fonts: {
+    body: 'Roboto, san-sarif',
+  },
+
+  fontSizes: {
+    mainTitle: 36,
+    subtitle: 26,
+    listTitle: 18,
+    text: 16,
+  },
+
+  fontWeights: {
+    bold: 700,
+    medium: 500,
+    regular: 400,
+  },
+
+  lineHeights: {
+    mainTitle: 1.17,
+    subtitle: 1.2,
+    listTitle: 1.1,
+    text: 1.25,
+  },
+
   shadows: {
     normalButton: '0px 4px 8px 0px rgba(64, 123, 255, 0.34)',
     hoverButton: '0px 4px 14px 0px rgba(64, 123, 255, 0.54)',
