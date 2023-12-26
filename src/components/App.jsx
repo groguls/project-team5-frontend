@@ -24,14 +24,14 @@ export const App = () => {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
-        {/* <Route
+        <Route
           index
           element={
             <div>
               Home Page <SingUpFormFormik />
             </div>
           }
-        /> */}
+        />
         <Route index element={isAuth ? <HomePage /> : <WelcomePage />} />
         <Route
           path="signin"
