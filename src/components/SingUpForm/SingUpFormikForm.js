@@ -92,7 +92,7 @@ export const SingUpFormFormik = () => {
         Sign Up
       </Button> */}
       <ButtonLink>
-        <a href="">Sign Up</a>
+        <a href="../../pages/SignInPage.jsx">Sign In</a>
       </ButtonLink>
     </FormContainer>
   );
