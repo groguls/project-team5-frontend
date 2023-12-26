@@ -6,7 +6,7 @@ import { Layout } from './Layout/Layout';
 import { SingUpFormFormik } from './SingUpForm/SingUpFormikForm';
 
 const RestrictedRoute = lazy(() => import('./RestrictedRoute'));
-const WelcomePage = lazy(() => import('../pages/WelcomePage'));
+const WelcomePage = lazy(() => import('../pages/WelcomePage/WelcomePage'));
 const HomePage = lazy(() => import('../pages/HomePage/HomePage'));
 const SignInPage = lazy(() => import('../pages/SignInPage'));
 const SignUpPage = lazy(() => import('../pages/SignUpPage'));

@@ -18,7 +18,7 @@ export const StyledButton = styled.button`
 
   color: ${props => props.textColor || 'white'};
   text-align: center;
-  font-family: Roboto;
+  /* font-family: Roboto; */
   font-size: 18px;
   font-weight: 500;
   line-height: 1.33;
