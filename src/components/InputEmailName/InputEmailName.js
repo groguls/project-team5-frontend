@@ -5,7 +5,7 @@ const theme = createTheme({
   breakpoints: {
     values: {
       xs: 0,
-      sm: 320,
+      sm: 321,
       md: 768,
       lg: 1440,
       xl: 1920,
@@ -28,13 +28,13 @@ const theme = createTheme({
 });
 
 const textFieldStyle = {
-  width: '336px',
+  width: '280px',
   height: '44px',
   [theme.breakpoints.down('sm')]: {
     width: '280px',
   },
   [theme.breakpoints.up('md')]: {
-    width: '384px',
+    width: '336px',
   },
   [theme.breakpoints.up('lg')]: {
     width: '384px',
@@ -43,9 +43,12 @@ const textFieldStyle = {
 
 export const InputNameEmail = ({
   placeholderText,
-  error = false,
+  error,
   type,
   value,
+  onChange,
+  onBlur,
+  id,
 }) => {
   return (
     <ThemeProvider theme={theme}>
@@ -103,6 +106,7 @@ export const InputNameEmail = ({
             lineHeight: '18px',
           },
         }}
+        id={id}
         placeholder={placeholderText}
         variant="outlined"
         error={error}
@@ -110,6 +114,9 @@ export const InputNameEmail = ({
         type={type}
         name={type}
         value={value}
+        autoComplete="off"
+        onChange={onChange}
+        onBlur={onBlur}
       />
     </ThemeProvider>
   );
