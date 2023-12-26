@@ -3,12 +3,20 @@ import { Layout } from './Layout/Layout';
 import { RestrictedRoute } from './RestrictedRoute';
 import { SignUpPage } from 'pages/SignUpPage';
 import { SignInPage } from 'pages/SignInPage';
+import { SingUpFormFormik } from './SingUpForm/SingUpFormikForm';
 
 export const App = () => {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
-        <Route index element={<div>Home Page</div>} />
+        <Route
+          index
+          element={
+            <div>
+              Home Page <SingUpFormFormik />
+            </div>
+          }
+        />
         <Route
           path="signin"
           element={
