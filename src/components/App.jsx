@@ -3,6 +3,7 @@ import { lazy } from 'react';
 import { useSelector } from 'react-redux';
 import { selectIsAuth } from '../redux/selectors';
 import { Layout } from './Layout/Layout';
+import { SingUpFormFormik } from './SingUpForm/SingUpFormikForm';
 
 const RestrictedRoute = lazy(() => import('./RestrictedRoute'));
 const WelcomePage = lazy(() => import('../pages/WelcomePage'));
@@ -23,6 +24,14 @@ export const App = () => {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
+        <Route
+          index
+          element={
+            <div>
+              Home Page <SingUpFormFormik />
+            </div>
+          }
+        />
         <Route index element={isAuth ? <HomePage /> : <WelcomePage />} />
         <Route
           path="signin"
