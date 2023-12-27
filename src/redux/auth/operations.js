@@ -1,25 +1,28 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-axios.defaults.baseURL = 'http://localhost:8000'; //backend URL here
+// axios.defaults.baseURL = 'http://localhost:5000/users'; //backend URL here
+
+const instance = axios.create({
+  baseURL: 'http://localhost:5000/users',
+});
 
 const setAuthHeader = token => {
-  axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+  instance.defaults.headers.common.Authorization = `Bearer ${token}`;
 };
 
 const clearAuthHeader = () => {
-  axios.defaults.headers.common.Authorization = '';
+  instance.defaults.headers.common.Authorization = '';
 };
 
 export const signUp = createAsyncThunk(
   'auth/signUp',
   async (credentials, thunkAPI) => {
     try {
-      const { data } = await axios.post('/users/signup', credentials);
+      const { data } = await instance.post('/signup', credentials);
       setAuthHeader(data.token);
       return data;
     } catch (error) {
-      console.log('ERROR');
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -29,11 +32,10 @@ export const signIn = createAsyncThunk(
   'auth/signIn',
   async (credentials, thunkAPI) => {
     try {
-      const { data } = await axios.post('/users/signin', credentials);
+      const { data } = await instance.post('/signin', credentials);
       setAuthHeader(data.token);
       return data;
     } catch (error) {
-      console.log('ERROR');
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -41,7 +43,7 @@ export const signIn = createAsyncThunk(
 
 export const logOut = createAsyncThunk('auth/logOut', async (_, thunkAPI) => {
   try {
-    await axios.post('/users/logout');
+    await instance.post('/logout');
     clearAuthHeader();
   } catch (error) {
     return thunkAPI.rejectWithValue(error.message);
@@ -60,7 +62,7 @@ export const refreshUser = createAsyncThunk(
 
     try {
       setAuthHeader(persistedToken);
-      const { data } = await axios.get('/users/current');
+      const { data } = await instance.get('/current');
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

@@ -8,10 +8,13 @@
 import { Button, BackdropBox } from './UserLogoModal.styled';
 import { Settings } from '../Icons/Settings';
 import { Logout } from '../Icons/Logout';
+import { useDispatch } from 'react-redux';
+import { logOut } from '../../redux/auth/operations';
 
 export const UserLogoModal = () => {
+  const dispatch = useDispatch();
   const UserInfoModal = () => {};
-  const UserLogoutModal = () => {};
+  // const UserLogoutModal = () => {};
 
   return (
     <>
@@ -22,7 +25,7 @@ export const UserLogoModal = () => {
           </div>
           Setting
         </Button>
-        <Button type="button" onClick={UserLogoutModal}>
+        <Button type="button" onClick={() => dispatch(logOut())}>
           <div style={{ marginRight: '8px' }}>
             <Logout />
           </div>

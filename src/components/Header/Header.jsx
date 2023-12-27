@@ -28,7 +28,9 @@ export const Header = ({ onClick, logoModal }) => {
   const userName = useSelector(selectName);
   const userLogo = useSelector(selectUserLogo);
 
+
   const defaultName = 'V';
+
 
   return (
     <HeaderContainer>
@@ -38,7 +40,7 @@ export const Header = ({ onClick, logoModal }) => {
 
       {isLoggedIn ? (
         <UserLogoContainer>
-          <UserName>{userName ? userName : defaultName}</UserName>
+          <UserName>{userName}</UserName>
           {userLogo ? <UserLogo /> : ''}
           <ArrowDown onClick={onClick} />
           {logoModal && <UserLogoModal />}

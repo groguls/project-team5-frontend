@@ -3,15 +3,15 @@ import { useFormik } from 'formik';
 import { useDispatch } from 'react-redux';
 import { InputNameEmail } from 'components/InputEmailName/InputEmailName';
 import InputPassword from 'components/InputPassword/InputPassword';
+
+import { signIn } from '../../redux/auth/operations';
 import {
   ButtonLink,
   ButtonSubmit,
   FormContainer,
   InputForm,
   Title,
-} from './SingUpFormikForm.styled';
-
-import { signUp } from '../../redux/auth/operations';
+} from './SignInFormikForm.styled';
 
 const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
@@ -29,37 +29,30 @@ const formSchema = Yup.object().shape({
       message: `Invalid password. Password must be at least 8 characters long and include at least one uppercase letter, one lowercase letter, one digit, and one special character (@$!%*?&).`,
     })
     .required('Required'),
-  repeatPassword: Yup.string()
-    .oneOf([Yup.ref('password'), null], 'Passwords must match')
-    .required('Required'),
 });
 
-export const SingUpFormFormik = () => {
+export const SingInFormFormik = () => {
   const dispatch = useDispatch();
 
   const formik = useFormik({
     initialValues: {
       email: '',
       password: '',
-      repeatPassword: '',
     },
     validationSchema: formSchema,
     onSubmit: async (values, actions) => {
       dispatch(
-        signUp({
+        signIn({
           email: values.email,
           password: values.password,
         })
       );
       actions.resetForm();
-      console.log('Sign up successful!');
-      console.log(values.email);
-      console.log(values.password);
     },
   });
   return (
     <FormContainer onSubmit={formik.handleSubmit}>
-      <Title>Sign Up</Title>
+      <Title>Sign In</Title>
       <InputForm>
         <label htmlFor="email">Enter your email</label>
         <InputNameEmail
@@ -84,23 +77,9 @@ export const SingUpFormFormik = () => {
         />
       </InputForm>
 
-      <InputForm>
-        <label htmlFor="email">Repeat password</label>
-        <InputPassword
-          placeholderText={'Repeat password'}
-          type={'password'}
-          value={formik.values.repeatPassword}
-          onChange={formik.handleChange}
-          error={
-            formik.touched.repeatPassword &&
-            Boolean(formik.errors.repeatPassword)
-          }
-          id={'repeatPassword'}
-        />
-      </InputForm>
-      <ButtonSubmit type="submit">Sign Up</ButtonSubmit>
+      <ButtonSubmit type="submit">Sign In</ButtonSubmit>
       <ButtonLink>
-        <a href="signin">Sign In</a>
+        <a href="signup">Sign Up</a>
       </ButtonLink>
     </FormContainer>
   );
