@@ -30,8 +30,6 @@ export const Header = () => {
   const userLogo = useSelector(selectUserLogo);
   const [logoModal, setLogoModal] = useState(false);
 
-  const defaultName = 'V';
-
   const openModal = () => {
     setLogoModal({ logoModal: true });
   };
@@ -48,7 +46,7 @@ export const Header = () => {
 
       {isLoggedIn ? (
         <UserLogoContainer>
-          <UserName>{userName ? userName : defaultName}</UserName>
+          <UserName>{userName}</UserName>
           {userLogo ? <UserLogo /> : ''}
           <ArrowDown onClick={openModal} />
           {logoModal && <UserLogoModal />}
