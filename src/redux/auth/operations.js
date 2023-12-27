@@ -8,7 +8,6 @@ const instance = axios.create({
 });
 
 const setAuthHeader = token => {
-  ce;
   instance.defaults.headers.common.Authorization = `Bearer ${token}`;
 };
 
