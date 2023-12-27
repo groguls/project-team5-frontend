@@ -20,6 +20,7 @@ export const App = () => {
   // const dispatch = useDispatch();
   // const token = useSelector(selectToken);
   const isAuth = useSelector(selectIsAuth);
+  console.log(isAuth);
 
   useEffect(() => {
     dispatch(refreshUser());
@@ -32,7 +33,6 @@ export const App = () => {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
-        <Route index element={<div>Home Page</div>} />
         <Route index element={isAuth ? <HomePage /> : <WelcomePage />} />
         <Route
           path="signin"

@@ -67,7 +67,7 @@ export const SectionDailyNorma = styled.section`
   }
 `;
 
-export const SectionTodaiCalendar = styled.section`
+export const SectionTodayCalendar = styled.section`
   @media screen and (min-width: 768px) {
   }
 `;
