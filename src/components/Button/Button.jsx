@@ -12,12 +12,10 @@ const Button = ({
     <StyledButton
       onClick={onClick}
       width={width}
-      backgroundColor={backgroundColor}
-      textColor={textColor}
+      $backgroundColor={backgroundColor}
+      $textColor={textColor}
     >
-      {icon && <img src={icon} alt="Icon" />}{' '}
-      {/* вставляємо іконку якщо вона необхідна */}
-      {label}
+      {icon && <img src={icon} alt="Icon" />} {label}
     </StyledButton>
   );
 };
