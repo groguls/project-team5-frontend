@@ -4,13 +4,12 @@ export const BackdropBox = styled.div`
   display: flex;
   flex-direction: column;
   background: #ffffff;
-  padding: 16px 16px 0 16px;
   border: none;
   border-radius: 4px;
   box-shadow: ${props => `${props.theme.shadows.userModal}`};
   /* transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1); */
-  transform: translate(270%, 70%);
+   visibility 250ms cubic-bezier(0.4, 0, 0.2, 1); */
+  transform: translate(0%, 70%);
 `;
 
 export const Button = styled.button`
@@ -26,8 +25,14 @@ export const Button = styled.button`
   line-height: 1.25;
   border: none;
   margin: auto;
-  padding: 0 0 16px 0;
+  padding: 16px 16px 16px 16px;
   cursor: pointer;
+
+  &:focus,
+  &:hover {
+    border-radius: 4px;
+    box-shadow: 0px 4px 14px 0px rgba(64, 123, 255, 0.54);
+  }
 
   @media (min-width: 768px) {
     /* width: 56px; */
