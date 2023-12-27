@@ -3,36 +3,45 @@
 //  вікно  UserInfoModal
 //      - LogoutBtn - по кліку на яку відкривається
 // модальне вікно UserLogoutModal
-import { useState } from 'react';
+
 // import { Button } from '../Button/Button.js';
-import { Modal } from '../Modal/Modal';
-import { Button } from './UserLogoModal.styled';
+import { useState } from 'react';
+import { useSelector } from 'react-redux';
+import { selectIsLoggedIn } from '../../redux/selectors';
+import { Button, BackdropBox } from './UserLogoModal.styled';
 import { Settings } from '../Icons/Settings';
 import { Logout } from '../Icons/Logout';
 
-const UserLogoModal = () => {
-  const [showModal, setShowModal] = useState(false);
+export const UserLogoModal = () => {
+  const [logoModal, setLogoModal] = useState(false);
+  const isLoggedIn = useSelector(selectIsLoggedIn);
 
   const UserInfoModal = () => {};
   const UserLogoutModal = () => {};
 
-  const toggleModal = () => {
-    setShowModal(showModal => !showModal);
+  const toggleLogoModal = () => {
+    setLogoModal(logoModal => !logoModal);
   };
 
   return (
-    <Modal onClose={toggleModal}>
-      <Button type="button" onClick={UserInfoModal}>
-        <Settings />
-        Setting
-      </Button>
+    <>
+      {logoModal && (
+        <BackdropBox>
+          <Button type="button" onClick={UserInfoModal}>
+            <div style={{ marginRight: '8px' }}>
+              <Settings />
+            </div>
+            Setting
+          </Button>
 
-      <Button type="button" onClick={UserLogoutModal}>
-        <Logout />
-        Logout
-      </Button>
-    </Modal>
+          <Button type="button" onClick={UserLogoutModal}>
+            <div style={{ marginRight: '8px' }}>
+              <Logout />
+            </div>
+            Logout
+          </Button>
+        </BackdropBox>
+      )}
+    </>
   );
 };
-
-export default UserLogoModal;
