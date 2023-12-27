@@ -18,7 +18,7 @@ import {
 import { UserIcon } from 'components/Icons/UserIcon';
 import { ArrowDown } from 'components/Icons/ArrowDown';
 import { UserLogo } from 'components/UserLogo/UserLogo';
-import { UserLogoModal } from 'components/UserLogoModal/UserLogoModal';
+
 export const Header = () => {
   // const toggleModal = useModal();
 
@@ -33,7 +33,7 @@ export const Header = () => {
       <Link to="/">
         <Logo />
       </Link>
-      <UserLogoModal />
+
       {isLoggedIn ? (
         <UserLogoContainer>
           <UserName>{userName ? userName : defaultName}</UserName>
