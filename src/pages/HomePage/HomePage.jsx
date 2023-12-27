@@ -1,7 +1,7 @@
 import {
   MainContainer,
   SectionDailyNorma,
-  SectionTodaiCalendar,
+  SectionTodayCalendar,
 } from './HomePage.styled';
 
 const Home = () => {
@@ -12,10 +12,10 @@ const Home = () => {
         <div>Water bar</div>
       </SectionDailyNorma>
 
-      <SectionTodaiCalendar>
-        <div>Todai modal</div>
+      <SectionTodayCalendar>
+        <div>Today modal</div>
         <div>Month table</div>
-      </SectionTodaiCalendar>
+      </SectionTodayCalendar>
     </MainContainer>
   );
 };

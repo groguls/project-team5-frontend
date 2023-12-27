@@ -28,9 +28,7 @@ export const Header = ({ onClick, logoModal }) => {
   const userName = useSelector(selectName);
   const userLogo = useSelector(selectUserLogo);
 
-
-  const defaultName = 'V';
-
+  // const defaultName = 'V';
 
   return (
     <HeaderContainer>
