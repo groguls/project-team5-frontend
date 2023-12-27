@@ -99,6 +99,7 @@ export default function InputPassword({
         value={value}
         onChange={onChange}
         onBlur={onBlur}
+        autoComplete="off"
         sx={{
           ...textFieldStyle,
           '& .MuiInputBase-input': {
