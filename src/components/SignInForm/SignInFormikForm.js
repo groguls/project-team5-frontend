@@ -82,7 +82,7 @@ export const SingInFormFormik = () => {
 
       <ButtonSubmit type="submit">Sign In</ButtonSubmit>
       <ButtonLink>
-        <a href="">Sign Up</a>
+        <a href="/users/signup">Sign Up</a>
       </ButtonLink>
     </FormContainer>
   );

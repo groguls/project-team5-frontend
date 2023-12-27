@@ -100,7 +100,7 @@ export const SingUpFormFormik = () => {
       </InputForm>
       <ButtonSubmit type="submit">Sign Up</ButtonSubmit>
       <ButtonLink>
-        <a href="/signin">Sign In</a>
+        <a href="/users/signin">Sign In</a>
       </ButtonLink>
     </FormContainer>
   );
