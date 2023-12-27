@@ -28,6 +28,10 @@ export const Button = styled.button`
   padding: 16px 16px 16px 16px;
   cursor: pointer;
 
+  &:nth-child(2) {
+    margin-left: 0;
+  }
+
   &:focus,
   &:hover {
     border-radius: 4px;
