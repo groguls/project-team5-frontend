@@ -1,5 +1,11 @@
+import { SingInFormFormik } from 'components/SignInForm/SignInFormikForm';
+
 const SignInPage = () => {
-  return <div>SignInPage</div>;
+  return (
+    <div>
+      <SingInFormFormik />
+    </div>
+  );
 };
 
 export default SignInPage;
