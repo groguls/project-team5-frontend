@@ -3,8 +3,6 @@ import { lazy } from 'react';
 import { useSelector } from 'react-redux';
 import { selectIsAuth } from '../redux/selectors';
 import { Layout } from './Layout/Layout';
-// import { SingUpFormFormik } from './SingUpForm/SingUpFormikForm';
-// import { SingInFormFormik } from './SignInForm/SignInFormikForm';
 
 const RestrictedRoute = lazy(() => import('./RestrictedRoute'));
 const WelcomePage = lazy(() => import('../pages/WelcomePage/WelcomePage'));

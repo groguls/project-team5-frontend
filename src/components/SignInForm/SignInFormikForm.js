@@ -13,10 +13,9 @@ import {
   Title,
 } from './SignInFormikForm.styled';
 
-const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-const passwordRegex =
-  /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+const passwordRegex = /^.{8,64}$/;
 
 const formSchema = Yup.object().shape({
   email: Yup.string()
@@ -26,7 +25,7 @@ const formSchema = Yup.object().shape({
     .required('Required'),
   password: Yup.string()
     .matches(passwordRegex, {
-      message: `Invalid password. Password must be at least 8 characters long and include at least one uppercase letter, one lowercase letter, one digit, and one special character (@$!%*?&).`,
+      message: `Invalid password. Password must be at least 8 characters long.`,
     })
     .required('Required'),
 });
@@ -66,10 +65,11 @@ export const SingInFormFormik = () => {
           onBlur={formik.handleBlur}
           error={formik.touched.email && Boolean(formik.errors.email)}
           id={'email'}
+          helperText={'Invalid email.'}
         />
       </InputForm>
-      <InputForm>
-        <label htmlFor="email">Enter your password</label>
+      <InputForm style={{ marginTop: formik.errors.email ? '10px' : '0px' }}>
+        <label htmlFor="password">Enter your password</label>
         <InputPassword
           placeholderText={'Password'}
           type={'password'}
@@ -77,10 +77,16 @@ export const SingInFormFormik = () => {
           onChange={formik.handleChange}
           error={formik.touched.password && Boolean(formik.errors.password)}
           id={'password'}
+          helperText={'Invalid password.'}
         />
       </InputForm>
 
-      <ButtonSubmit type="submit">Sign In</ButtonSubmit>
+      <ButtonSubmit
+        type="submit"
+        style={{ marginTop: formik.errors.password ? '10px' : '0px' }}
+      >
+        Sign In
+      </ButtonSubmit>
       <ButtonLink>
         <a href="signup">Sign Up</a>
       </ButtonLink>
