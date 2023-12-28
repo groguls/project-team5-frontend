@@ -47,9 +47,6 @@ export const SingInFormFormik = () => {
         })
       );
       actions.resetForm();
-      console.log('Sign in successful!');
-      console.log(values.email);
-      console.log(values.password);
     },
   });
   return (

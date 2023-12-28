@@ -6,8 +6,13 @@ export const selectIsLoading = state => state.loading;
 export const selectUser = state => state.auth.user;
 export const selectIsLoggedIn = state => state.auth.isLoggedIn;
 export const selectToken = state => state.auth.token;
-export const selectName = state => state.auth.user.name;
+
 export const selectEmail = state => state.auth.user.email;
+
+export const selectName = state => {
+  return state.auth.user.name || state.auth.user.email?.split('@')[0];
+};
+
 export const selectUserLogo = state => state.auth.user.avatar;
 export const selectDailyNorma = state => state.auth.user.dailyNorma;
 

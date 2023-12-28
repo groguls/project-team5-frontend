@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { logOut } from 'redux/auth/authInteraction';
+import { logOut } from 'redux/auth/operations';
 import { StyledButton } from 'components/Button/Button.styled';
 
 export const LogOutUser = () => {
