@@ -1,15 +1,15 @@
 import { styled } from 'styled-components';
 
 export const BackdropBox = styled.div`
+  position: fixed;
   display: flex;
   flex-direction: column;
   background: #ffffff;
   border: none;
   border-radius: 4px;
   box-shadow: ${props => `${props.theme.shadows.userModal}`};
-  /* transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
-   visibility 250ms cubic-bezier(0.4, 0, 0.2, 1); */
-  transform: translate(0%, 70%);
+  transform: translate(-70%, 70%);
+  z-index: 2000;
 `;
 
 export const Button = styled.button`
