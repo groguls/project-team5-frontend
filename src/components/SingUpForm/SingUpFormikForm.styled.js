@@ -6,23 +6,16 @@ export const FormContainer = styled.form`
   flex-direction: column;
   gap: 16px;
   max-width: 280px;
-  /* padding-left: 20px;
-  padding-right: 20px; */
+
   margin-left: auto;
   margin-right: auto;
-  position: ablosute;
-  top: 80px;
-  left: 20px;
   @media screen and (min-width: 768px) {
     max-width: 336px;
-    /* padding-left: 32px;
-    padding-right: 32px; */
+    margin: 0;
   }
 
   @media screen and (min-width: 1440px) {
     max-width: 384px;
-    /* padding-left: 112px;
-    padding-right: 112px; */
   }
 `;
 

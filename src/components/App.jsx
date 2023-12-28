@@ -3,10 +3,10 @@ import { lazy, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectIsAuth } from '../redux/selectors';
 import { Layout } from './Layout/Layout';
+
 import { refreshUser } from '../redux/auth/operations';
 
-// import { SingUpFormFormik } from './SingUpForm/SingUpFormikForm';
-// import { SingInFormFormik } from './SignInForm/SignInFormikForm';
+
 
 const RestrictedRoute = lazy(() => import('./RestrictedRoute'));
 const WelcomePage = lazy(() => import('../pages/WelcomePage/WelcomePage'));
