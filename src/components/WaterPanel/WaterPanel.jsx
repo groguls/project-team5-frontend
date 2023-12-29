@@ -19,7 +19,7 @@ export const WaterPanel = () => {
       <InputContainer>
         <Today>Today</Today>
         <InputRange
-          tape="renge"
+          type="range"
           min="0"
           max="100"
           value={currentDayValue.percent}
