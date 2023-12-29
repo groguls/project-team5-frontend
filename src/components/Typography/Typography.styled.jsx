@@ -9,10 +9,10 @@ export const MainTitle = styled.h1`
 `;
 
 export const Subtitle = styled.h2`
-  /* font: ${props => `${props.theme.fonts.body}`}; */
+  font: ${props => `${props.theme.fonts.body}`};
   color: ${props => `${props.theme.colors.primaryBlack}`};
   font-size: ${props => `${props.theme.fontSizes.subtitle}`};
-  font-weight: ${props => `${props.theme.fontWeights.regular}`};
+  font-weight: ${props => `${props.theme.fontWeights.medium}`};
   line-height: ${props => `${props.theme.lineHeights.subtitle}`};
 `;
 

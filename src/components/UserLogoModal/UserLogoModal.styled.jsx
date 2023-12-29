@@ -10,6 +10,8 @@ export const Backdrop = styled.div`
   justify-content: center;
   align-items: center;
   background-color: transparent;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1) visibility 250ms
+    cubic-bezier(0.4, 0, 0.2, 1);
 `;
 
 export const Modal = styled.div`
@@ -24,6 +26,7 @@ export const Modal = styled.div`
   border: none;
   border-radius: 4px;
   box-shadow: ${props => `${props.theme.shadows.userModal}`};
+  transition: all;
 `;
 
 export const Button = styled.button`
@@ -60,5 +63,5 @@ export const Button = styled.button`
 `;
 
 export const IconBox = styled.div`
-  margin-right: '8px';
+  margin-right: 8px;
 `;

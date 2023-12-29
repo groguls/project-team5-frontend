@@ -2,6 +2,9 @@ import { useModal } from '../ModalContextProvider/ModalContextProvider';
 import { useSelector } from 'react-redux';
 import { selectorWaterInfo } from '../../redux/selectors';
 import { Plus } from 'components/Icons/Plus/Plus';
+
+import { TodayListModal } from 'components/TodayListModal/TodayListModal';
+
 import {
   AddBtn,
   InputContainer,
@@ -31,7 +34,7 @@ export const WaterPanel = () => {
           <span>100%</span>
         </PercentContainer>
       </InputContainer>
-      <AddBtn onClick={() => toggleModal()} type="button">
+      <AddBtn onClick={() => toggleModal(TodayListModal)} type="button">
         <Plus aria-label="add_water" />
         Add water
       </AddBtn>
