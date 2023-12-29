@@ -147,3 +147,22 @@ export const BtnSave = styled.button`
     width: 160px;
   }
 `;
+
+export const CalculateInput = styled.input`
+  padding: 12px 10px;
+
+  border: 1px solid ${props => `${props.theme.colors.secondaryGrayBlue}`};
+  border-radius: 6px;
+
+  color: ${props => `${props.theme.colors.primaryBlue}`};
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.25;
+  letter-spacing: 0em;
+  text-align: left;
+
+  &:focus {
+    outline: none;
+    color: ${props => `${props.theme.colors.primaryBlue}`};
+  }
+`;

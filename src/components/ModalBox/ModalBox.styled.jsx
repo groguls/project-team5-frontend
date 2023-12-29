@@ -40,3 +40,9 @@ export const DivTitleWrapper = styled.div`
     line-height: 1.23;
   }
 `;
+
+export const CloseModal = styled.button`
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+`;
