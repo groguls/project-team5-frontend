@@ -76,7 +76,7 @@ export const updateWaterRate = createAsyncThunk(
   async (newData, thunkAPI) => {
     try {
       const { data } = await instance.patch('/waterRate', {
-        dailyNorma: newData,
+        waterRate: newData,
       });
       console.log(data);
       return data;
