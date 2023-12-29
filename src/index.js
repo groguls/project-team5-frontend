@@ -8,6 +8,7 @@ import { persistor, store } from './redux/store';
 import { ThemeProvider } from 'styled-components';
 import { theme } from 'styles/theme';
 import { GlobalStyle } from 'styles/GlobalStyle';
+import { ModalContextProvider } from 'components/ModalContextProvider/ModalContextProvider';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -15,8 +16,10 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <PersistGate persistor={persistor}>
         <BrowserRouter basename="/project-team5-frontend">
           <ThemeProvider theme={theme}>
-            <GlobalStyle />
-            <App />
+            <ModalContextProvider>
+              <GlobalStyle />
+              <App />
+            </ModalContextProvider>
           </ThemeProvider>
         </BrowserRouter>
       </PersistGate>
