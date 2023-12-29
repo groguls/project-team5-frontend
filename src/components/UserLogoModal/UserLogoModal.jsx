@@ -1,37 +1,49 @@
-// UserLogoModal - компонент рендерить модалку з кнопками:
-// - Setting - по кліку на яку відкривається модальне
-//  вікно  UserInfoModal
-//      - LogoutBtn - по кліку на яку відкривається
-// модальне вікно UserLogoutModal
-// import { Button } from '../Button/Button.js';
-
-import { Button, BackdropBox } from './UserLogoModal.styled';
+import { useEffect } from 'react';
+import { Backdrop, Button, Modal, IconBox } from './UserLogoModal.styled';
 import { Settings } from '../Icons/Settings';
 import { Logout } from '../Icons/Logout';
 import { useDispatch } from 'react-redux';
 import { logOut } from '../../redux/auth/operations';
 
-export const UserLogoModal = () => {
+export const UserLogoModal = ({ onClose }) => {
   const dispatch = useDispatch();
   const UserInfoModal = () => {};
   // const UserLogoutModal = () => {};
 
+  useEffect(() => {
+    const handleEscKeyDown = evt => {
+      if (evt.code === 'Escape') {
+        onClose();
+      }
+    };
+    window.addEventListener('keydown', handleEscKeyDown);
+    return () => {
+      window.removeEventListener('keydown', handleEscKeyDown);
+    };
+  }, [onClose]);
+
+  const handleBackdropClick = evt => {
+    if (!evt.target === evt.currentTarget) {
+      onClose();
+    }
+  };
+
   return (
-    <>
-      <BackdropBox>
+    <Backdrop onClick={handleBackdropClick}>
+      <Modal>
         <Button type="button" onClick={UserInfoModal}>
-          <div style={{ marginRight: '8px' }}>
+          <IconBox style={{ marginRight: '8px' }}>
             <Settings />
-          </div>
+          </IconBox>
           Setting
         </Button>
         <Button type="button" onClick={() => dispatch(logOut())}>
-          <div style={{ marginRight: '8px' }}>
+          <IconBox style={{ marginRight: '8px' }}>
             <Logout />
-          </div>
+          </IconBox>
           Logout
         </Button>
-      </BackdropBox>
-    </>
+      </Modal>
+    </Backdrop>
   );
 };
