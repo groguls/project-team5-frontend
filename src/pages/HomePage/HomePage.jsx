@@ -1,3 +1,5 @@
+import { WaterPanel } from '../../components/WaterPanel/WaterPanel';
+import { DailyNorma } from '../../components/DailyNorma/DailyNorma';
 import {
   MainContainer,
   SectionDailyNorma,
@@ -8,8 +10,8 @@ const Home = () => {
   return (
     <MainContainer>
       <SectionDailyNorma>
-        <h2>Daily norma</h2>
-        <div>Water bar</div>
+        <DailyNorma />
+        <WaterPanel />
       </SectionDailyNorma>
 
       <SectionTodayCalendar>

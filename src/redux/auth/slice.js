@@ -1,5 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { logOut, refreshUser, signIn, signUp } from './operations';
+import {
+  logOut,
+  refreshUser,
+  signIn,
+  signUp,
+  updateWaterRate,
+} from './operations';
 
 const initialState = {
   user: {
@@ -45,6 +51,9 @@ const authSlice = createSlice({
       })
       .addCase(refreshUser.rejected, (state, action) => {
         state.isRefreshing = false;
+      })
+      .addCase(updateWaterRate.fulfilled, (state, { payload }) => {
+        state.user.dailyNorma = payload.dailyNorma;
       });
   },
 });

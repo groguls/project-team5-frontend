@@ -4,7 +4,7 @@ import { WelcomePageContainer } from './WelcomePage.styled';
 
 export default function WelcomePage() {
   return (
-    <WelcomePageContainer>
+    <WelcomePageContainer $page="welcome">
       <WaterConsumptionTracker />
       <WhyDrinkWater />
     </WelcomePageContainer>

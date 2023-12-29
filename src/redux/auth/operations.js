@@ -69,3 +69,18 @@ export const refreshUser = createAsyncThunk(
     }
   }
 );
+
+export const updateWaterRate = createAsyncThunk(
+  'auth/updateWaterRate',
+  async (newData, thunkAPI) => {
+    try {
+      const { data } = await instance.patch('/waterRate', {
+        dailyNorma: newData,
+      });
+      console.log(data);
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
