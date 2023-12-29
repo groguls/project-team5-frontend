@@ -39,7 +39,7 @@ export const Today = styled.p`
 export const InputRange = styled.input`
   &[type='range'] {
     width: 256px;
-    height: 4px;
+    height: 8px;
     border-radius: 10px;
     appearance: none;
     background: linear-gradient(
@@ -54,7 +54,7 @@ export const InputRange = styled.input`
   }
   &[type='range']::-webkit-slider-thumb {
     width: 14px;
-    height: 4px;
+    height: 14px;
     background: ${props => `${props.theme.colors.primaryWhite}`};
     border-radius: 50%;
     border: solid 1px ${props => `${props.theme.colors.primaryBlue}`};
