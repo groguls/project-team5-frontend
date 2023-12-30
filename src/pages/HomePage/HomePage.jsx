@@ -8,6 +8,7 @@ import {
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { getMonthInfo } from '../../redux/water/waterOperations';
+import { MonthStatsTable } from 'components/MonthStatsTable/MonthStatsTable';
 
 const Home = () => {
   // const dispatch = useDispatch();
@@ -25,7 +26,9 @@ const Home = () => {
 
       <SectionTodayCalendar>
         <div>Today modal</div>
-        <div>Month table</div>
+        <div>
+          <MonthStatsTable />
+        </div>
       </SectionTodayCalendar>
     </MainContainer>
   );

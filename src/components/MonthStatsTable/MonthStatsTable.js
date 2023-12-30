@@ -1,12 +1,11 @@
+import { MonthInfoList } from './MonthInfoList';
 import { Pagination } from './MonthPagination';
 
 export const MonthStatsTable = () => {
   return (
     <div>
-      <div>
-        <Pagination />
-      </div>
-      <div>calendar</div>
+      <Pagination />
+      <MonthInfoList />
     </div>
   );
 };
