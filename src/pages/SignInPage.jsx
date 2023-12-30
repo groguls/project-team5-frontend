@@ -1,10 +1,11 @@
+import AuthLayout from '../components/AuthLayout/AuthLayout';
 import { SingInFormFormik } from 'components/SignInForm/SignInFormikForm';
 
 const SignInPage = () => {
   return (
-    <div>
+    <AuthLayout>
       <SingInFormFormik />
-    </div>
+    </AuthLayout>
   );
 };
 

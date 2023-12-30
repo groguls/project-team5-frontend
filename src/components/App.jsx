@@ -29,27 +29,13 @@ export const App = () => {
         <Route
           path="signin"
           element={
-            <RestrictedRoute
-              redirectTo="/"
-              component={
-                <AuthLayout>
-                  <SignInPage />
-                </AuthLayout>
-              }
-            />
+            <RestrictedRoute redirectTo="/" component={<SignInPage />} />
           }
         />
         <Route
           path="signup"
           element={
-            <RestrictedRoute
-              redirectTo="/"
-              component={
-                <AuthLayout>
-                  <SignUpPage />
-                </AuthLayout>
-              }
-            />
+            <RestrictedRoute redirectTo="/" component={<SignUpPage />} />
           }
         />
         <Route
