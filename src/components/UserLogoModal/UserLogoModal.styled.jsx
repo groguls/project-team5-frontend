@@ -14,15 +14,15 @@ export const Backdrop = styled.div`
 
 export const Modal = styled.div`
   position: absolute;
-  top: 15%;
-  left: 75%;
+  top: 6%;
+  left: 70%;
   /* transform: translate(0%, 0%); */
   z-index: 2000;
   display: flex;
   flex-direction: column;
   background: #ffffff;
   border: none;
-  border-radius: 4px;
+  border-radius: 10px;
   box-shadow: ${props => `${props.theme.shadows.userModal}`};
 `;
 
