@@ -3,19 +3,22 @@ import { styled } from 'styled-components';
 export const Backdrop = styled.div`
   position: fixed;
   top: 0;
-  left: 0;
-  width: 100vw;
+  left: 50%;
   height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  width: 320px;
+
   background-color: transparent;
+
+  @media screen and (min-width: 768px) {
+    width: 768px;
+  }
+  @media screen and (min-width: 1440px) {
+    width: 1440px;
+  }
 `;
 
 export const Modal = styled.div`
-  position: absolute;
-  top: 6%;
-  left: 70%;
+  width: 118px;
   /* transform: translate(0%, 0%); */
   z-index: 2000;
   display: flex;
@@ -24,6 +27,19 @@ export const Modal = styled.div`
   border: none;
   border-radius: 10px;
   box-shadow: ${props => `${props.theme.shadows.userModal}`};
+
+  position: absolute;
+  top: 48px;
+  right: 55%;
+
+  @media screen and (min-width: 768px) {
+    top: 56px;
+    right: 54%;
+  }
+
+  @media screen and (min-width: 1440px) {
+    right: 57.5%;
+  }
 `;
 
 export const Button = styled.button`
