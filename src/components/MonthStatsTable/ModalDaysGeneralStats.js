@@ -19,6 +19,7 @@ const style = {
 };
 
 export const ModalDaysGeneralStats = ({ isClose, children, open }) => {
+
   useEffect(() => {
     const isCloseEscape = e => {
       if (e.code === `Escape`) {
@@ -33,7 +34,9 @@ export const ModalDaysGeneralStats = ({ isClose, children, open }) => {
   }, [isClose]);
 
   return createPortal(
+
     <Modal open={open} onClose={isClose}>
+
       <Box sx={style}>{children}</Box>
     </Modal>,
     modalRoot

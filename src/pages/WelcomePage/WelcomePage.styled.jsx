@@ -10,6 +10,7 @@ export const WelcomePageContainer = styled.section`
   @media screen and (min-width: 1440px) {
     display: flex;
     gap: 81px;
+    margin: 0 auto;
     padding: 80px 98px 185px 104px;
   }
 `;
