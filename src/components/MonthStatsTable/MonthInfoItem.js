@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { useSelector } from 'react-redux';
-import { selectMonthInfo } from '../../redux/selectors';
+// import { useSelector } from 'react-redux';
+// import { selectMonthInfo } from '../../redux/selectors';
 import { DaysGeneralStats } from './DaysGeneralStats';
 import { ModalDaysGeneralStats } from './ModalDaysGeneralStats';
 

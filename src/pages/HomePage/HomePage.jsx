@@ -5,9 +5,9 @@ import {
   SectionDailyNorma,
   SectionTodayCalendar,
 } from './HomePage.styled';
-import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { getMonthInfo } from '../../redux/water/waterOperations';
+// import { useEffect } from 'react';
+// import { useDispatch } from 'react-redux';
+// import { getMonthInfo } from '../../redux/water/waterOperations';
 import { MonthStatsTable } from 'components/MonthStatsTable/MonthStatsTable';
 
 const Home = () => {
