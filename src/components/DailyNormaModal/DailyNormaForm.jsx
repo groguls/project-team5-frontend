@@ -3,6 +3,7 @@ import { useModal } from '../ModalContextProvider/ModalContextProvider';
 import { BtnSave, CalculateInput, FormStyles } from './DailyNormaModal.styled';
 import { updateWaterRate } from '../../redux/auth/operations';
 import { updateDailyNorma } from '../../redux/water/waterSlice';
+import toast from 'react-hot-toast';
 
 export const DailyNormaForm = () => {
   const dispatch = useDispatch();
@@ -15,11 +16,11 @@ export const DailyNormaForm = () => {
       .unwrap()
       .then(() => {
         dispatch(updateDailyNorma(newWaterRate));
-        console.log('Daily norma was successfully updated');
+        toast.success('Daily norma was successfully updated');
         toggleModal();
       })
       .catch(error => {
-        console.log(error);
+        toast.error(error);
       });
   };
 
