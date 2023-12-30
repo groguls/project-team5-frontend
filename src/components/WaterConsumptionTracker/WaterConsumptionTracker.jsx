@@ -8,8 +8,15 @@ import {
   WaterConsumptionTrackerContainer,
 } from './WaterConsumptionTracker.styled';
 import Button from 'components/Button/Button';
+import { useNavigate } from 'react-router-dom';
 
 export const WaterConsumptionTracker = () => {
+  const navigate = useNavigate();
+
+  const redirectToRegister = () => {
+    navigate('/signup');
+  };
+
   return (
     <WaterConsumptionTrackerContainer>
       <Typography styled={'MainTitle'}>Water consumption tracker</Typography>
@@ -39,7 +46,11 @@ export const WaterConsumptionTracker = () => {
           </li>
         </ListContainer>
       </ul>
-      <Button label={'Try tracker'} width={'324px'} />
+      <Button
+        label={'Try tracker'}
+        width={'324px'}
+        onClick={redirectToRegister}
+      />
     </WaterConsumptionTrackerContainer>
   );
 };

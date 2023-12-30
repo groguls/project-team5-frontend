@@ -45,7 +45,8 @@ export const MainContainer = styled.main`
   }
 
   @media screen and (min-width: 1440px) {
-    width: 1440px;
+    width: 100%;
+    height: 100%;
     display: flex;
     justify-content: space-between;
     margin: 20px auto 0;
