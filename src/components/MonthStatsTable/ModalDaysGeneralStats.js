@@ -19,7 +19,7 @@ const style = {
 };
 
 export const ModalDaysGeneralStats = ({ isClose, children, open }) => {
-  console.log('modal');
+
   useEffect(() => {
     const isCloseEscape = e => {
       if (e.code === `Escape`) {
@@ -34,12 +34,9 @@ export const ModalDaysGeneralStats = ({ isClose, children, open }) => {
   }, [isClose]);
 
   return createPortal(
-    <Modal
-      open={open}
-      onClose={isClose}
-      //   aria-labelledby="modal-modal-title"
-      //   aria-describedby="modal-modal-description"
-    >
+
+    <Modal open={open} onClose={isClose}>
+
       <Box sx={style}>{children}</Box>
     </Modal>,
     modalRoot

@@ -1,8 +1,7 @@
-import { useState } from 'react';
 // import { useSelector } from 'react-redux';
 // import { selectMonthInfo } from '../../redux/selectors';
-import { DaysGeneralStats } from './DaysGeneralStats';
-import { ModalDaysGeneralStats } from './ModalDaysGeneralStats';
+// import { DaysGeneralStats } from './DaysGeneralStats';
+import { MonthInfoItem } from './MonthInfoItem';
 
 const monthInfo = [
   {
@@ -66,38 +65,14 @@ const monthInfo = [
     percentage: '51%',
   },
 ];
-export const MonthInfoItem = ({ day }) => {
-  const { date, percentage } = day;
-  const dayNumber = new Date(date).getDate();
+
+export const MonthInfoList = () => {
   //   const monthInfo = useSelector(selectMonthInfo);
-  const [selectedDay, setSelectedDay] = useState(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const toggleModal = () => {
-    setIsModalOpen(state => !state);
-    if (!isModalOpen) {
-      const selectDay = monthInfo.find(day => day.date === date);
-      setSelectedDay(selectDay);
-
-    } else {
-      setSelectedDay(null);
-    }
-  };
-
-  const handleLiClick = () => {
-    toggleModal();
-  };
   return (
-    <div>
-      <li onClick={handleLiClick}>
-        <p>{dayNumber}</p>
-        <p> {percentage}</p>
-      </li>
-
-      {isModalOpen && (
-        <ModalDaysGeneralStats isClose={toggleModal} open={isModalOpen}>
-          <DaysGeneralStats selectedDay={selectedDay} isClose={toggleModal} />
-        </ModalDaysGeneralStats>
-      )}
-    </div>
+    <ul>
+      {monthInfo.map(day => (
+        <MonthInfoItem day={day} key={day.date} />
+      ))}
+    </ul>
   );
 };
