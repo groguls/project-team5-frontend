@@ -2,7 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 const instance = axios.create({
-  baseURL: 'https://watertracker-by-group5.onrender.com',
+  baseURL: 'http://localhost:8000',
 });
 
 // const setTokenWater = token => {
@@ -15,9 +15,9 @@ const instance = axios.create({
 
 export const getMonthInfo = createAsyncThunk(
   'water/getMonthInfo',
-  async (_, thunkAPI) => {
+  async (credentials, thunkAPI) => {
     try {
-      const { data } = await instance.get('/month');
+      const { data } = await instance.get('/');
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
