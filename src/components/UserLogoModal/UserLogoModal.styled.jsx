@@ -1,15 +1,29 @@
 import { styled } from 'styled-components';
 
-export const BackdropBox = styled.div`
+export const Backdrop = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+`;
+
+export const Modal = styled.div`
+  position: absolute;
+  top: 6%;
+  left: 70%;
+  /* transform: translate(0%, 0%); */
+  z-index: 2000;
   display: flex;
   flex-direction: column;
   background: #ffffff;
   border: none;
-  border-radius: 4px;
+  border-radius: 10px;
   box-shadow: ${props => `${props.theme.shadows.userModal}`};
-  /* transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
-   visibility 250ms cubic-bezier(0.4, 0, 0.2, 1); */
-  transform: translate(0%, 70%);
 `;
 
 export const Button = styled.button`
@@ -43,4 +57,8 @@ export const Button = styled.button`
     font-size: 18px;
     line-height: 1.33;
   }
+`;
+
+export const IconBox = styled.div`
+  margin-right: '8px';
 `;

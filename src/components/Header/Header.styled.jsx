@@ -1,21 +1,25 @@
 import { styled } from 'styled-components';
 
 export const HeaderContainer = styled.header`
-  padding-top: 8px;
+  margin: 0 auto;
+  padding: 8px 20px 0;
+  width: 320px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
 
   @media (min-width: 768px) {
-    padding-top: 16px;
+    width: 768px;
+    padding: 16px 32px 0;
   }
 
   @media (min-width: 1440px) {
-    padding-top: 12px;
+    width: 1440px;
+    padding: 12px 112px 0;
   }
 `;
 
 export const UserLogoContainer = styled.div`
+  position: relative;
   display: flex;
   cursor: pointer;
   align-items: center;

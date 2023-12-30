@@ -39,20 +39,20 @@ a {
 
 export const Container = styled.div`
   max-width: 320px;
-  padding-left: 20px;
-  padding-right: 20px;
+  /* padding-left: 20px;
+  padding-right: 20px; */
   margin-left: auto;
   margin-right: auto;
 
   @media screen and (min-width: 768px) {
     max-width: 768px;
-    padding-left: 32px;
-    padding-right: 32px;
+    /* padding-left: 32px;
+    padding-right: 32px; */
   }
 
   @media screen and (min-width: 1440px) {
     max-width: 1440px;
-    padding-left: 112px;
-    padding-right: 112px;
+    /* padding-left: 112px;
+    padding-right: 112px; */
   }
 `;
