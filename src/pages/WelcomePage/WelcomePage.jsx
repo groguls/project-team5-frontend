@@ -8,7 +8,7 @@ export default function WelcomePage() {
   return (
     <MainContainer $page="welcome">
       <WelcomePageContainer>
-        <Loader>Loading...</Loader>
+        {/* <Loader>Loading...</Loader> */}
         <WaterConsumptionTracker />
         <WhyDrinkWater />
       </WelcomePageContainer>
