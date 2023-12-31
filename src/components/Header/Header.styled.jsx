@@ -16,6 +16,7 @@ export const HeaderContainer = styled.header`
 `;
 
 export const UserLogoContainer = styled.div`
+  position: relative;
   display: flex;
   cursor: pointer;
   align-items: center;

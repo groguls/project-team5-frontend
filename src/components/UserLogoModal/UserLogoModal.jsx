@@ -29,7 +29,8 @@ export const UserLogoModal = ({ onClose }) => {
   };
 
   return (
-    <Backdrop onClick={handleBackdropClick}>
+    <>
+      <Backdrop onClick={handleBackdropClick} />
       <Modal>
         <Button type="button" onClick={UserInfoModal}>
           <IconBox>
@@ -44,6 +45,6 @@ export const UserLogoModal = ({ onClose }) => {
           Logout
         </Button>
       </Modal>
-    </Backdrop>
+    </>
   );
 };

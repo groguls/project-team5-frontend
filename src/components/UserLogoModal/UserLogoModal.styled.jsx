@@ -16,8 +16,8 @@ export const Backdrop = styled.div`
 
 export const Modal = styled.div`
   position: absolute;
-  top: 15%;
-  left: 75%;
+  top: 130%;
+  left: -300%;
   /* transform: translate(0%, 0%); */
   z-index: 2000;
   display: flex;
