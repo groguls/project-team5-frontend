@@ -8,6 +8,7 @@ export function GlassOfWhater() {
       width="32"
       height="32"
       viewBox="0 0 32 32"
+      style={{ marginRight: '12px' }}
     >
       <path
         fill="#407bff"

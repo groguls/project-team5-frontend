@@ -1,4 +1,6 @@
-import Typography from 'components/Typography/Typography';
+import { Modal } from 'components/Modal/Modal';
+import { ModalBox } from 'components/ModalBox/ModalBox';
+import { modalSizes } from 'components/ModalBox/modalSize';
 import { PreviousWaterData } from './PreviousWaterData';
 import { CorrectionOfEnteredWaterData } from './CorrectionOfEnteredWaterData';
 import Button from 'components/Button/Button';
@@ -8,22 +10,24 @@ export const TodayListModal = () => {
   const saveEditWaterData = () => {};
 
   return (
-    <>
-      <Typography styled="subtitle">
-        Edit the entered amount of water
-      </Typography>
-      <PreviousWaterData />
-      <CorrectionOfEnteredWaterData />
-      <SaveBtnBox>
-        <p>250 ml</p>
-        <Button
-          label={'Save'}
-          onClick={saveEditWaterData}
-          //    width={160px}
-          //   backgroundColor={ Blue}
-          //   textColor={White }
-        />
-      </SaveBtnBox>
-    </>
+    <Modal style={{ width: '592px' }}>
+      <ModalBox
+        title={' Edit the entered amount of water'}
+        // $size={{ width: '592px' }}
+      >
+        <PreviousWaterData />
+        <CorrectionOfEnteredWaterData />
+        <SaveBtnBox>
+          <p>250 ml</p>
+          <Button
+            label={'Save'}
+            onClick={saveEditWaterData}
+            //    width={160px}
+            //   backgroundColor={ Blue}
+            //   textColor={White }
+          />
+        </SaveBtnBox>
+      </ModalBox>
+    </Modal>
   );
 };

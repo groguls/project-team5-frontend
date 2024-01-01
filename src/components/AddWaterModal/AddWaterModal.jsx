@@ -10,7 +10,7 @@ export const AddWaterModal = () => {
 
   return (
     <Modal>
-      <ModalBox title={'Add water'} $size={(modalSizes, 'xl')}>
+      <ModalBox title={'Add water'} $size={(modalSizes, 'xl.medium')}>
         <AmountOfWater />
         <SaveBtnBox>
           <p>50 ml</p>

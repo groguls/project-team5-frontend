@@ -6,7 +6,7 @@ export const PreviousWaterData = () => {
   return (
     <PreviousDataBox>
       <GlassOfWhater />
-      <div>250ml</div>
+      <div style={{ marginRight: '16px' }}>250ml</div>
       <div>{previousDate}</div>
     </PreviousDataBox>
   );

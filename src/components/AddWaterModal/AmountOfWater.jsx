@@ -1,26 +1,32 @@
-import Button from 'components/Button/Button';
+// import Button from 'components/Button/Button';
 import Typography from 'components/Typography/Typography';
+import { useState } from 'react';
 import {
   Amounter,
   RecordingTime,
   EnterValueWater,
+  AddButton,
 } from './AddWaterModal.styled';
 
 export const AmountOfWater = () => {
+  const [counter, setCounter] = useState('50');
+
   const currentDate = new Date();
   const hour = currentDate.getHours();
   const min = currentDate.getMinutes();
 
-  console.log(hour, min);
+  const addWaterIncrement = () => {};
 
   return (
     <>
       <Typography styled="ListTitle">Choose a value:</Typography>
       <Typography styled="Text">Amount of water:</Typography>
       <Amounter>
-        <Button type="button"></Button>
-        <p>0</p>
-        <Button type="button"></Button>
+        <AddButton onClick={addWaterIncrement} type="button">
+          -
+        </AddButton>
+        <input placeholder="50 ml"></input>
+        <AddButton type="button">+</AddButton>
       </Amounter>
       <RecordingTime>
         <Typography styled="Text">Recording time:</Typography>
@@ -34,7 +40,7 @@ export const AmountOfWater = () => {
         Enter the value of the whater used:
       </Typography>
       <EnterValueWater>
-        <input></input>
+        <input placeholder="50"></input>
       </EnterValueWater>
     </>
   );

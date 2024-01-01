@@ -19,7 +19,14 @@ export const EnterValueWater = styled.div`
   flex-direction: column;
   margin-bottom: 24px;
 `;
-
+export const AddButton = styled.button`
+  width: 44px;
+  height: 44px;
+  background-color: transparent;
+  color: ${props => `${props.theme.colors.primaryBlue}`};
+  border: ${props => `${props.theme.border.secondary}`};
+  border-radius: ${props => `${props.theme.radii.round}`};
+`;
 export const Button = styled.button`
   display: flex;
   flex-direction: row;
