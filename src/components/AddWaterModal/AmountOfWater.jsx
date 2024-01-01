@@ -1,4 +1,5 @@
 import Button from 'components/Button/Button';
+import Typography from 'components/Typography/Typography';
 import {
   Amounter,
   RecordingTime,
@@ -15,10 +16,12 @@ export const AmountOfWater = () => {
         <Button type="button"></Button>
       </Amounter>
       <RecordingTime>
-        RecordingTime: <div>{time}</div>
+        Recording time: <div>{time}</div>
       </RecordingTime>
       <EnterValueWater>
-        Enter the value of the whater used: <input></input>
+        <Typography styled="ListTitle">
+          Enter the value of the whater used: <input></input>
+        </Typography>
       </EnterValueWater>
     </>
   );

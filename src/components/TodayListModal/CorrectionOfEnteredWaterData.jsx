@@ -14,7 +14,7 @@ export const CorrectionOfEnteredWaterData = () => {
         <button type="button"></button>
       </AmountOfWater>
       <RecordingTime>
-        RecordingTime: <input></input>
+        Recording time: <input></input>
       </RecordingTime>
       <EnterValueWater>
         Enter the value of the whater used: <input></input>

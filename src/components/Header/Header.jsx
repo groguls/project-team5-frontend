@@ -31,7 +31,7 @@ export const Header = () => {
 
   // const defaultName = 'V';
 
-  const toggalModal = () => {
+  const toggleModal = () => {
     setLogoModal(logoModal => !logoModal);
   };
 
@@ -42,11 +42,11 @@ export const Header = () => {
       </Link>
 
       {isLoggedIn ? (
-        <UserLogoContainer onClick={toggalModal}>
+        <UserLogoContainer onClick={toggleModal}>
           <UserName>{userName}</UserName>
           {userLogo ? <UserLogo /> : ''}
           <ArrowDown />
-          {logoModal && <UserLogoModal onClose={toggalModal} />}
+          {logoModal && <UserLogoModal onClose={toggleModal} />}
         </UserLogoContainer>
       ) : (
         <Link to="/signin">

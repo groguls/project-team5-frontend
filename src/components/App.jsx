@@ -6,8 +6,6 @@ import { Layout } from './Layout/Layout';
 
 import { refreshUser } from '../redux/auth/operations';
 
-
-
 const RestrictedRoute = lazy(() => import('./RestrictedRoute'));
 const WelcomePage = lazy(() => import('../pages/WelcomePage/WelcomePage'));
 const HomePage = lazy(() => import('../pages/HomePage/HomePage'));
@@ -20,7 +18,6 @@ export const App = () => {
   // const dispatch = useDispatch();
   // const token = useSelector(selectToken);
   const isAuth = useSelector(selectIsAuth);
-  console.log(isAuth);
 
   useEffect(() => {
     dispatch(refreshUser());
