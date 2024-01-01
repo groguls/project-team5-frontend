@@ -23,7 +23,7 @@ export const theme = Object.freeze({
 
   fontWeights: {
     bold: 700,
-    medium: 500,
+    medium: 600,
     regular: 400,
   },
 
@@ -41,5 +41,15 @@ export const theme = Object.freeze({
     userModal: '0px 4px 8px 0px rgba(64, 123, 255, 0.20)',
     normaFrame: '0px 4px 8px 0px rgba(158, 187, 255, 0.12)',
     wrapper: '0px 4px 14px 0px rgba(64, 123, 255, 0.30)',
+  },
+  border: {
+    normal: '1px solid #407BFF',
+    secondary: '1px solid #9EBBFF',
+  },
+
+  radii: {
+    round: '50%',
+    medium: '40px',
+    normal: '4px',
   },
 });

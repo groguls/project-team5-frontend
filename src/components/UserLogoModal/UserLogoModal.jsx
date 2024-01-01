@@ -29,21 +29,22 @@ export const UserLogoModal = ({ onClose }) => {
   };
 
   return (
-    <Backdrop onClick={handleBackdropClick}>
+    <>
+      <Backdrop onClick={handleBackdropClick} />
       <Modal>
         <Button type="button" onClick={UserInfoModal}>
-          <IconBox style={{ marginRight: '8px' }}>
+          <IconBox>
             <Settings />
           </IconBox>
           Setting
         </Button>
         <Button type="button" onClick={() => dispatch(logOut())}>
-          <IconBox style={{ marginRight: '8px' }}>
+          <IconBox>
             <Logout />
           </IconBox>
           Logout
         </Button>
       </Modal>
-    </Backdrop>
+    </>
   );
 };

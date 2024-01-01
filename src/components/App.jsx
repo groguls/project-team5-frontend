@@ -15,7 +15,6 @@ const ForgotPasswordPage = lazy(() => import('../pages/ForgotPasswordPage'));
 export const App = () => {
   const dispatch = useDispatch();
   const isAuth = useSelector(selectIsAuth);
-  console.log(isAuth);
 
   useEffect(() => {
     dispatch(refreshUser());

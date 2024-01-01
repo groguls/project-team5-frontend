@@ -9,6 +9,12 @@ export const Backdrop = styled.div`
 
   background-color: transparent;
 
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1) visibility 250ms
+    cubic-bezier(0.4, 0, 0.2, 1);
+
+
+
+
   @media screen and (min-width: 768px) {
     width: 768px;
   }
@@ -19,6 +25,7 @@ export const Backdrop = styled.div`
 
 export const Modal = styled.div`
   width: 118px;
+
   /* transform: translate(0%, 0%); */
   z-index: 2000;
   display: flex;
@@ -28,9 +35,12 @@ export const Modal = styled.div`
   border-radius: 10px;
   box-shadow: ${props => `${props.theme.shadows.userModal}`};
 
+  transition: all;
+
+
   position: absolute;
-  top: 48px;
-  right: 55%;
+  top: 130%;
+  left: -300%;
 
   @media screen and (min-width: 768px) {
     top: 56px;
@@ -40,6 +50,7 @@ export const Modal = styled.div`
   @media screen and (min-width: 1440px) {
     right: 57.5%;
   }
+
 `;
 
 export const Button = styled.button`
@@ -76,5 +87,5 @@ export const Button = styled.button`
 `;
 
 export const IconBox = styled.div`
-  margin-right: '8px';
+  margin-right: 8px;
 `;
