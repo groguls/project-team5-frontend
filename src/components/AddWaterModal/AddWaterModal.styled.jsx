@@ -8,6 +8,14 @@ export const Amounter = styled.div`
   display: flex;
   margin-bottom: 24px;
 `;
+export const AddWaterValue = styled.input`
+  width: 92px;
+  height: 36px;
+  margin: 0 10px;
+  background-color: ${props => `${props.theme.colors.secondaryGrayBlue}`};
+  border: transparent;
+  border-radius: ${props => `${props.theme.radii.medium}`};
+`;
 
 export const RecordingTime = styled.div`
   display: block;

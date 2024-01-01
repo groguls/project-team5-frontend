@@ -6,6 +6,7 @@ import {
   RecordingTime,
   EnterValueWater,
   AddButton,
+  AddWaterValue,
 } from './AddWaterModal.styled';
 
 export const AmountOfWater = () => {
@@ -25,7 +26,7 @@ export const AmountOfWater = () => {
         <AddButton onClick={addWaterIncrement} type="button">
           -
         </AddButton>
-        <input placeholder="50 ml"></input>
+        <AddWaterValue placeholder="50 ml"></AddWaterValue>
         <AddButton type="button">+</AddButton>
       </Amounter>
       <RecordingTime>

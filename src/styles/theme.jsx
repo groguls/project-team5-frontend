@@ -49,6 +49,7 @@ export const theme = Object.freeze({
 
   radii: {
     round: '50%',
+    medium: '40px',
     normal: '4px',
   },
 });
