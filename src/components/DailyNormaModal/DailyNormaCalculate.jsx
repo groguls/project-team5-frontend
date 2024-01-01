@@ -3,6 +3,7 @@ import {
   Genders,
   ArticleCalculateWrapper,
   PAmountOfWater,
+  CalculateInput,
 } from './DailyNormaModal.styled';
 import { calculateWater } from './calculateWater';
 
@@ -30,7 +31,7 @@ export const DailyNormaCalculate = () => {
       <h3>Calculate your rate:</h3>
       <Genders>
         <label>
-          <input
+          <CalculateInput
             type="radio"
             name="gender"
             value="female"
@@ -39,7 +40,7 @@ export const DailyNormaCalculate = () => {
           For girl
         </label>
         <label>
-          <input
+          <CalculateInput
             type="radio"
             name="gender"
             value="male"
@@ -50,7 +51,7 @@ export const DailyNormaCalculate = () => {
       </Genders>
       <label>
         Your weight in kilograms:
-        <input
+        <CalculateInput
           type="number"
           name="weight"
           max={200}
@@ -62,7 +63,7 @@ export const DailyNormaCalculate = () => {
       <label>
         The time of active participation in sports or other activities with a
         high physical load(in hours):
-        <input
+        <CalculateInput
           type="number"
           name="hours"
           max={24}

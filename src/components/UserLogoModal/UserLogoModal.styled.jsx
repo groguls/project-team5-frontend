@@ -3,30 +3,54 @@ import { styled } from 'styled-components';
 export const Backdrop = styled.div`
   position: fixed;
   top: 0;
-  left: 0;
-  width: 100vw;
+  left: 50%;
   height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  width: 320px;
+
   background-color: transparent;
+
   transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1) visibility 250ms
     cubic-bezier(0.4, 0, 0.2, 1);
+
+
+
+
+  @media screen and (min-width: 768px) {
+    width: 768px;
+  }
+  @media screen and (min-width: 1440px) {
+    width: 1440px;
+  }
 `;
 
 export const Modal = styled.div`
-  position: absolute;
-  top: 130%;
-  left: -300%;
+  width: 118px;
+
   /* transform: translate(0%, 0%); */
   z-index: 2000;
   display: flex;
   flex-direction: column;
   background: #ffffff;
   border: none;
-  border-radius: 4px;
+  border-radius: 10px;
   box-shadow: ${props => `${props.theme.shadows.userModal}`};
+
   transition: all;
+
+
+  position: absolute;
+  top: 130%;
+  left: -300%;
+
+  @media screen and (min-width: 768px) {
+    top: 56px;
+    right: 54%;
+  }
+
+  @media screen and (min-width: 1440px) {
+    right: 57.5%;
+  }
+
 `;
 
 export const Button = styled.button`

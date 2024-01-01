@@ -1,6 +1,6 @@
 import { Close } from 'components/Icons/Close';
 
-import { DivModalBox, DivTitleWrapper } from './ModalBox.styled';
+import { CloseModal, DivModalBox, DivTitleWrapper } from './ModalBox.styled';
 import { useModal } from '../ModalContextProvider/ModalContextProvider';
 
 export const ModalBox = ({ children, title, size, isLogoModal = false }) => {
@@ -11,7 +11,9 @@ export const ModalBox = ({ children, title, size, isLogoModal = false }) => {
       {!isLogoModal && (
         <DivTitleWrapper>
           <h2>{title}</h2>
-          <Close style={{ cursor: 'pointer' }} onClick={() => toggleModal()} />
+          <CloseModal type="button" onClick={() => toggleModal()}>
+            <Close />
+          </CloseModal>
         </DivTitleWrapper>
       )}
       {children}

@@ -17,7 +17,7 @@ export const getMonthInfo = createAsyncThunk(
   'water/getMonthInfo',
   async (credentials, thunkAPI) => {
     try {
-      const { data } = await instance.get(/* ENDPOINT */);
+      const { data } = await instance.get('/');
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

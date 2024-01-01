@@ -1,8 +1,9 @@
 import { useDispatch } from 'react-redux';
 import { useModal } from '../ModalContextProvider/ModalContextProvider';
-import { BtnSave, FormStyles } from './DailyNormaModal.styled';
+import { BtnSave, CalculateInput, FormStyles } from './DailyNormaModal.styled';
 import { updateWaterRate } from '../../redux/auth/operations';
 import { updateDailyNorma } from '../../redux/water/waterSlice';
+import toast from 'react-hot-toast';
 
 export const DailyNormaForm = () => {
   const dispatch = useDispatch();
@@ -15,11 +16,11 @@ export const DailyNormaForm = () => {
       .unwrap()
       .then(() => {
         dispatch(updateDailyNorma(newWaterRate));
-        console.log('Daily norma was successfully updated');
+        toast.success('Daily norma was successfully updated');
         toggleModal();
       })
       .catch(error => {
-        console.log(error);
+        toast.error(error);
       });
   };
 
@@ -27,7 +28,7 @@ export const DailyNormaForm = () => {
     <FormStyles onSubmit={handleSubmit}>
       <label>
         Write down how much water you will drink(in liters):
-        <input
+        <CalculateInput
           type="number"
           name="amount"
           min={1}

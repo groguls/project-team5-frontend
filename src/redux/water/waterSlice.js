@@ -21,6 +21,14 @@ const initialState = {
 const waterSlice = createSlice({
   name: 'user',
   initialState,
+  reducers: {
+    updateDailyNorma: (state, { payload }) => {
+      state.monthInfo = state.monthInfo.map(day => ({
+        ...day,
+        dailyNorma: payload,
+      }));
+    },
+  },
   extraReducers: builder => {
     builder
       .addCase(getMonthInfo.pending, state => {

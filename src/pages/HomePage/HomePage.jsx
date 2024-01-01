@@ -5,8 +5,18 @@ import {
   SectionDailyNorma,
   SectionTodayCalendar,
 } from './HomePage.styled';
+import { MonthStatsTable } from '../../components/MonthStatsTable/MonthStatsTable';
+// import { useEffect } from 'react';
+// import { useDispatch } from 'react-redux';
+// import { getMonthInfo } from '../../redux/water/waterOperations';
 
 const Home = () => {
+  // const dispatch = useDispatch();
+
+  // useEffect(() => {
+  //   dispatch(getMonthInfo());
+  // }, [dispatch]);
+
   return (
     <MainContainer>
       <SectionDailyNorma>
@@ -16,7 +26,9 @@ const Home = () => {
 
       <SectionTodayCalendar>
         <div>Today modal</div>
-        <div>Month table</div>
+        <div>
+          <MonthStatsTable />
+        </div>
       </SectionTodayCalendar>
     </MainContainer>
   );

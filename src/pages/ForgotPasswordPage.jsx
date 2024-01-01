@@ -1,3 +1,4 @@
+import AuthLayout from '../components/AuthLayout/AuthLayout';
 import Button from 'components/Button/Button';
 import { InputNameEmail } from 'components/InputEmailName/InputEmailName';
 import {
@@ -37,29 +38,31 @@ const ForgotPasswordPage = () => {
   };
 
   return (
-    <FormContainer>
-      <Title>Forgot Password</Title>
-      <InputForm>
-        <label htmlFor="email">Enter your email</label>
-        <InputNameEmail
-          placeholderText={'Email'}
-          type={'email'}
-          value={email}
-          onChange={handleEmailChange}
-          onBlur={() => {}}
-          id={'email'}
-          error={!!emailError}
-          helperText={emailError}
-        />
-      </InputForm>
+    <AuthLayout>
+      <FormContainer>
+        <Title>Forgot Password</Title>
+        <InputForm>
+          <label htmlFor="email">Enter your email</label>
+          <InputNameEmail
+            placeholderText={'Email'}
+            type={'email'}
+            value={email}
+            onChange={handleEmailChange}
+            onBlur={() => {}}
+            id={'email'}
+            error={!!emailError}
+            helperText={emailError}
+          />
+        </InputForm>
 
-      <Button
-        label="Send"
-        // backgroundColor={theme.colors.primaryBlue}
-        // textColor={theme.colors.primaryWhite}
-        onClick={handleSendClick}
-      />
-    </FormContainer>
+        <Button
+          label="Send"
+          // backgroundColor={theme.colors.primaryBlue}
+          // textColor={theme.colors.primaryWhite}
+          onClick={handleSendClick}
+        />
+      </FormContainer>
+    </AuthLayout>
   );
 };
 

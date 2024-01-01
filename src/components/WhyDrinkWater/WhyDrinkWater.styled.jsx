@@ -15,6 +15,7 @@ export const WhyDrinkWaterContainer = styled.div`
 
   @media screen and (min-width: 1440px) {
     margin-top: 34px;
+    height: 332px;
   }
 
   h3 {

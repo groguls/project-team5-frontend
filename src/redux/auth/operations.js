@@ -4,7 +4,7 @@ import axios from 'axios';
 // axios.defaults.baseURL = 'http://localhost:5000/users'; //backend URL here
 
 const instance = axios.create({
-  baseURL: 'http://localhost:5000/users',
+  baseURL: 'https://watertracker-by-group5.onrender.com/users',
 });
 
 const setAuthHeader = token => {
@@ -76,7 +76,7 @@ export const updateWaterRate = createAsyncThunk(
   async (newData, thunkAPI) => {
     try {
       const { data } = await instance.patch('/waterRate', {
-        dailyNorma: newData,
+        waterRate: newData,
       });
       console.log(data);
       return data;

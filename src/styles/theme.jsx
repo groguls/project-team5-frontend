@@ -15,10 +15,10 @@ export const theme = Object.freeze({
   },
 
   fontSizes: {
-    mainTitle: 36,
-    subtitle: 26,
-    listTitle: 18,
-    text: 16,
+    mainTitle: '36px',
+    subtitle: '26px',
+    listTitle: '18px',
+    text: '16px',
   },
 
   fontWeights: {

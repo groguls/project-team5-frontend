@@ -11,7 +11,7 @@ import {
   FormContainer,
   InputForm,
   Title,
-} from './SignInFormikForm.styled';
+} from '../SingUpForm/SingUpFormikForm.styled';
 
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
