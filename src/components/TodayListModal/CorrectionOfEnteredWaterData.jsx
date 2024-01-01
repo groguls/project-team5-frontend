@@ -5,7 +5,7 @@ import {
 } from './TodayListModal.styled';
 
 export const CorrectionOfEnteredWaterData = () => {
-  const time = 'Date';
+  const time = Date.now();
   return (
     <>
       <AmountOfWater>
