@@ -7,21 +7,34 @@ import {
 } from './AddWaterModal.styled';
 
 export const AmountOfWater = () => {
-  const time = 'Date';
+  const currentDate = new Date();
+  const hour = currentDate.getHours();
+  const min = currentDate.getMinutes();
+
+  console.log(hour, min);
+
   return (
     <>
+      <Typography styled="ListTitle">Choose a value:</Typography>
+      <Typography styled="Text">Amount of water:</Typography>
       <Amounter>
         <Button type="button"></Button>
         <p>0</p>
         <Button type="button"></Button>
       </Amounter>
       <RecordingTime>
-        Recording time: <div>{time}</div>
+        <Typography styled="Text">Recording time:</Typography>
+        <select>
+          <option>
+            {hour}:{min}
+          </option>
+        </select>
       </RecordingTime>
+      <Typography styled="ListTitle">
+        Enter the value of the whater used:
+      </Typography>
       <EnterValueWater>
-        <Typography styled="ListTitle">
-          Enter the value of the whater used: <input></input>
-        </Typography>
+        <input></input>
       </EnterValueWater>
     </>
   );

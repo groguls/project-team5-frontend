@@ -22,6 +22,7 @@ export const ListTitle = styled.h3`
   font-size: ${props => `${props.theme.fontSizes.listTitle}`};
   font-weight: ${props => `${props.theme.fontWeights.medium}`};
   line-height: ${props => `${props.theme.lineHeights.listTitle}`};
+  padding-bottom: 16px;
 `;
 
 export const Text = styled.p`
@@ -30,4 +31,5 @@ export const Text = styled.p`
   font-size: ${props => `${props.theme.fontSizes.text}`};
   font-weight: ${props => `${props.theme.fontWeights.regular}`};
   line-height: ${props => `${props.theme.lineHeights.text}`};
+  padding-bottom: 12px;
 `;

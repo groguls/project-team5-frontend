@@ -6,14 +6,18 @@ export const SaveBtnBox = styled.div`
 
 export const Amounter = styled.div`
   display: flex;
+  margin-bottom: 24px;
 `;
 
 export const RecordingTime = styled.div`
   display: block;
+  margin-bottom: 24px;
 `;
 
 export const EnterValueWater = styled.div`
-  display: block;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 24px;
 `;
 
 export const Button = styled.button`
