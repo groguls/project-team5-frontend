@@ -5,11 +5,10 @@ import {
   SectionDailyNorma,
   SectionTodayCalendar,
 } from './HomePage.styled';
-import { MonthStatsTable } from 'components/MonthStatsTable/MonthStatsTable';
+import { MonthStatsTable } from '../../components/MonthStatsTable/MonthStatsTable';
 // import { useEffect } from 'react';
 // import { useDispatch } from 'react-redux';
 // import { getMonthInfo } from '../../redux/water/waterOperations';
-import { MonthStatsTable } from 'components/MonthStatsTable/MonthStatsTable';
 
 const Home = () => {
   // const dispatch = useDispatch();

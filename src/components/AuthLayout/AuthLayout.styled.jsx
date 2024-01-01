@@ -34,6 +34,8 @@ export const AuthLayoutStyles = styled.main`
     }
   }
   @media screen and (min-width: 1440px) {
+    width: 1440px;
+    margin: 0 auto;
     background-image: url(${bgDesk}), url(${bgDeskBottle});
     height: calc(100vh - 60px);
     background-size: contain, 916px 680px;
