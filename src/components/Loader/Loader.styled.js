@@ -14,16 +14,18 @@ const waveAnimation = keyframes`
 `;
 
 export const LoaderContainer = styled.div`
-  margin: 0px auto;
-  width: 400px;
-  height: 100px;
+  position: absolute;
+  top: calc(50% - 5vh);
+  left: calc(50% - 20vw);
+  width: 40vw;
+  height: 10vh;
   opacity: 0.95;
   div {
     margin: auto;
-    width: 400px;
-    height: 100px;
+    width: 40vw;
+    height: 20vh;
     div {
-      font-size: 60px;
+      font-size: 3vmax;
       font-weight: 700;
 
       text-align: center;
@@ -48,4 +50,17 @@ export const LoaderContainer = styled.div`
       animation-timing-function: linear;
     }
   }
+`;
+
+export const LoaderBackdrop = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 1200;
 `;
