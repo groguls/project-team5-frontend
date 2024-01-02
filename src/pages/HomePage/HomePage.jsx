@@ -14,7 +14,7 @@ const Home = () => {
   // const dispatch = useDispatch();
 
   // useEffect(() => {
-  //   dispatch(getMonthInfo());
+  //   dispatch(getMonthInfo('2023-12'));
   // }, [dispatch]);
 
   return (

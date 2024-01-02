@@ -10,6 +10,7 @@ import {
 
 const initialState = {
   monthInfo: [],
+  currentMonth: '',
   today: {
     percent: 0,
     dailyWaterList: [],
@@ -19,7 +20,7 @@ const initialState = {
 };
 
 const waterSlice = createSlice({
-  name: 'user',
+  name: 'water',
   initialState,
   reducers: {
     updateDailyNorma: (state, { payload }) => {
