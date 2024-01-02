@@ -1,8 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-// axios.defaults.baseURL = 'http://localhost:5000/users'; //backend URL here
-
 const instance = axios.create({
   baseURL: 'https://watertracker-by-group5.onrender.com/users',
 });
@@ -55,6 +53,7 @@ export const refreshUser = createAsyncThunk(
   async (_, thunkAPI) => {
     const state = thunkAPI.getState();
     const persistedToken = state.auth.token;
+    console.log(persistedToken);
 
     if (persistedToken === null) {
       return thunkAPI.rejectWithValue('No user persisted. Please login.');
@@ -62,7 +61,7 @@ export const refreshUser = createAsyncThunk(
 
     try {
       setAuthHeader(persistedToken);
-      console.log(persistedToken);
+
       const { data } = await instance.get('/current');
       return data;
     } catch (error) {

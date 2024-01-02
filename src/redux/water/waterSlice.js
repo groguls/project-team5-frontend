@@ -29,6 +29,9 @@ const waterSlice = createSlice({
         dailyNorma: payload,
       }));
     },
+    updateMonthInfo(state, action) {
+      state.monthInfo = action.payload;
+    },
   },
   extraReducers: builder => {
     builder
@@ -36,7 +39,7 @@ const waterSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(getMonthInfo.fulfilled, (state, { payload }) => {
-        state.monthInfo = [...payload];
+        state.monthInfo = [...state.monthInfo, ...payload];
         state.isLoading = false;
       })
       .addCase(getMonthInfo.rejected, (_, { payload }) => ({
@@ -97,5 +100,5 @@ const waterSlice = createSlice({
   },
 });
 
-export const { updateDailyNorma } = waterSlice.actions;
+export const { updateDailyNorma, updateMonthInfo } = waterSlice.actions;
 export const waterReducer = waterSlice.reducer;
