@@ -1,4 +1,6 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { getMonthInfo } from '../../redux/water/waterOperations';
 
 const monthNames = [
   'January',
@@ -16,9 +18,15 @@ const monthNames = [
 ];
 
 export const Pagination = () => {
+  const dispatch = useDispatch();
+
   const currentDate = new Date();
   const [currMonth, setCurrMonth] = useState(currentDate.getMonth());
   const [currYear, setCurrYear] = useState(currentDate.getFullYear());
+
+  useEffect(() => {
+    dispatch(getMonthInfo(`${currYear}-${currMonth.toString()}`));
+  }, [dispatch, currMonth, currYear]);
 
   const nextMonth = () => {
     if (currMonth === 11) {

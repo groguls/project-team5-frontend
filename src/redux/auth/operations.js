@@ -21,7 +21,6 @@ export const signUp = createAsyncThunk(
     try {
       const { data } = await instance.post('/signup', credentials);
       setAuthHeader(data.token);
-      console.log(setAuthHeader);
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -63,6 +62,7 @@ export const refreshUser = createAsyncThunk(
 
     try {
       setAuthHeader(persistedToken);
+      console.log(persistedToken);
       const { data } = await instance.get('/current');
       return data;
     } catch (error) {
