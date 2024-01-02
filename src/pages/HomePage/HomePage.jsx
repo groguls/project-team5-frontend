@@ -11,12 +11,6 @@ import { MonthStatsTable } from '../../components/MonthStatsTable/MonthStatsTabl
 // import { getMonthInfo } from '../../redux/water/waterOperations';
 
 const Home = () => {
-  // const dispatch = useDispatch();
-
-  // useEffect(() => {
-  //   dispatch(getMonthInfo('2023-12'));
-  // }, [dispatch]);
-
   return (
     <MainContainer>
       <SectionDailyNorma>
