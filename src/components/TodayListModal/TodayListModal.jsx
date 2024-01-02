@@ -1,6 +1,6 @@
 import { Modal } from 'components/Modal/Modal';
 import { ModalBox } from 'components/ModalBox/ModalBox';
-import { modalSizes } from 'components/ModalBox/modalSize';
+// import { modalSizes } from 'components/ModalBox/modalSize';
 import { PreviousWaterData } from './PreviousWaterData';
 import { CorrectionOfEnteredWaterData } from './CorrectionOfEnteredWaterData';
 import Button from 'components/Button/Button';
