@@ -1,12 +1,14 @@
 import { useReducer } from 'react';
-// import { useDispatch, useSelector } from 'react-redux';
-// import { updateWaterRate } from '../../redux/auth/operations';
-// import { updateDailyNorma } from '../../redux/water/waterSlice';
-// import { selectorWaterInfo } from '../../redux/selectors';
 import Typography from 'components/Typography/Typography';
 import { Plus } from 'components/Icons/Plus/Plus';
 import { Minus } from 'components/Icons/Minus';
-import { Amounter, AddButton, AddWaterValue } from './AddWaterModal.styled';
+import {
+  Amounter,
+  AddButton,
+  AddWaterValue,
+  ListTitle,
+  Text,
+} from './AddWaterModal.styled';
 
 function countReducer(state, action) {
   switch (action.type) {
@@ -25,8 +27,12 @@ export const AmountOfWater = () => {
 
   return (
     <>
-      <Typography styled="ListTitle">Choose a value:</Typography>
-      <Typography styled="Text">Amount of water:</Typography>
+      <Typography styled="ListTitle">
+        <ListTitle>Choose a value:</ListTitle>
+      </Typography>
+      <Typography styled="Text">
+        <Text>Amount of water:</Text>
+      </Typography>
       <Amounter>
         <AddButton
           onClick={() => dispatch({ type: 'decrement', payload: 50 })}

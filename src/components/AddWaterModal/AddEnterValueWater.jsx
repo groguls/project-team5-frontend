@@ -1,12 +1,12 @@
 import Typography from 'components/Typography/Typography';
-import { EnterValueWater, Input } from './AddWaterModal.styled';
+import { EnterValueWater, Input, Text } from './AddWaterModal.styled';
 
 export const AddEnterValueWater = () => {
   return (
     <EnterValueWater>
       <label>
         <Typography styled="ListTitle">
-          Enter the value of the whater used:
+          <Text>Enter the value of the whater used:</Text>
         </Typography>
         <Input
           type="number"
