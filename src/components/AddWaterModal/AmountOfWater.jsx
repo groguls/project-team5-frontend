@@ -1,31 +1,44 @@
-import { useState } from 'react';
+import { useReducer } from 'react';
+// import { useDispatch, useSelector } from 'react-redux';
+// import { updateWaterRate } from '../../redux/auth/operations';
+// import { updateDailyNorma } from '../../redux/water/waterSlice';
+// import { selectorWaterInfo } from '../../redux/selectors';
 import Typography from 'components/Typography/Typography';
 import { Plus } from 'components/Icons/Plus/Plus';
 import { Minus } from 'components/Icons/Minus';
 import { Amounter, AddButton, AddWaterValue } from './AddWaterModal.styled';
 
-export const AmountOfWater = () => {
-  const [counter, setCounter] = useState(50);
+function countReducer(state, action) {
+  switch (action.type) {
+    case 'increment':
+      return state + action.payload;
+    case 'decrement':
+      return state - action.payload;
+    default:
+      return state;
+  }
+}
 
-  const addWaterDecrement = () => {
-    setCounter(state => state - 50);
-  };
-  const addWaterIncrement = () => {
-    setCounter(state => state + 50);
-  };
+export const AmountOfWater = () => {
+  const [state, dispatch] = useReducer(countReducer, 50);
+  // const dispatch = useDispatch();
 
   return (
     <>
       <Typography styled="ListTitle">Choose a value:</Typography>
       <Typography styled="Text">Amount of water:</Typography>
       <Amounter>
-        <AddButton onClick={addWaterDecrement} type="button">
+        <AddButton
+          onClick={() => dispatch({ type: 'decrement', payload: 50 })}
+          type="button"
+        >
           <Minus />
         </AddButton>
-        <AddWaterValue>
-          {counter > 50 ? counter + 'ml' : 50 + 'ml'}
-        </AddWaterValue>
-        <AddButton onClick={addWaterIncrement} type="button">
+        <AddWaterValue>{state > 50 ? state + 'ml' : 50 + 'ml'}</AddWaterValue>
+        <AddButton
+          onClick={() => dispatch({ type: 'increment', payload: 50 })}
+          type="button"
+        >
           <Plus />
         </AddButton>
       </Amounter>

@@ -29,14 +29,12 @@ export const SaveBtn = () => {
   return (
     <FormStyles onSubmit={handleSubmit}>
       <SaveBtnBox>
-        <SavedLabel>50 ml</SavedLabel>
+        <SavedLabel>50 ml </SavedLabel>
         <Button
           type="submit"
           label={'Save'}
           // onClick={savedWaterData}
           width="160px"
-          //   backgroundColor={ Blue}
-          //   textColor={White }
         />
       </SaveBtnBox>
     </FormStyles>

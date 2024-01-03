@@ -66,7 +66,7 @@ export const SaveBtnBox = styled.div`
   align-items: center;
 `;
 
-export const SavedLabel = styled.label`
+export const SavedLabel = styled.p`
   padding: 10px 30px 10px 0;
   color: ${props => `${props.theme.colors.primaryBlue}`};
 `;
