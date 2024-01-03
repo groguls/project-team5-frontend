@@ -2,7 +2,7 @@ import { WaterConsumptionTracker } from 'components/WaterConsumptionTracker/Wate
 import { WhyDrinkWater } from 'components/WhyDrinkWater/WhyDrinkWater';
 import { WelcomePageContainer } from './WelcomePage.styled';
 import { MainContainer } from '../HomePage/HomePage.styled';
-import { Loader } from 'components/Loader/Loader';
+// import { Loader } from 'components/Loader/Loader';
 
 export default function WelcomePage() {
   return (

@@ -1,9 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-// axios.defaults.baseURL = 'http://localhost:5000/users'; //backend URL here
-
-const instance = axios.create({
+export const instance = axios.create({
   baseURL: 'https://watertracker-by-group5.onrender.com/api',
 });
 
@@ -19,9 +17,8 @@ export const signUp = createAsyncThunk(
   'users/auth/signUp',
   async (credentials, thunkAPI) => {
     try {
-      const { data } = await instance.post('/signup', credentials);
+      const { data } = await instance.post('/users/signup', credentials);
       setAuthHeader(data.token);
-      console.log(setAuthHeader);
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -33,7 +30,7 @@ export const signIn = createAsyncThunk(
   'users/auth/signIn',
   async (credentials, thunkAPI) => {
     try {
-      const { data } = await instance.post('/signin', credentials);
+      const { data } = await instance.post('/users/signin', credentials);
       setAuthHeader(data.token);
       return data;
     } catch (error) {
@@ -54,11 +51,22 @@ export const logOut = createAsyncThunk(
   }
 );
 
+// export const logOut = createAsyncThunk('auth/logOut', async (_, thunkAPI) => {
+//   try {
+//     await instance.post('/users/logout');
+//     clearAuthHeader();
+//   } catch (error) {
+//     return thunkAPI.rejectWithValue(error.message);
+// >>>>>>> 1967a6b07d3c719ad505f145c5eacdea4d03fc13
+//   }
+// );
+
 export const refreshUser = createAsyncThunk(
   'users/auth/refresh',
   async (_, thunkAPI) => {
     const state = thunkAPI.getState();
     const persistedToken = state.auth.token;
+    console.log(persistedToken);
 
     if (persistedToken === null) {
       return thunkAPI.rejectWithValue('No user persisted. Please login.');
@@ -66,7 +74,11 @@ export const refreshUser = createAsyncThunk(
 
     try {
       setAuthHeader(persistedToken);
+
       const { data } = await instance.get('users/current');
+
+      //       const { data } = await instance.get('/users/current');
+      // >>>>>>> 1967a6b07d3c719ad505f145c5eacdea4d03fc13
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -78,7 +90,7 @@ export const updateWaterRate = createAsyncThunk(
   'users/auth/updateWaterRate',
   async (newData, thunkAPI) => {
     try {
-      const { data } = await instance.patch('/waterRate', {
+      const { data } = await instance.patch('/users/waterRate', {
         waterRate: newData,
       });
       console.log(data);

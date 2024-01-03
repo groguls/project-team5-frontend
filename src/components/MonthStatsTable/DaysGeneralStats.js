@@ -1,4 +1,5 @@
 export const DaysGeneralStats = ({ selectedDay }) => {
+  console.log(selectedDay);
   const { date, dailyWaterRate, percentage, entries } = selectedDay;
 
   return (

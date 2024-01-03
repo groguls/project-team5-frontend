@@ -1,4 +1,16 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { MonthInfoList } from './MonthInfo';
+import { updateMonthInfo } from '../../redux/water/waterSlice';
+import {
+  ButtonArrow,
+  ButtonCurrentMonth,
+  Title,
+  WrapperPagination,
+  WrapperTitle,
+} from './MonthPagination.styled';
+import { CalendarArrowLeft } from 'components/Icons/CalendarArrowLeft';
+import { CalendarArrowRight } from 'components/Icons/CalendarArrowRight';
 
 const monthNames = [
   'January',
@@ -16,9 +28,38 @@ const monthNames = [
 ];
 
 export const Pagination = () => {
+  const dispatch = useDispatch();
+
   const currentDate = new Date();
   const [currMonth, setCurrMonth] = useState(currentDate.getMonth());
   const [currYear, setCurrYear] = useState(currentDate.getFullYear());
+
+  const currentMonthforList = currMonth + 1; // Months are zero-indexed
+  const numberOfDaysInMonth = new Date(
+    currYear,
+    currentMonthforList,
+    0
+  ).getDate();
+
+  const daysArray = Array.from({ length: numberOfDaysInMonth }, (_, index) => {
+    const day = index + 1;
+    const formattedDay = day.toString().padStart(2, '0');
+    return `${currYear}-${currentMonthforList
+      .toString()
+      .padStart(2, '0')}-${formattedDay}`;
+  });
+
+  const arrayOfObjects = daysArray.map(date => ({
+    entries: null, // You can set your initial value for entries
+    date: date,
+    dailyWaterRate: '', // Set your initial value for dailyWaterRate
+    percentage: '', // Set your initial value for percentage
+  }));
+
+  useEffect(() => {
+    dispatch(updateMonthInfo(arrayOfObjects));
+    // dispatch(getMonthInfo(`${currYear}-${currMonth.toString()}`));
+  }, [dispatch, arrayOfObjects]);
 
   const nextMonth = () => {
     if (currMonth === 11) {
@@ -39,7 +80,7 @@ export const Pagination = () => {
   };
 
   const showcurr = () => {
-    return monthNames[currMonth] + ' ' + currYear; // Add a space between month and year
+    return monthNames[currMonth] + ',' + currYear; // Add a space between month and year
   };
 
   const isNextMonthDisabled = () => {
@@ -54,20 +95,23 @@ export const Pagination = () => {
 
   return (
     <div>
-      <h3>Month</h3>
-      <div>
-        <button type="button" onClick={previousMonth}>
-          {'<'}
-        </button>
-        <button type="button">{showcurr()}</button>
-        <button
-          type="button"
-          onClick={nextMonth}
-          disabled={isNextMonthDisabled()}
-        >
-          {'>'}
-        </button>
-      </div>
+      <WrapperTitle>
+        <Title>Month</Title>
+        <WrapperPagination>
+          <ButtonArrow type="button" onClick={previousMonth}>
+            <CalendarArrowLeft />
+          </ButtonArrow>
+          <ButtonCurrentMonth type="button">{showcurr()}</ButtonCurrentMonth>
+          <ButtonArrow
+            type="button"
+            onClick={nextMonth}
+            disabled={isNextMonthDisabled()}
+          >
+            <CalendarArrowRight />
+          </ButtonArrow>
+        </WrapperPagination>
+      </WrapperTitle>
+      <MonthInfoList />
     </div>
   );
 };
