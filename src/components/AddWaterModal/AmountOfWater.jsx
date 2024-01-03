@@ -1,48 +1,53 @@
-// import Button from 'components/Button/Button';
+import { useReducer } from 'react';
 import Typography from 'components/Typography/Typography';
-// import { useState } from 'react';
+import { Plus } from 'components/Icons/Plus/Plus';
+import { Minus } from 'components/Icons/Minus';
 import {
   Amounter,
-  RecordingTime,
-  EnterValueWater,
   AddButton,
   AddWaterValue,
+  ListTitle,
+  Text,
 } from './AddWaterModal.styled';
 
+function countReducer(state, action) {
+  switch (action.type) {
+    case 'increment':
+      return state + action.payload;
+    case 'decrement':
+      return state - action.payload;
+    default:
+      return state;
+  }
+}
+
 export const AmountOfWater = () => {
-  // const [counter, setCounter] = useState('50');
-
-  const currentDate = new Date();
-  const hour = currentDate.getHours();
-  const min = currentDate.getMinutes();
-
-  const addWaterIncrement = () => {};
+  const [state, dispatch] = useReducer(countReducer, 50);
+  // const dispatch = useDispatch();
 
   return (
     <>
-      <Typography styled="ListTitle">Choose a value:</Typography>
-      <Typography styled="Text">Amount of water:</Typography>
-      <Amounter>
-        <AddButton onClick={addWaterIncrement} type="button">
-          -
-        </AddButton>
-        <AddWaterValue placeholder="50 ml"></AddWaterValue>
-        <AddButton type="button">+</AddButton>
-      </Amounter>
-      <RecordingTime>
-        <Typography styled="Text">Recording time:</Typography>
-        <select>
-          <option>
-            {hour}:{min}
-          </option>
-        </select>
-      </RecordingTime>
       <Typography styled="ListTitle">
-        Enter the value of the whater used:
+        <ListTitle>Choose a value:</ListTitle>
       </Typography>
-      <EnterValueWater>
-        <input placeholder="50"></input>
-      </EnterValueWater>
+      <Typography styled="Text">
+        <Text>Amount of water:</Text>
+      </Typography>
+      <Amounter>
+        <AddButton
+          onClick={() => dispatch({ type: 'decrement', payload: 50 })}
+          type="button"
+        >
+          <Minus />
+        </AddButton>
+        <AddWaterValue>{state > 50 ? state + 'ml' : 50 + 'ml'}</AddWaterValue>
+        <AddButton
+          onClick={() => dispatch({ type: 'increment', payload: 50 })}
+          type="button"
+        >
+          <Plus />
+        </AddButton>
+      </Amounter>
     </>
   );
 };

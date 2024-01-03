@@ -14,7 +14,7 @@ const clearAuthHeader = () => {
 };
 
 export const signUp = createAsyncThunk(
-  'auth/signUp',
+  'users/auth/signUp',
   async (credentials, thunkAPI) => {
     try {
       const { data } = await instance.post('/users/signup', credentials);
@@ -27,7 +27,7 @@ export const signUp = createAsyncThunk(
 );
 
 export const signIn = createAsyncThunk(
-  'auth/signIn',
+  'users/auth/signIn',
   async (credentials, thunkAPI) => {
     try {
       const { data } = await instance.post('/users/signin', credentials);
@@ -39,17 +39,30 @@ export const signIn = createAsyncThunk(
   }
 );
 
-export const logOut = createAsyncThunk('auth/logOut', async (_, thunkAPI) => {
-  try {
-    await instance.post('/users/logout');
-    clearAuthHeader();
-  } catch (error) {
-    return thunkAPI.rejectWithValue(error.message);
+export const logOut = createAsyncThunk(
+  'users/auth/logOut',
+  async (_, thunkAPI) => {
+    try {
+      await instance.post('/logout');
+      clearAuthHeader();
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
   }
-});
+);
+
+// export const logOut = createAsyncThunk('auth/logOut', async (_, thunkAPI) => {
+//   try {
+//     await instance.post('/users/logout');
+//     clearAuthHeader();
+//   } catch (error) {
+//     return thunkAPI.rejectWithValue(error.message);
+// >>>>>>> 1967a6b07d3c719ad505f145c5eacdea4d03fc13
+//   }
+// );
 
 export const refreshUser = createAsyncThunk(
-  'auth/refresh',
+  'users/auth/refresh',
   async (_, thunkAPI) => {
     const state = thunkAPI.getState();
     const persistedToken = state.auth.token;
@@ -62,7 +75,10 @@ export const refreshUser = createAsyncThunk(
     try {
       setAuthHeader(persistedToken);
 
-      const { data } = await instance.get('/users/current');
+      const { data } = await instance.get('users/current');
+
+      //       const { data } = await instance.get('/users/current');
+      // >>>>>>> 1967a6b07d3c719ad505f145c5eacdea4d03fc13
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -71,7 +87,7 @@ export const refreshUser = createAsyncThunk(
 );
 
 export const updateWaterRate = createAsyncThunk(
-  'auth/updateWaterRate',
+  'users/auth/updateWaterRate',
   async (newData, thunkAPI) => {
     try {
       const { data } = await instance.patch('/users/waterRate', {
