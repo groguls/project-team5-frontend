@@ -4,7 +4,7 @@ import axios from 'axios';
 // axios.defaults.baseURL = 'http://localhost:5000/users'; //backend URL here
 
 const instance = axios.create({
-  baseURL: 'https://watertracker-by-group5.onrender.com/users',
+  baseURL: 'https://watertracker-by-group5.onrender.com/api',
 });
 
 const setAuthHeader = token => {

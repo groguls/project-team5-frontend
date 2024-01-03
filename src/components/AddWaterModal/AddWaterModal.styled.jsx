@@ -1,9 +1,5 @@
 import styled from 'styled-components';
 
-export const SaveBtnBox = styled.div`
-  display: flex;
-`;
-
 export const Amounter = styled.div`
   display: flex;
   margin-bottom: 24px;
@@ -27,7 +23,30 @@ export const EnterValueWater = styled.div`
   flex-direction: column;
   margin-bottom: 24px;
 `;
+
+export const Input = styled.input`
+  padding: 12px 10px;
+
+  border: 1px solid ${props => `${props.theme.colors.secondaryGrayBlue}`};
+  border-radius: 6px;
+
+  color: ${props => `${props.theme.colors.primaryBlue}`};
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.25;
+  letter-spacing: 0em;
+  text-align: left;
+
+  &:focus {
+    outline: none;
+    color: ${props => `${props.theme.colors.primaryBlue}`};
+  }
+`;
+
 export const AddButton = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 44px;
   height: 44px;
   background-color: transparent;
@@ -35,6 +54,18 @@ export const AddButton = styled.button`
   border: ${props => `${props.theme.border.secondary}`};
   border-radius: ${props => `${props.theme.radii.round}`};
 `;
+
+export const SaveBtnBox = styled.div`
+  display: flex;
+  justify-content: end;
+  align-items: center;
+`;
+
+export const SavedValue = styled.div`
+  padding: 10px 30px 10px 0;
+  color: ${props => `${props.theme.colors.primaryBlue}`};
+`;
+
 export const Button = styled.button`
   display: flex;
   flex-direction: row;

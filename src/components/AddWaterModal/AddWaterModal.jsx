@@ -3,17 +3,17 @@ import { ModalBox } from 'components/ModalBox/ModalBox';
 import { modalSizes } from 'components/ModalBox/modalSize';
 import Button from 'components/Button/Button';
 import { AmountOfWater } from './AmountOfWater';
-import { SaveBtnBox } from './AddWaterModal.styled';
+import { SaveBtnBox, SavedValue } from './AddWaterModal.styled';
 
 export const AddWaterModal = () => {
   const savedWaterData = () => {};
-
+  console.log('AddWaterModal modalSizes.xl.small:', modalSizes);
   return (
     <Modal>
-      <ModalBox title={'Add water'} $size={(modalSizes, 'xl.medium')}>
+      <ModalBox title={'Add water'} $size={modalSizes.xl.medium}>
         <AmountOfWater />
         <SaveBtnBox>
-          <p>50 ml</p>
+          <SavedValue>50 ml</SavedValue>
           <Button
             label={'Save'}
             onClick={savedWaterData}

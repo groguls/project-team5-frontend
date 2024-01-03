@@ -1,17 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
-
-const instance = axios.create({
-  baseURL: 'http://localhost:8000',
-});
-
-// const setTokenWater = token => {
-//   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
-// };
-
-// const clearTokenWater = () => {
-//   axios.defaults.headers.common.Authorization = '';
-// };
+import { instance } from '../auth/operations';
 
 export const getMonthInfo = createAsyncThunk(
   'water/getMonthInfo',
