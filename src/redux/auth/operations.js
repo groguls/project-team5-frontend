@@ -5,7 +5,7 @@ export const instance = axios.create({
   baseURL: 'https://watertracker-by-group5.onrender.com/api',
 });
 
-const setAuthHeader = token => {
+export const setAuthHeader = token => {
   instance.defaults.headers.common.Authorization = `Bearer ${token}`;
 };
 
@@ -78,6 +78,18 @@ export const updateWaterRate = createAsyncThunk(
         waterRate: newData,
       });
       console.log(data);
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const getMonthInfo = createAsyncThunk(
+  'water/getMonthInfo',
+  async (currentMonth, thunkAPI) => {
+    try {
+      const { data } = await instance.get(`/water/${currentMonth}`);
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

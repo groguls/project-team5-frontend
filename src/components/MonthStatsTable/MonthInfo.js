@@ -4,6 +4,7 @@
 import { useSelector } from 'react-redux';
 import { MonthInfoItem } from './MonthInfoItem';
 import { selectMonthInfo } from '../../redux/selectors';
+import { DaysList } from './MonthInfo.styled';
 
 // const monthInfo = [
 //   {
@@ -71,10 +72,10 @@ import { selectMonthInfo } from '../../redux/selectors';
 export const MonthInfoList = () => {
   const monthInfo = useSelector(selectMonthInfo);
   return (
-    <ul>
+    <DaysList>
       {monthInfo.map(day => (
         <MonthInfoItem day={day} key={day.date} />
       ))}
-    </ul>
+    </DaysList>
   );
 };
