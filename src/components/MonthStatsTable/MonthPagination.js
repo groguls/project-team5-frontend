@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { getMonthInfo } from '../../redux/water/waterOperations';
 import { MonthInfoList } from './MonthInfo';
 import { updateMonthInfo } from '../../redux/water/waterSlice';
 import {
