@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { getMonthInfo } from '../../redux/water/waterOperations';
+// import { getMonthInfo } from '../../redux/auth/operations';
 import { MonthInfoList } from './MonthInfo';
 import { updateMonthInfo } from '../../redux/water/waterSlice';
 import {
@@ -59,8 +60,8 @@ export const Pagination = () => {
 
   useEffect(() => {
     dispatch(updateMonthInfo(arrayOfObjects));
-    // dispatch(getMonthInfo(`${currYear}-${currMonth.toString()}`));
-  }, [dispatch, arrayOfObjects]);
+    dispatch(getMonthInfo(`${currYear}-${currMonth.toString()}`));
+  }, [dispatch, arrayOfObjects, currMonth, currYear]);
 
   const nextMonth = () => {
     if (currMonth === 11) {
@@ -81,7 +82,7 @@ export const Pagination = () => {
   };
 
   const showcurr = () => {
-    return monthNames[currMonth] + ',' + currYear; // Add a space between month and year
+    return monthNames[currMonth] + ', ' + currYear; // Add a space between month and year
   };
 
   const isNextMonthDisabled = () => {

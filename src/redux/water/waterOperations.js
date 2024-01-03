@@ -2,14 +2,14 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 const instance = axios.create({
-  baseURL: 'https://watertracker-by-group5.onrender.com/api/water',
+  baseURL: 'https://watertracker-by-group5.onrender.com/api',
 });
 
 export const getMonthInfo = createAsyncThunk(
   'water/getMonthInfo',
   async (currentMonth, thunkAPI) => {
     try {
-      const { data } = await instance.get(`/${currentMonth}`);
+      const { data } = await instance.get(`/water/${currentMonth}`);
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -21,7 +21,7 @@ export const getTodayInfo = createAsyncThunk(
   'today/getTodayInfo',
   async (_, thunkAPI) => {
     try {
-      const { data } = await instance.get('');
+      const { data } = await instance.get('/water');
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
