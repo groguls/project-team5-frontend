@@ -1,5 +1,17 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { instance } from '../auth/operations';
+import axios from 'axios';
+
+const instance = axios.create({
+  baseURL: 'https://watertracker-by-group5.onrender.com/api',
+});
+
+// const setTokenWater = token => {
+//   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+// };
+
+// const clearTokenWater = () => {
+//   axios.defaults.headers.common.Authorization = '';
+// };
 
 export const getMonthInfo = createAsyncThunk(
   'water/getMonthInfo',

@@ -2,12 +2,16 @@ import styled from 'styled-components';
 
 export const Amounter = styled.div`
   display: flex;
+  align-items: center;
   margin-bottom: 24px;
 `;
-export const AddWaterValue = styled.input`
+export const AddWaterValue = styled.div`
   width: 92px;
   height: 36px;
   margin: 0 10px;
+  padding: 10px 10px;
+  text-align: center;
+  color: ${props => `${props.theme.colors.primaryBlue}`};
   background-color: ${props => `${props.theme.colors.secondaryGrayBlue}`};
   border: transparent;
   border-radius: ${props => `${props.theme.radii.medium}`};
@@ -16,6 +20,7 @@ export const AddWaterValue = styled.input`
 export const RecordingTime = styled.div`
   display: block;
   margin-bottom: 24px;
+  color: ${props => `${props.theme.colors.primaryBlue}`};
 `;
 
 export const EnterValueWater = styled.div`
@@ -26,7 +31,7 @@ export const EnterValueWater = styled.div`
 
 export const Input = styled.input`
   padding: 12px 10px;
-
+  width: 100%;
   border: 1px solid ${props => `${props.theme.colors.secondaryGrayBlue}`};
   border-radius: 6px;
 
@@ -61,7 +66,7 @@ export const SaveBtnBox = styled.div`
   align-items: center;
 `;
 
-export const SavedValue = styled.div`
+export const SavedLabel = styled.label`
   padding: 10px 30px 10px 0;
   color: ${props => `${props.theme.colors.primaryBlue}`};
 `;
@@ -96,5 +101,26 @@ export const Button = styled.button`
     /* width: 56px; */
     font-size: 18px;
     line-height: 1.33;
+  }
+`;
+export const FormStyles = styled.form`
+  /* label {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 24px;
+
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 20px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: ${props => `${props.theme.colors.primaryBlack}`};
+  } */
+
+  @media screen and (min-width: 768px) {
+    button {
+      margin-left: auto;
+    }
   }
 `;

@@ -1,26 +1,18 @@
-// import Button from 'components/Button/Button';
+import { useState } from 'react';
 import Typography from 'components/Typography/Typography';
-// import { useState } from 'react';
 import { Plus } from 'components/Icons/Plus/Plus';
 import { Minus } from 'components/Icons/Minus';
-import {
-  Amounter,
-  RecordingTime,
-  EnterValueWater,
-  AddButton,
-  AddWaterValue,
-  Input,
-} from './AddWaterModal.styled';
+import { Amounter, AddButton, AddWaterValue } from './AddWaterModal.styled';
 
 export const AmountOfWater = () => {
-  // const [counter, setCounter] = useState('50');
+  const [counter, setCounter] = useState(50);
 
-  const currentDate = new Date();
-  const hour = currentDate.getHours();
-  const min = currentDate.getMinutes();
-
-  const addWaterIncrement = () => {};
-  const addWaterDecrement = () => {};
+  const addWaterDecrement = () => {
+    setCounter(state => state - 50);
+  };
+  const addWaterIncrement = () => {
+    setCounter(state => state + 50);
+  };
 
   return (
     <>
@@ -30,35 +22,13 @@ export const AmountOfWater = () => {
         <AddButton onClick={addWaterDecrement} type="button">
           <Minus />
         </AddButton>
-        <AddWaterValue placeholder="50 ml"></AddWaterValue>
+        <AddWaterValue>
+          {counter > 50 ? counter + 'ml' : 50 + 'ml'}
+        </AddWaterValue>
         <AddButton onClick={addWaterIncrement} type="button">
           <Plus />
         </AddButton>
       </Amounter>
-      <RecordingTime>
-        <Typography styled="Text">Recording time:</Typography>
-        <select>
-          <option>
-            {hour}:{min}
-          </option>
-        </select>
-      </RecordingTime>
-
-      <EnterValueWater>
-        <label>
-          <Typography styled="ListTitle">
-            Enter the value of the whater used:
-          </Typography>
-          <Input
-            type="number"
-            name="weight"
-            // max={200}
-            // min={0}
-            placeholder="50"
-            // onChange={handleInputChange}
-          />
-        </label>
-      </EnterValueWater>
     </>
   );
 };
