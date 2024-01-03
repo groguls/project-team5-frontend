@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import { lazy, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectIsAuth } from '../redux/selectors';
@@ -45,7 +45,7 @@ export const App = () => {
             />
           }
         />
-        <Route path="*" element={<h2>Our Group Project</h2>} />
+        <Route path="*" element={<Navigate to={'/'} />} />
       </Route>
     </Routes>
   );
