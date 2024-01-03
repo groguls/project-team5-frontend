@@ -1,6 +1,6 @@
 // import Button from 'components/Button/Button';
 import Typography from 'components/Typography/Typography';
-import { useState } from 'react';
+// import { useState } from 'react';
 import {
   Amounter,
   RecordingTime,
@@ -10,7 +10,7 @@ import {
 } from './AddWaterModal.styled';
 
 export const AmountOfWater = () => {
-  const [counter, setCounter] = useState('50');
+  // const [counter, setCounter] = useState('50');
 
   const currentDate = new Date();
   const hour = currentDate.getHours();

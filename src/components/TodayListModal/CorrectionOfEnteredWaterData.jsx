@@ -1,5 +1,5 @@
 import Typography from 'components/Typography/Typography';
-import { useState } from 'react';
+// import { useState } from 'react';
 import {
   AmountOfWater,
   RecordingTime,
@@ -9,7 +9,7 @@ import {
 } from './TodayListModal.styled';
 
 export const CorrectionOfEnteredWaterData = () => {
-  const [counter, setCounter] = useState('250');
+  // const [counter, setCounter] = useState('250');
 
   const currentDate = new Date();
   const hour = currentDate.getHours();
