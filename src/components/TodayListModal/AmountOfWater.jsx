@@ -15,12 +15,12 @@ export const AmountOfWater = () => {
   const addWaterIncrement = () => {};
   return (
     <>
-      <Typography styled="ListTitle">
-        <ListTitle>Correct entered data:</ListTitle>
-      </Typography>
-      <Typography styled="Text">
-        <Text>Amount of water:</Text>
-      </Typography>
+      <ListTitle>
+        <Typography styled="ListTitle">Correct entered data:</Typography>
+      </ListTitle>
+      <Text>
+        <Typography styled="Text">Amount of water:</Typography>
+      </Text>
       <Amounter>
         <AddButton onClick={addWaterIncrement} type="button">
           <Minus />

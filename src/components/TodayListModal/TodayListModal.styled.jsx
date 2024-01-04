@@ -114,10 +114,10 @@ export const SaveBtnBox = styled.div`
   align-items: center;
 `;
 
-export const ListTitle = styled.h3`
+export const ListTitle = styled.div`
   margin-bottom: 16px;
 `;
 
-export const Text = styled.p`
+export const Text = styled.div`
   margin-bottom: 12px;
 `;
