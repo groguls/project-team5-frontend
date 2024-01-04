@@ -14,6 +14,11 @@ export const PreviousDataBox = styled.div`
 
 export const ValueWater = styled.div`
   margin-right: 16px;
+  margin-left: 12px;
+`;
+
+export const Time = styled.div`
+  color: ${props => `${props.theme.colors.primaryBlack}`};
 `;
 
 export const Amounter = styled.div`

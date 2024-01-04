@@ -1,14 +1,14 @@
-import { GlassOfWhater } from 'components/Icons/GlassOfWater';
-import { PreviousDataBox, ValueWater } from './TodayListModal.styled';
+import { GlassOfWater } from 'components/Icons/GlassOfWater';
+import { PreviousDataBox, ValueWater, Time } from './TodayListModal.styled';
 
 export const PreviousWaterData = () => {
   const previousDate = '7:00';
   return (
     <>
       <PreviousDataBox>
-        <GlassOfWhater />
+        <GlassOfWater />
         <ValueWater>250ml</ValueWater>
-        <div>{previousDate}</div>
+        <Time>{previousDate}</Time>
       </PreviousDataBox>
     </>
   );
