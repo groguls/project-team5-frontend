@@ -2,13 +2,7 @@ import { useReducer } from 'react';
 import Typography from 'components/Typography/Typography';
 import { Plus } from 'components/Icons/Plus/Plus';
 import { Minus } from 'components/Icons/Minus';
-import {
-  Amounter,
-  AddButton,
-  AddWaterValue,
-  ListTitle,
-  Text,
-} from './AddWaterModal.styled';
+import { Amounter, AddButton, AddWaterValue } from './AddWaterModal.styled';
 
 function countReducer(state, action) {
   switch (action.type) {
@@ -27,12 +21,10 @@ export const AmountOfWater = () => {
 
   return (
     <>
-      <ListTitle>
-        <Typography styled="ListTitle">Choose a value:</Typography>
-      </ListTitle>
-      <Text>
-        <Typography styled="Text">Amount of water:</Typography>
-      </Text>
+      <Typography styled="ListTitle">Choose a value:</Typography>
+
+      <Typography styled="Text">Amount of water:</Typography>
+
       <Amounter>
         <AddButton
           onClick={() => dispatch({ type: 'decrement', payload: 50 })}

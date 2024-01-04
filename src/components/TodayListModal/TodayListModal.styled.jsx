@@ -113,11 +113,3 @@ export const SaveBtnBox = styled.div`
   justify-content: end;
   align-items: center;
 `;
-
-export const ListTitle = styled.div`
-  margin-bottom: 16px;
-`;
-
-export const Text = styled.div`
-  margin-bottom: 12px;
-`;

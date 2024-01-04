@@ -1,5 +1,5 @@
 import Typography from 'components/Typography/Typography';
-import { RecordingTime, Text } from './TodayListModal.styled';
+import { RecordingTime } from './TodayListModal.styled';
 
 export const EditWaterTime = () => {
   const currentDate = new Date();
@@ -8,9 +8,7 @@ export const EditWaterTime = () => {
 
   return (
     <RecordingTime>
-      <Typography styled="Text">
-        <Text> Recording time:</Text>
-      </Typography>
+      <Typography styled="Text">Recording time:</Typography>
       <select>
         <option>
           {hour}:{min}

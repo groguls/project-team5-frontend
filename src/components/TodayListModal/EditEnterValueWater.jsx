@@ -1,12 +1,12 @@
 import Typography from 'components/Typography/Typography';
-import { EnterValueWater, Input, Text } from './TodayListModal.styled';
+import { EnterValueWater, Input } from './TodayListModal.styled';
 
 export const EditEnterValueWater = () => {
   return (
     <EnterValueWater>
       <label>
         <Typography styled="ListTitle">
-          <Text>Enter the value of the whater used:</Text>
+          Enter the value of the whater used:
         </Typography>
         <Input
           type="number"

@@ -6,7 +6,7 @@ const getSize = (size, screen) => modalSizes[screen][size];
 export const DivModalBox = styled.div`
   color: ${props => `${props.theme.colors.primaryBlack}`};
   background-color: ${props => `${props.theme.colors.primaryWhite}`};
-  width: 592px;
+  width: 280px;
   padding: ${({ $size }) => ($size === 'small' ? '32px 24px' : '32px 12px')};
   border-radius: 10px;
 
