@@ -6,6 +6,7 @@ import {
   SectionTodayCalendar,
 } from './HomePage.styled';
 import { MonthStatsTable } from '../../components/MonthStatsTable/MonthStatsTable';
+import { TodayWaterList } from 'components/TodayWaterList/TodayWaterList';
 // import { useEffect } from 'react';
 // import { useDispatch } from 'react-redux';
 // import { getMonthInfo } from '../../redux/water/waterOperations';
@@ -19,7 +20,9 @@ const Home = () => {
       </SectionDailyNorma>
 
       <SectionTodayCalendar>
-        <div>Today modal</div>
+        <div>
+          <TodayWaterList />
+        </div>
         <div>
           <MonthStatsTable />
         </div>
