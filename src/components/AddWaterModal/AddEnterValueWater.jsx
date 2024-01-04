@@ -12,9 +12,9 @@ export const AddEnterValueWater = () => {
           type="number"
           name="weight"
           // max={200}
-          min={50}
-          step={50}
-          placeholder="50"
+          min={0}
+          step={1}
+          placeholder="0"
           // onChange={handleInputChange}
         />
       </label>

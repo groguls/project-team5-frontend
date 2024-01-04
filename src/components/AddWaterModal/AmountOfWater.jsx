@@ -16,7 +16,7 @@ function countReducer(state, action) {
 }
 
 export const AmountOfWater = () => {
-  const [state, dispatch] = useReducer(countReducer, 50);
+  const [state, dispatch] = useReducer(countReducer, 0);
   // const dispatch = useDispatch();
 
   return (
@@ -30,7 +30,7 @@ export const AmountOfWater = () => {
         >
           <Minus />
         </AddButton>
-        <AddWaterValue>{state > 50 ? state + 'ml' : 50 + 'ml'}</AddWaterValue>
+        <AddWaterValue>{state >= 50 ? state + 'ml' : 0}</AddWaterValue>
         <AddButton
           onClick={() => dispatch({ type: 'increment', payload: 50 })}
           type="button"
