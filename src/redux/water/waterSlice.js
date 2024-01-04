@@ -32,6 +32,9 @@ const waterSlice = createSlice({
     updateMonthInfo(state, action) {
       state.monthInfo = action.payload;
     },
+    updateDayInfo(state, action) {
+      state.dayInfo = action.payload;
+    },
   },
   extraReducers: builder => {
     builder
@@ -100,5 +103,6 @@ const waterSlice = createSlice({
   },
 });
 
-export const { updateDailyNorma, updateMonthInfo } = waterSlice.actions;
+export const { updateDailyNorma, updateMonthInfo, updateDayInfo } =
+  waterSlice.actions;
 export const waterReducer = waterSlice.reducer;

@@ -2,13 +2,7 @@ import { useReducer } from 'react';
 import Typography from 'components/Typography/Typography';
 import { Plus } from 'components/Icons/Plus/Plus';
 import { Minus } from 'components/Icons/Minus';
-import {
-  Amounter,
-  AddButton,
-  AddWaterValue,
-  ListTitle,
-  Text,
-} from './AddWaterModal.styled';
+import { Amounter, AddButton, AddWaterValue } from './AddWaterModal.styled';
 
 function countReducer(state, action) {
   switch (action.type) {
@@ -22,17 +16,13 @@ function countReducer(state, action) {
 }
 
 export const AmountOfWater = () => {
-  const [state, dispatch] = useReducer(countReducer, 50);
+  const [state, dispatch] = useReducer(countReducer, 0);
   // const dispatch = useDispatch();
 
   return (
     <>
-      <ListTitle>
-        <Typography styled="ListTitle">Choose a value:</Typography>
-      </ListTitle>
-      <Text>
-        <Typography styled="Text">Amount of water:</Typography>
-      </Text>
+      <Typography styled="ListTitle">Choose a value:</Typography>
+      <Typography styled="Text">Amount of water:</Typography>
       <Amounter>
         <AddButton
           onClick={() => dispatch({ type: 'decrement', payload: 50 })}
@@ -40,7 +30,7 @@ export const AmountOfWater = () => {
         >
           <Minus />
         </AddButton>
-        <AddWaterValue>{state > 50 ? state + 'ml' : 50 + 'ml'}</AddWaterValue>
+        <AddWaterValue>{state >= 50 ? state + 'ml' : 0}</AddWaterValue>
         <AddButton
           onClick={() => dispatch({ type: 'increment', payload: 50 })}
           type="button"

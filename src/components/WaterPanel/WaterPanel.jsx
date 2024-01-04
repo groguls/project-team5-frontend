@@ -37,8 +37,10 @@ export const WaterPanel = () => {
         </PercentContainer>
       </InputContainer>
       <AddBtn
-        // onClick={() => toggleModal(TodayListModal)}
-        onClick={() => toggleModal(AddWaterModal)}
+        // onClick={() => toggleModal(<TodayListModal size="medium" title="Edit the entered amount of water"/>)}
+        onClick={() =>
+          toggleModal(<AddWaterModal size="big" title="Add water" />)
+        }
         type="button"
       >
         <Plus aria-label="add_water" />

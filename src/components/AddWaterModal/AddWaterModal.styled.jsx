@@ -125,11 +125,3 @@ export const FormStyles = styled.form`
     }
   }
 `;
-
-export const ListTitle = styled.h3`
-  margin-bottom: 16px;
-`;
-
-export const Text = styled.p`
-  margin-bottom: 12px;
-`;
