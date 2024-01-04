@@ -1,13 +1,15 @@
 import { GlassOfWhater } from 'components/Icons/GlassOfWater';
-import { PreviousDataBox } from './TodayListModal.styled';
+import { PreviousDataBox, ValueWater } from './TodayListModal.styled';
 
 export const PreviousWaterData = () => {
   const previousDate = '7:00';
   return (
-    <PreviousDataBox>
-      <GlassOfWhater />
-      <div style={{ marginRight: '16px' }}>250ml</div>
-      <div>{previousDate}</div>
-    </PreviousDataBox>
+    <>
+      <PreviousDataBox>
+        <GlassOfWhater />
+        <ValueWater>250ml</ValueWater>
+        <div>{previousDate}</div>
+      </PreviousDataBox>
+    </>
   );
 };

@@ -5,6 +5,7 @@ export const Amounter = styled.div`
   align-items: center;
   margin-bottom: 24px;
 `;
+
 export const AddWaterValue = styled.div`
   width: 92px;
   height: 36px;
