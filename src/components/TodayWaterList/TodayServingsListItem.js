@@ -1,16 +1,15 @@
-import { Basket } from 'components/Icons/Basket';
-import { GlassOfWhater } from 'components/Icons/GlassOfWater';
-import { PencilSquare } from 'components/Icons/PencilSquare';
-import { Service } from 'components/Icons/Service';
+import { GlassOfWater } from '../Icons/GlassOfWater';
+import { PencilSquare } from '../Icons/PencilSquare';
 
 export const TodayServingListItem = ({ todayList }) => {
   return (
-    <li>
-      <GlassOfWhater />
-      <p>{todayList.waterVolume + ' ml'}</p>
-      <p>{todayList.time}</p>
-      <PencilSquare />
-      <Basket />
-    </li>
+    <>
+      <li>
+        <GlassOfWater />
+        <p>{todayList.waterVolume + ' ml'}</p>
+        <p>{todayList.time}</p>
+        <PencilSquare />
+      </li>
+    </>
   );
 };
