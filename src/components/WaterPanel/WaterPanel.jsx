@@ -3,8 +3,8 @@ import { useSelector } from 'react-redux';
 import { selectorWaterInfo } from '../../redux/selectors';
 import { Plus } from 'components/Icons/Plus/Plus';
 
-// import { TodayListModal } from 'components/TodayListModal/TodayListModal';
-import { AddWaterModal } from 'components/AddWaterModal/AddWaterModal';
+import { TodayListModal } from 'components/TodayListModal/TodayListModal';
+// import { AddWaterModal } from 'components/AddWaterModal/AddWaterModal';
 
 import {
   AddBtn,
@@ -37,8 +37,8 @@ export const WaterPanel = () => {
         </PercentContainer>
       </InputContainer>
       <AddBtn
-        // onClick={() => toggleModal(TodayListModal)}
-        onClick={() => toggleModal(AddWaterModal)}
+        onClick={() => toggleModal(TodayListModal)}
+        // onClick={() => toggleModal(AddWaterModal)}
         type="button"
       >
         <Plus aria-label="add_water" />
