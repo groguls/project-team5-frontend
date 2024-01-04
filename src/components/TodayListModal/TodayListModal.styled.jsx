@@ -113,3 +113,68 @@ export const SaveBtnBox = styled.div`
   justify-content: end;
   align-items: center;
 `;
+
+//Delete Water
+export const DeleteCaption = styled.p`
+  color: ${props => `${props.theme.colors.primaryBlack}`};
+  font-size: ${props => `${props.theme.fontSizes.listTitle}`};
+  font-weight: 500;
+  line-height: ${props => `${props.theme.lineHeights.listTitle}`};
+  margin-bottom: 24px;
+`;
+
+export const ButtonContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+    justify-content: end;
+  }
+`;
+
+export const CancelBtn = styled.button`
+  display: flex;
+  padding: 8px 30px;
+  width: 232px;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 10px;
+  background: ${props => `${props.theme.colors.secondaryGrayBlue}`};
+  cursor: pointer;
+  color: ${props => `${props.theme.colors.primaryBlue}`};
+  text-align: center;
+  font-size: ${props => `${props.theme.fontSizes.text}`};
+  font-weight: 500;
+  line-height: ${props => `${props.theme.lineHeights.text}`};
+
+  @media screen and (min-width: 768px) {
+    padding: 10px 30px;
+    width: 160px;
+  }
+`;
+
+export const DeleteBtn = styled.button`
+  display: flex;
+  padding: 8px 30px;
+  width: 232px;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 10px;
+  background: ${props => `${props.theme.colors.secondaryRed}`};
+  box-shadow: ${props => `${props.theme.shadows.normalButton}`};
+  cursor: pointer;
+  color: ${props => `${props.theme.colors.primaryWhite}`};
+  text-align: center;
+  font-size: ${props => `${props.theme.fontSizes.text}`};
+  font-weight: 500;
+  line-height: ${props => `${props.theme.lineHeights.text}`};
+
+  @media screen and (min-width: 768px) {
+    padding: 10px 30px;
+    width: 160px;
+  }
+`;
