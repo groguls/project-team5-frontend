@@ -27,12 +27,12 @@ export const AmountOfWater = () => {
 
   return (
     <>
-      <Typography styled="ListTitle">
-        <ListTitle>Choose a value:</ListTitle>
-      </Typography>
-      <Typography styled="Text">
-        <Text>Amount of water:</Text>
-      </Typography>
+      <ListTitle>
+        <Typography styled="ListTitle">Choose a value:</Typography>
+      </ListTitle>
+      <Text>
+        <Typography styled="Text">Amount of water:</Typography>
+      </Text>
       <Amounter>
         <AddButton
           onClick={() => dispatch({ type: 'decrement', payload: 50 })}
