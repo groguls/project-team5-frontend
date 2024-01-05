@@ -1,9 +1,15 @@
+import { useDispatch, useSelector } from 'react-redux';
+import { selectTimeOfPortion } from '../../redux/selectors';
+import { updateTimeInfo } from '../../redux/water/waterSlice';
 import Typography from 'components/Typography/Typography';
 import { RecordingTime, Select } from './AddWaterModal.styled';
 
 export const AddWaterTime = () => {
+  const date = useSelector(selectTimeOfPortion);
+  const dispatch = useDispatch();
+
   const currentDate = new Date();
-  const hour = currentDate.getHours();
+  const hour = currentDate.getHours().toString();
   const min = currentDate.getMinutes().toString().padStart(2, '0');
 
   const options = [];
@@ -20,6 +26,7 @@ export const AddWaterTime = () => {
       );
     }
   }
+  console.log('AddWaterTime  options:', typeof options);
 
   return (
     <RecordingTime>
@@ -28,7 +35,7 @@ export const AddWaterTime = () => {
         <option>
           {hour}:{min}
         </option>
-        {options}
+        {/* {options} */}
       </Select>
     </RecordingTime>
   );
