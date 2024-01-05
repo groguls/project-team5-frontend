@@ -30,6 +30,7 @@ const theme = createTheme({
 const textFieldStyle = {
   width: '280px',
   height: '44px',
+
   [theme.breakpoints.down('sm')]: {
     width: '280px',
   },
@@ -49,6 +50,7 @@ export const InputNameEmail = ({
   onChange,
   onBlur,
   id,
+  helperText,
 }) => {
   return (
     <ThemeProvider theme={theme}>
@@ -60,6 +62,7 @@ export const InputNameEmail = ({
             padding: '12px 10px 12px 10px',
             fontSize: theme.typography.fontSize,
             lineHeight: theme.typography.lineHeight,
+
             '&:hover': {
               color: theme.colors.primaryBlue,
             },
@@ -102,15 +105,17 @@ export const InputNameEmail = ({
             },
           },
           '& .MuiFormHelperText-root': {
-            fontSize: '14px', // Adjust the font size of the helperText
+            fontSize: '14px',
             lineHeight: '18px',
+            margin: '0',
+            marginTop: '2px',
           },
         }}
         id={id}
         placeholder={placeholderText}
         variant="outlined"
         error={error}
-        helperText={error ? `${placeholderText} is invalid` : ''}
+        helperText={error ? `${helperText}` : ''}
         type={type}
         name={type}
         value={value}

@@ -15,15 +15,15 @@ export const theme = Object.freeze({
   },
 
   fontSizes: {
-    mainTitle: 36,
-    subtitle: 26,
-    listTitle: 18,
-    text: 16,
+    mainTitle: '36px',
+    subtitle: '26px',
+    listTitle: '18px',
+    text: '16px',
   },
 
   fontWeights: {
     bold: 700,
-    medium: 500,
+    medium: 600,
     regular: 400,
   },
 
@@ -41,5 +41,16 @@ export const theme = Object.freeze({
     userModal: '0px 4px 8px 0px rgba(64, 123, 255, 0.20)',
     normaFrame: '0px 4px 8px 0px rgba(158, 187, 255, 0.12)',
     wrapper: '0px 4px 14px 0px rgba(64, 123, 255, 0.30)',
+  },
+
+  border: {
+    normal: '1px solid #407BFF',
+    secondary: '1px solid #9EBBFF',
+  },
+
+  radii: {
+    round: '50%',
+    medium: '40px',
+    normal: '10px',
   },
 });

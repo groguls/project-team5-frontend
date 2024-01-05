@@ -72,6 +72,7 @@ export default function InputPassword({
   id,
   onChange,
   onBlur,
+  helperText,
 }) {
   const [showPassword, setShowPassword] = useState(false);
 
@@ -94,7 +95,7 @@ export default function InputPassword({
     >
       <OutlinedInput
         id={id}
-        type={showPassword ? 'password' : 'text'}
+        type={showPassword ? 'text' : 'password'}
         placeholder={placeholderText}
         value={value}
         onChange={onChange}
@@ -160,7 +161,7 @@ export default function InputPassword({
                 },
               }}
             >
-              {showPassword ? <VisibilityOff /> : <Visibility />}
+              {showPassword ? <Visibility /> : <VisibilityOff />}
             </IconButton>
           </InputAdornment>
         }
@@ -175,7 +176,7 @@ export default function InputPassword({
           margin: '0',
         }}
       >
-        {error ? `${placeholderText} is invalid` : ''}
+        {error ? `${helperText}` : ''}
       </FormHelperText>
     </FormControl>
   );

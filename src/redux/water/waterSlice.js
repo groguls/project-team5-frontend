@@ -10,6 +10,7 @@ import {
 
 const initialState = {
   monthInfo: [],
+  currentMonth: '',
   today: {
     percent: 0,
     dailyWaterList: [],
@@ -19,15 +20,29 @@ const initialState = {
 };
 
 const waterSlice = createSlice({
-  name: 'user',
+  name: 'water',
   initialState,
+  reducers: {
+    updateDailyNorma: (state, { payload }) => {
+      state.monthInfo = state.monthInfo.map(day => ({
+        ...day,
+        dailyNorma: payload,
+      }));
+    },
+    updateMonthInfo(state, action) {
+      state.monthInfo = action.payload;
+    },
+    updateDayInfo(state, action) {
+      state.dayInfo = action.payload;
+    },
+  },
   extraReducers: builder => {
     builder
       .addCase(getMonthInfo.pending, state => {
         state.isLoading = true;
       })
       .addCase(getMonthInfo.fulfilled, (state, { payload }) => {
-        state.monthInfo = [...payload];
+        state.monthInfo = [...state.monthInfo, ...payload];
         state.isLoading = false;
       })
       .addCase(getMonthInfo.rejected, (_, { payload }) => ({
@@ -88,5 +103,6 @@ const waterSlice = createSlice({
   },
 });
 
-export const { updateDailyNorma } = waterSlice.actions;
+export const { updateDailyNorma, updateMonthInfo, updateDayInfo } =
+  waterSlice.actions;
 export const waterReducer = waterSlice.reducer;

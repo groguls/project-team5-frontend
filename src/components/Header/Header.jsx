@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-
+import { useState } from 'react';
 import { Logo } from 'components/Icons/Logo';
 import { Link } from 'react-router-dom';
 import {
@@ -21,14 +21,19 @@ import { UserLogo } from 'components/UserLogo/UserLogo';
 
 import { UserLogoModal } from 'components/UserLogoModal/UserLogoModal';
 
-export const Header = ({ onClick, logoModal }) => {
+export const Header = () => {
   // const toggleModal = useModal();
 
   const isLoggedIn = useSelector(selectIsLoggedIn);
   const userName = useSelector(selectName);
   const userLogo = useSelector(selectUserLogo);
+  const [logoModal, setLogoModal] = useState(false);
 
   // const defaultName = 'V';
+
+  const toggleModal = () => {
+    setLogoModal(logoModal => !logoModal);
+  };
 
   return (
     <HeaderContainer>
@@ -37,11 +42,11 @@ export const Header = ({ onClick, logoModal }) => {
       </Link>
 
       {isLoggedIn ? (
-        <UserLogoContainer>
+        <UserLogoContainer onClick={toggleModal}>
           <UserName>{userName}</UserName>
           {userLogo ? <UserLogo /> : ''}
-          <ArrowDown onClick={onClick} />
-          {logoModal && <UserLogoModal />}
+          <ArrowDown />
+          {logoModal && <UserLogoModal onClose={toggleModal} />}
         </UserLogoContainer>
       ) : (
         <Link to="/signin">

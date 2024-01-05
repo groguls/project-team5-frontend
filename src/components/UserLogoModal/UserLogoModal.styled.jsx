@@ -1,15 +1,46 @@
 import { styled } from 'styled-components';
 
-export const BackdropBox = styled.div`
+export const Backdrop = styled.div`
+  position: fixed;
+  top: 0;
+  left: 50%;
+  height: 100vh;
+  width: 320px;
+
+  background-color: transparent;
+
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1) visibility 250ms
+    cubic-bezier(0.4, 0, 0.2, 1);
+
+  @media screen and (min-width: 768px) {
+    width: 768px;
+  }
+  @media screen and (min-width: 1440px) {
+    width: 1440px;
+  }
+`;
+
+export const Modal = styled.div`
+  width: 118px;
+
+  /* transform: translate(0%, 0%); */
+  z-index: 2000;
   display: flex;
   flex-direction: column;
   background: #ffffff;
   border: none;
-  border-radius: 4px;
+  border-radius: 10px;
   box-shadow: ${props => `${props.theme.shadows.userModal}`};
-  /* transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
-   visibility 250ms cubic-bezier(0.4, 0, 0.2, 1); */
-  transform: translate(0%, 70%);
+
+  transition: all;
+
+  position: absolute;
+  top: 48px;
+  right: 0%;
+
+  @media screen and (min-width: 768px) {
+    top: 56px;
+  }
 `;
 
 export const Button = styled.button`
@@ -43,4 +74,8 @@ export const Button = styled.button`
     font-size: 18px;
     line-height: 1.33;
   }
+`;
+
+export const IconBox = styled.div`
+  margin-right: 8px;
 `;

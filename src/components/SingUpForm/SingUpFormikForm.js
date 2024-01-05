@@ -13,10 +13,9 @@ import {
 
 import { signUp } from '../../redux/auth/operations';
 
-const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-const passwordRegex =
-  /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+const passwordRegex = /^.{8,64}$/;
 
 const formSchema = Yup.object().shape({
   email: Yup.string()
@@ -26,7 +25,7 @@ const formSchema = Yup.object().shape({
     .required('Required'),
   password: Yup.string()
     .matches(passwordRegex, {
-      message: `Invalid password. Password must be at least 8 characters long and include at least one uppercase letter, one lowercase letter, one digit, and one special character (@$!%*?&).`,
+      message: `Invalid password. Password must be at least 8 characters long.`,
     })
     .required('Required'),
   repeatPassword: Yup.string()
@@ -70,10 +69,11 @@ export const SingUpFormFormik = () => {
           onBlur={formik.handleBlur}
           error={formik.touched.email && Boolean(formik.errors.email)}
           id={'email'}
+          helperText={'Invalid email format'}
         />
       </InputForm>
-      <InputForm>
-        <label htmlFor="email">Enter your password</label>
+      <InputForm style={{ marginTop: formik.errors.email ? '10px' : '0px' }}>
+        <label htmlFor="password">Enter your password</label>
         <InputPassword
           placeholderText={'Password'}
           type={'password'}
@@ -81,24 +81,33 @@ export const SingUpFormFormik = () => {
           onChange={formik.handleChange}
           error={formik.touched.password && Boolean(formik.errors.password)}
           id={'password'}
+          helperText={'Must be at least 8 characters long'}
+          onBlur={formik.handleBlur}
         />
       </InputForm>
 
-      <InputForm>
+      <InputForm style={{ marginTop: formik.errors.password ? '10px' : '0px' }}>
         <label htmlFor="email">Repeat password</label>
         <InputPassword
           placeholderText={'Repeat password'}
           type={'password'}
           value={formik.values.repeatPassword}
           onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
           error={
             formik.touched.repeatPassword &&
             Boolean(formik.errors.repeatPassword)
           }
           id={'repeatPassword'}
+          helperText={'Passwords must match'}
         />
       </InputForm>
-      <ButtonSubmit type="submit">Sign Up</ButtonSubmit>
+      <ButtonSubmit
+        type="submit"
+        style={{ marginTop: formik.errors.repeatPassword ? '10px' : '0px' }}
+      >
+        Sign Up
+      </ButtonSubmit>
       <ButtonLink>
         <a href="signin">Sign In</a>
       </ButtonLink>
