@@ -1,47 +1,33 @@
 import React from 'react';
 import {
-  ModalWrapper,
-  Content,
   ButtonGroup,
   CancelButton,
   LogoutButton,
-  CloseIcon,
-  LogoutTitle,
-  Question,
-} from './LogOut.styled';
-import { theme } from 'styles/theme';
-import { logout } from 'redux/auth/operations';
+  LogOutCaption,
+} from './LogOutUser.styled';
+import { logOut } from '../../redux/auth/operations';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { Plus } from 'components/Icons/Plus/Plus';
-import Modal from 'components/Modal';
+import { useModal } from '../ModalContextProvider/ModalContextProvider';
 
-const LogOut = ({ onClose }) => {
+export const LogOutUser = ({ onClose }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const toggleModal = useModal();
 
   const handleLogout = () => {
-    dispatch(logout());
+    toggleModal();
+    dispatch(logOut());
     onClose();
     navigate('/');
   };
   return (
-    <Modal type="logout" onClose={onClose}>
-      <ModalWrapper onClick={e => e.stopPropagation()}>
-        <CloseIcon onClick={() => onClose()}>
-          <Plus stroke={theme.colors.primaryBlue} width={32} height={32} />
-        </CloseIcon>
-        <Content>
-          <LogoutTitle>Log out</LogoutTitle>
-          <Question>Do you really want to leave?</Question>
-        </Content>
-        <ButtonGroup>
-          <CancelButton onClick={() => onClose()}>Cancel</CancelButton>
-          <LogoutButton onClick={handleLogout}>Log out</LogoutButton>
-        </ButtonGroup>
-      </ModalWrapper>
-    </Modal>
+    <>
+      <LogOutCaption>Do you really want to leave?</LogOutCaption>
+      <ButtonGroup>
+        <CancelButton onClick={() => toggleModal()}>Cancel</CancelButton>
+        <LogoutButton onClick={handleLogout}>Log out</LogoutButton>
+      </ButtonGroup>
+    </>
   );
 };
-
-export default LogOut;
