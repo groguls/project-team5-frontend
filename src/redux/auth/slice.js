@@ -53,7 +53,7 @@ const authSlice = createSlice({
         state.isRefreshing = false;
       })
       .addCase(updateWaterRate.fulfilled, (state, { payload }) => {
-        state.user.dailyNorma = payload.dailyNorma;
+        state.user.waterRate = payload.waterRate;
       });
   },
 });
