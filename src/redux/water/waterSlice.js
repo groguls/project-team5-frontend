@@ -33,7 +33,7 @@ const waterSlice = createSlice({
       state.monthInfo = action.payload;
     },
     updateDayInfo(state, action) {
-      state.dayInfo = action.payload;
+      state.today = action.payload;
     },
   },
   extraReducers: builder => {
