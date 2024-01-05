@@ -7,7 +7,7 @@ import { Minus } from 'components/Icons/Minus';
 import { Amounter, AddButton, AddWaterValue } from './AddWaterModal.styled';
 
 export const AmountOfWater = () => {
-  const amount = useSelector(selectAddWater);
+  const waterVolume = useSelector(selectAddWater);
   const dispatch = useDispatch();
 
   return (
@@ -18,7 +18,9 @@ export const AmountOfWater = () => {
         <AddButton onClick={() => dispatch(decrement(50))} type="button">
           <Minus />
         </AddButton>
-        <AddWaterValue>{amount >= 50 ? amount + 'ml' : 0}</AddWaterValue>
+        <AddWaterValue>
+          {waterVolume >= 50 ? waterVolume + 'ml' : 0}
+        </AddWaterValue>
         <AddButton onClick={() => dispatch(increment(50))} type="button">
           <Plus />
         </AddButton>

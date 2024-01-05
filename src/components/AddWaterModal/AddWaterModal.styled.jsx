@@ -49,6 +49,25 @@ export const Input = styled.input`
   }
 `;
 
+export const Select = styled.select`
+  padding: 12px 10px;
+  width: 100%;
+  border: 1px solid ${props => `${props.theme.colors.secondaryGrayBlue}`};
+  border-radius: 6px;
+
+  color: ${props => `${props.theme.colors.primaryBlue}`};
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.25;
+  letter-spacing: 0em;
+  text-align: left;
+
+  &:focus {
+    outline: none;
+    color: ${props => `${props.theme.colors.primaryBlue}`};
+  }
+`;
+
 export const AddButton = styled.button`
   display: flex;
   justify-content: center;
@@ -68,7 +87,12 @@ export const SaveBtnBox = styled.div`
 `;
 
 export const SavedLabel = styled.input`
-  padding: 10px 30px 10px 0;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  width: 20%;
+  padding: 10px 0 10px 0;
+  border: transparent;
   color: ${props => `${props.theme.colors.primaryBlue}`};
 `;
 

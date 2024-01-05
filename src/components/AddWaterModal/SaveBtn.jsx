@@ -1,12 +1,14 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectAddWater } from '../../redux/selectors';
 import { useModal } from '../ModalContextProvider/ModalContextProvider';
 import Button from 'components/Button/Button';
 import { addWater } from '../../redux/water/waterOperations';
-import { updateDayInfo } from '../../redux/water/waterSlice';
+import { updatePortionInfo } from '../../redux/water/waterSlice';
 import { FormStyles, SaveBtnBox, SavedLabel } from './AddWaterModal.styled';
 import toast from 'react-hot-toast';
 
 export const SaveBtn = () => {
+  const waterVolume = useSelector(selectAddWater);
   const dispatch = useDispatch();
   const toggleModal = useModal();
 
@@ -17,7 +19,7 @@ export const SaveBtn = () => {
     dispatch(addWater(addWaterRate))
       .unwrap()
       .then(() => {
-        dispatch(updateDayInfo(addWaterRate));
+        dispatch(updatePortionInfo(addWaterRate));
         toast.success('Water was successfully added');
         toggleModal();
       })
@@ -29,9 +31,14 @@ export const SaveBtn = () => {
   return (
     <FormStyles onSubmit={handleSubmit}>
       <SaveBtnBox>
-        <label>
-          <SavedLabel type="number" name="amount" min={0} />
-        </label>
+        <SavedLabel
+          type="number"
+          name="amount"
+          max={5000}
+          min={1}
+          value={waterVolume}
+          readOnly
+        />
         <Button type="submit" label={'Save'} width="160px" />
       </SaveBtnBox>
     </FormStyles>
