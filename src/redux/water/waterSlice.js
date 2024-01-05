@@ -14,6 +14,8 @@ const initialState = {
   today: {
     percent: 0,
     dailyWaterList: [],
+    amount: 0,
+    time: null,
   },
   isLoading: false,
   error: null,
@@ -32,8 +34,16 @@ const waterSlice = createSlice({
     updateMonthInfo(state, action) {
       state.monthInfo = action.payload;
     },
+
     updateDayInfo(state, action) {
-      state.today = action.payload;
+      state.today.amount = action.payload;
+    },
+
+    decrement: (state, { payload }) => {
+      state.today.amount -= payload;
+    },
+    increment: (state, { payload }) => {
+      state.today.amount += payload;
     },
   },
   extraReducers: builder => {
@@ -103,6 +113,11 @@ const waterSlice = createSlice({
   },
 });
 
-export const { updateDailyNorma, updateMonthInfo, updateDayInfo } =
-  waterSlice.actions;
+export const {
+  updateDailyNorma,
+  updateMonthInfo,
+  updateDayInfo,
+  decrement,
+  increment,
+} = waterSlice.actions;
 export const waterReducer = waterSlice.reducer;
