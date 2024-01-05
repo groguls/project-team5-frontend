@@ -1,11 +1,33 @@
 import React from 'react';
+import {
+  ButtonGroup,
+  CancelButton,
+  LogoutButton,
+  LogOutCaption,
+} from './LogOutUser.styled';
+import { logOut } from '../../redux/auth/operations';
 import { useDispatch } from 'react-redux';
-import { logOut } from 'redux/auth/operations';
-import { StyledButton } from 'components/Button/Button.styled';
+import { useNavigate } from 'react-router-dom';
+import { useModal } from '../ModalContextProvider/ModalContextProvider';
 
-export const LogOutUser = () => {
+export const LogOutUser = ({ onClose }) => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const toggleModal = useModal();
+
+  const handleLogout = () => {
+    toggleModal();
+    dispatch(logOut());
+    onClose();
+    navigate('/');
+  };
   return (
-    <StyledButton onClick={() => dispatch(logOut())}>Log out</StyledButton>
+    <>
+      <LogOutCaption>Do you really want to leave?</LogOutCaption>
+      <ButtonGroup>
+        <CancelButton onClick={() => toggleModal()}>Cancel</CancelButton>
+        <LogoutButton onClick={handleLogout}>Log out</LogoutButton>
+      </ButtonGroup>
+    </>
   );
 };
