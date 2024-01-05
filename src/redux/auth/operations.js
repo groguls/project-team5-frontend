@@ -30,7 +30,7 @@ export const signIn = createAsyncThunk(
   'auth/signIn',
   async (credentials, thunkAPI) => {
     try {
-      const { data } = await instance.post('/users/signin', credentials);
+      const { data } = await instance.post('users/signin', credentials);
       setAuthHeader(data.token);
       return data;
     } catch (error) {
@@ -53,7 +53,6 @@ export const refreshUser = createAsyncThunk(
   async (_, thunkAPI) => {
     const state = thunkAPI.getState();
     const persistedToken = state.auth.token;
-    console.log(persistedToken);
 
     if (persistedToken === null) {
       return thunkAPI.rejectWithValue('No user persisted. Please login.');
@@ -75,7 +74,7 @@ export const updateWaterRate = createAsyncThunk(
   'auth/updateWaterRate',
   async (newData, thunkAPI) => {
     try {
-      const { data } = await instance.patch('/users/waterRate', {
+      const { data } = await instance.patch('users/waterRate', {
         waterRate: newData,
       });
       console.log(data);
