@@ -18,9 +18,7 @@ export const AmountOfWater = () => {
         <AddButton onClick={() => dispatch(decrement(50))} type="button">
           <Minus />
         </AddButton>
-        <AddWaterValue>
-          {waterVolume >= 50 ? waterVolume + 'ml' : 0}
-        </AddWaterValue>
+        <AddWaterValue>{waterVolume >= 50 ? waterVolume : 0} ml</AddWaterValue>
         <AddButton onClick={() => dispatch(increment(50))} type="button">
           <Plus />
         </AddButton>

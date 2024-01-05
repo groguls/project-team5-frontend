@@ -15,7 +15,7 @@ export const AddEnterValueWater = () => {
     if (value === '' || /^[0-9\b}+$]/.test(value)) {
       setInput(value);
     }
-    dispatch(updatePortionInfo(value));
+    dispatch(updatePortionInfo(Number(value)));
   };
 
   return (
@@ -25,10 +25,11 @@ export const AddEnterValueWater = () => {
           Enter the value of the whater used:
         </Typography>
         <Input
-          type="text"
+          type="number"
           name="waterVolume"
-          value={input || waterVolume}
-          min={0}
+          value={waterVolume}
+          max={5000}
+          min={1}
           step={1}
           placeholder="0"
           onChange={handleChange}

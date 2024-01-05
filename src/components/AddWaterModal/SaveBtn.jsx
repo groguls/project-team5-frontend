@@ -14,7 +14,7 @@ export const SaveBtn = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    const addWaterRate = e.target.elements.amount.value;
+    const addWaterRate = Number(e.target.elements.amount.value);
 
     dispatch(addWater(addWaterRate))
       .unwrap()
