@@ -30,7 +30,7 @@ const waterSlice = createSlice({
     updateDailyNorma: (state, { payload }) => {
       state.monthInfo = state.monthInfo.map(day => ({
         ...day,
-        dailyNorma: payload,
+        dailyWaterRate: payload,
       }));
     },
     updateMonthInfo(state, action) {
