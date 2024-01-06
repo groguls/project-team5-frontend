@@ -1,15 +1,58 @@
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { useModal } from '../ModalContextProvider/ModalContextProvider';
+import { addWater } from '../../redux/water/waterOperations';
+import {
+  updatePortionInfo,
+  updateTimeInfo,
+} from '../../redux/water/waterSlice';
 import { AmountOfWater } from './AmountOfWater';
 import { AddWaterTime } from './AddWaterTime';
 import { AddEnterValueWater } from './AddEnterValueWater';
-import { SaveBtn } from './SaveBtn';
+import Button from 'components/Button/Button';
+import {
+  FormStyles,
+  SaveBtnBox,
+  SavedLabel,
+  LabelBox,
+  BtnBox,
+} from './AddWaterModal.styled';
+import toast from 'react-hot-toast';
 
 export const AddWaterModal = () => {
+  const dispatch = useDispatch();
+  const toggleModal = useModal();
+  const [waterVolume, setWaterVolume] = useState(50);
+  const [date, setDate] = useState('');
+
+  const handleSubmit = e => {
+    e.preventDefault();
+
+    dispatch(addWater({ waterVolume, date }))
+      .unwrap()
+      .then(() => {
+        dispatch(updatePortionInfo(waterVolume));
+        dispatch(updateTimeInfo(date));
+        toast.success('Water was successfully added');
+        toggleModal();
+      })
+      .catch(error => {
+        toast.error(error);
+      });
+  };
   return (
-    <>
-      <AmountOfWater />
-      <AddWaterTime />
-      <AddEnterValueWater />
-      <SaveBtn />
-    </>
+    <FormStyles onSubmit={handleSubmit}>
+      <AmountOfWater water={waterVolume} setWater={setWaterVolume} />
+      <AddWaterTime dateValue={date} setDateValue={setDate} />
+      <AddEnterValueWater water={waterVolume} setWater={setWaterVolume} />
+      <SaveBtnBox>
+        <LabelBox>
+          <SavedLabel>{waterVolume}ml</SavedLabel>
+        </LabelBox>
+        <BtnBox>
+          <Button type="submit" label={'Save'} width="160px" />
+        </BtnBox>
+      </SaveBtnBox>
+    </FormStyles>
   );
 };
