@@ -40,9 +40,9 @@ export const addWater = createAsyncThunk(
 
 export const deleteWater = createAsyncThunk(
   'water/deleteWater',
-  async ({ _id }, thunkAPI) => {
+  async (id, thunkAPI) => {
     try {
-      const { data } = await instance.delete('/water', { id: _id });
+      const { data } = await instance.delete(`/water/${id}`, id);
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
