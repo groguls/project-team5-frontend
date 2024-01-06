@@ -8,12 +8,12 @@ export const GenderContainer = styled.div`
   margin-bottom: 12px;
 
   p {
-    font-size: 16px;
-    line-height: 1.25;
+    font-size: ${props => `${props.theme.fontSizes.text}`};
+    line-height: ${props => `${props.theme.lineHeights.text}`};
   }
   span {
     color: ${props => `${props.theme.colors.primaryBlue}`};
-    font-size: 18px;
+    font-size: ${props => `${props.theme.fontSizes.listTitle}`};
     line-height: 1.33;
   }
 
@@ -26,13 +26,12 @@ export const GenderContainer = styled.div`
 export const ExplanationContainer = styled.p`
   padding: 10px;
   margin-bottom: 24px;
-
   color: #8f8f8f;
   border-radius: 10px;
   border: 1px solid ${props => `${props.theme.colors.secondaryGray}`};
-
   font-size: 12px;
   line-height: 1.33;
+
   span {
     color: ${props => `${props.theme.colors.primaryBlue}`};
   }
@@ -46,18 +45,17 @@ export const ArticleCalculateWrapper = styled.article`
 
   h3 {
     color: ${props => `${props.theme.colors.primaryBlack}`};
-    font-size: 18px;
+    font-size: ${props => `${props.theme.fontSizes.listTitle}`};
     font-weight: 500;
-    line-height: 1.1;
+    line-height: ${props => `${props.theme.lineHeights.listTitle}`};
   }
 
   label {
     display: flex;
     flex-direction: column;
     gap: 8px;
-
-    font-size: 16px;
-    line-height: 1.25;
+    font-size: ${props => `${props.theme.fontSizes.text}`};
+    line-height: ${props => `${props.theme.lineHeights.text}`};
     color: ${props => `${props.theme.colors.primaryBlack}`};
   }
 `;
@@ -85,9 +83,8 @@ export const PAmountOfWater = styled.p`
 
   span {
     display: block;
-
-    font-size: 18px;
-    font-weight: 700;
+    font-size: ${props => `${props.theme.fontSizes.listTitle}`};
+    font-weight: ${props => `${props.theme.fontWeights.bold}`};
     line-height: 24px;
     letter-spacing: 0em;
     text-align: left;
@@ -101,8 +98,7 @@ export const FormStyles = styled.form`
     flex-direction: column;
     gap: 16px;
     margin-bottom: 24px;
-
-    font-size: 18px;
+    font-size: ${props => `${props.theme.fontSizes.listTitle}`};
     font-weight: 500;
     line-height: 20px;
     letter-spacing: 0em;
@@ -125,7 +121,7 @@ export const BtnSave = styled.button`
   border-radius: 10px;
   color: ${props => `${props.theme.colors.primaryWhite}`};
   text-align: center;
-  font-size: 18px;
+  font-size: ${props => `${props.theme.fontSizes.listTitle}`};
   font-style: normal;
   font-weight: 500;
   line-height: 1.33;
@@ -155,9 +151,9 @@ export const CalculateInput = styled.input`
   border-radius: 6px;
 
   color: ${props => `${props.theme.colors.primaryBlue}`};
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 1.25;
+  font-size: ${props => `${props.theme.fontSizes.text}`};
+  font-weight: ${props => `${props.theme.fontWeights.regular}`};
+  line-height: ${props => `${props.theme.lineHeights.text}`};
   letter-spacing: 0em;
   text-align: left;
 

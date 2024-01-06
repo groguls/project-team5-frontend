@@ -1,4 +1,5 @@
 import { PencilSquare } from '../Icons/PencilSquare';
+
 import { Basket } from '../Icons/Basket';
 import {
   StyledGlassOfWater,
@@ -9,8 +10,12 @@ import {
   WaterVolume,
 } from './TodayServingsListItem.styled';
 
+
 export const TodayServingListItem = ({ todayList }) => {
+ 
+
   return (
+
     <>
       <TodayItem>
         <TodayData>
@@ -24,5 +29,6 @@ export const TodayServingListItem = ({ todayList }) => {
         </TodayIcons>
       </TodayItem>
     </>
+
   );
 };

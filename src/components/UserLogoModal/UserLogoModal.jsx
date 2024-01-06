@@ -2,12 +2,12 @@ import { useEffect } from 'react';
 import { Backdrop, Button, Modal, IconBox } from './UserLogoModal.styled';
 import { Settings } from '../Icons/Settings';
 import { Logout } from '../Icons/Logout';
-import { useDispatch } from 'react-redux';
-import { logOut } from '../../redux/auth/operations';
+import { useModal } from '../ModalContextProvider/ModalContextProvider';
+import { LogOutUser } from 'components/LogOutUser/LogOutUser';
 
 export const UserLogoModal = ({ onClose }) => {
-  const dispatch = useDispatch();
   const UserInfoModal = () => {};
+  const toggleModal = useModal();
   // const UserLogoutModal = () => {};
 
   useEffect(() => {
@@ -38,7 +38,12 @@ export const UserLogoModal = ({ onClose }) => {
           </IconBox>
           Setting
         </Button>
-        <Button type="button" onClick={() => dispatch(logOut())}>
+        <Button
+          type="button"
+          onClick={() =>
+            toggleModal(<LogOutUser size={'small'} title={'Log Out'} />)
+          }
+        >
           <IconBox>
             <Logout />
           </IconBox>

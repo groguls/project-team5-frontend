@@ -1,3 +1,4 @@
+
 import { styled } from 'styled-components';
 import { GlassOfWater } from '../Icons/GlassOfWater';
 
@@ -52,5 +53,7 @@ export const StyledGlassOfWater = styled(GlassOfWater)`
   @media screen and (min-width: 768px) {
     width: 36px;
     height: 36px;
+
+
   }
 `;

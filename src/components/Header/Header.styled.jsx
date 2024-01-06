@@ -41,20 +41,19 @@ export const UserLogoContainer = styled.div`
 export const UserName = styled.p``;
 
 export const Button = styled.button`
-  width: 50px;
+  width: 48px;
   background-color: transparent;
   color: ${props => `${props.theme.colors.primaryBlue}`};
-
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 1.25;
+  font-size: ${props => `${props.theme.fontSizes.text}`};
+  font-weight: ${props => `${props.theme.fontWeights.regular}`};
+  line-height: ${props => `${props.theme.lineHeights.text}`};
   border: none;
   padding: 0;
   cursor: pointer;
 
   @media (min-width: 768px) {
-    width: 56px;
-    font-size: 18px;
+    width: 54px;
+    font-size: ${props => `${props.theme.fontSizes.listTitle}`};
     line-height: 1.33;
   }
 `;

@@ -13,7 +13,7 @@ export const DailyNormaContainer = styled.div`
 
   p {
     color: ${props => `${props.theme.colors.primaryBlack}`};
-    font-size: 18px;
+    font-size: ${props => `${props.theme.fontSizes.listTitle}`};
     font-weight: 500;
     line-height: 24px;
     letter-spacing: 0em;
@@ -31,7 +31,7 @@ export const DailyNormaContainerStats = styled.div`
   span {
     color: ${props => `${props.theme.colors.primaryBlue}`};
     font-size: 24px;
-    font-weight: 700;
+    font-weight: ${props => `${props.theme.fontWeights.regular}`};
     line-height: 24px;
   }
 
@@ -39,9 +39,8 @@ export const DailyNormaContainerStats = styled.div`
     background: transparent;
     border: none;
     color: ${props => `${props.theme.colors.secondaryBlue}`};
-
-    font-size: 16px;
-    font-weight: 400;
+    font-size: ${props => `${props.theme.fontSizes.text}`};
+    font-weight: ${props => `${props.theme.fontWeights.regular}`};
     line-height: 20px;
     cursor: pointer;
     transition: color 0.2s linear;
