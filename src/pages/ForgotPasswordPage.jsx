@@ -45,7 +45,7 @@ const [emailError, setEmailError] = useState('');
     <AuthLayout>
       <FormContainer>
         <Title>Forgot Password</Title>
-        <InputForm>
+        <InputForm style={{ marginBottom: emailError ? '10px' : '0px' }}>
           <label htmlFor="email">Enter your email</label>
           <InputNameEmail
             placeholderText={'Email'}
