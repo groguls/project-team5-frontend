@@ -7,7 +7,7 @@ import { RecordingTime, Select, Article } from './AddWaterModal.styled';
 export const AddWaterTime = () => {
   const dispatch = useDispatch();
   const currentDate = new Date();
-  const formattedHour = currentDate.getHours().toString().padStart(2, '0');
+  const formattedHour = currentDate.getHours().toString();
   const formattedMin = currentDate.getMinutes().toString().padStart(2, '0');
   const currentTime = `${formattedHour}:${formattedMin}`;
 

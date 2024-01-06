@@ -101,6 +101,11 @@ export const SavedLabel = styled.input`
   color: ${props => `${props.theme.colors.primaryBlue}`};
 `;
 
+export const LabelBox = styled.div`
+  display: 'flex';
+  align-items: 'center';
+`;
+
 export const BtnBox = styled.div`
   margin: 0px;
 `;
