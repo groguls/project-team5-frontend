@@ -10,6 +10,8 @@ export const AddEnterValueWater = () => {
   const waterVolume = useSelector(selectAddWater);
   const dispatch = useDispatch();
 
+  console.log(input);
+
   const handleChange = e => {
     const value = e.target.value;
     if (value === '' || /^[0-9\b}+$]/.test(value)) {
