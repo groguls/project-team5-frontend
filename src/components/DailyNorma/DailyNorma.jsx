@@ -19,7 +19,7 @@ export const DailyNorma = () => {
         <button
           onClick={() => {
             toggleModal(
-              <DailyNormaModal size="medium" title="My daily norma" />
+              <DailyNormaModal size={'medium'} title={'My daily norma'} />
             );
           }}
           type="button"

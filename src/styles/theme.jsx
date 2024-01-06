@@ -11,7 +11,7 @@ export const theme = Object.freeze({
   },
 
   fonts: {
-    body: 'Roboto, san-sarif',
+    body: 'Roboto, sans-serif',
   },
 
   fontSizes: {

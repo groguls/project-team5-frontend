@@ -1,7 +1,7 @@
 import { styled } from 'styled-components';
 import { background } from '../HomePage/background';
 
-const handleBackgroundBottle = (size, page = 'home', retina = false) => {
+const handleBackgroundBottle = (size, page = 'welcome', retina = false) => {
   return retina
     ? background[page][size].bottleRetina
     : background[page][size].bottle;
@@ -36,6 +36,7 @@ export const MainContainer = styled.main`
       $page === 'welcome' ? 'cover' : 'cover, 518px 386px'};
     background-position: ${({ $page }) =>
       $page === 'welcome' ? 'bottom center' : 'top left, top 16px center'};
+
     @media (min-device-pixel-ratio: 2),
       (min-resolution: 192dpi),
       (min-resolution: 2dppx) {
@@ -57,6 +58,7 @@ export const MainContainer = styled.main`
       $page === 'welcome' ? 'contain' : 'cover, 738px 548px'};
     background-position: ${({ $page }) =>
       $page === 'welcome' ? 'bottom center' : 'top left, top left 36px'};
+
     @media (min-device-pixel-ratio: 2),
       (min-resolution: 192dpi),
       (min-resolution: 2dppx) {
