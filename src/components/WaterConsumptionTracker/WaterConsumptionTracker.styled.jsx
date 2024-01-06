@@ -39,7 +39,7 @@ export const ListItemContainer = styled.div`
   }
 `;
 
-export const ListContainer = styled.div`
+export const ListContainer = styled.ul`
   width: 248px;
   @media screen and (min-width: 768px) {
   }
