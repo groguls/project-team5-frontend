@@ -31,7 +31,7 @@ export const Header = () => {
   const defaultName = 'V';
 
   const toggleModal = () => {
-    setLogoModal(logoModal => !logoModal);
+    setLogoModal(!logoModal);
   };
 
   const switchSettingModal = () => {

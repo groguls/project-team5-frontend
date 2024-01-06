@@ -72,7 +72,6 @@ export const SettingModal = ({ onClose }) => {
   const [userPhoto, setUserPhoto] = useState(null);
   const [userPhotoFile, setUserPhotoFile] = useState(null);
   const [gender, setGender] = useState(0);
-  const [visiblePassConfirmError, setVisiblePassConfirmError] = useState(false);
 
   const user = useSelector(selectUser);
   const userName = useSelector(selectName);
@@ -107,9 +106,6 @@ export const SettingModal = ({ onClose }) => {
         data = { ...data, email: formEmail };
       }
       if (formOldPassword.length > 0 && formNewPassword.length > 0 && formRepeatPassword.length > 0) {
-        if (formNewPassword !== formRepeatPassword) {
-          setVisiblePassConfirmError(true);
-        }
         data = { ...data, oldPassword: formOldPassword, newPassword: formNewPassword };
       }
 
