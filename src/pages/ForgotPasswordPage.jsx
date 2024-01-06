@@ -18,9 +18,7 @@ const ForgotPasswordPage = () => {
     setEmail(newEmail);
 
     const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    setEmailError(
-      emailPattern.test(newEmail) ? '' : 'Введите корректный email'
-    );
+    setEmailError(emailPattern.test(newEmail) ? '' : 'Invalid email');
   };
 
   const handleSendClick = async evt => {
