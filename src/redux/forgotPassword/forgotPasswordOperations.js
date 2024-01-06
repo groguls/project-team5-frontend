@@ -2,18 +2,17 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const instance = axios.create({
-  baseURL: 'http://localhost:5000/users', // Подставьте ваш URL бэкенда
-});
+const baseUrl = 'https://watertracker-by-group5.onrender.com/api';
 
-export const recoverPassword = createAsyncThunk(
-  'forgotPassword/recoverPassword',
+export const sendForgotPasswordRequest = createAsyncThunk(
+  'forgotPassword/sendRequest',
   async (email, thunkAPI) => {
     try {
-      const { data } = await instance.post('/recover-password', { email });
-      return data.message;
+      const response = await axios.post(`${baseUrl}/settings/forgotPassword`, { email });
+      return response.data;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue(error.response.data);
     }
   }
 );
+

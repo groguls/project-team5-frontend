@@ -13,6 +13,7 @@ import {
 import { authReducer } from './auth/slice';
 import { loadingReducer } from './loading/LoadingSlice';
 import { waterReducer } from './water/waterSlice';
+import { forgotPasswordReducer } from './forgotPassword/forgotPasswordSlice';
 
 const persistConfig = {
   key: 'auth',
@@ -25,6 +26,7 @@ export const store = configureStore({
     loading: loadingReducer,
     auth: persistReducer(persistConfig, authReducer),
     water: waterReducer,
+    forgotPassword: forgotPasswordReducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
