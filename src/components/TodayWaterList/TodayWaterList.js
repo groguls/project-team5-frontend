@@ -8,14 +8,12 @@ import {
 
 export const TodayWaterList = () => {
   return (
-    <>
+    <TodayWrapper>
       <Title>Today</Title>
-      <TodayWrapper>
-        <TodayServingsList />
-        <AddBtn type="button">
-          <StyledPlus /> Add water
-        </AddBtn>
-      </TodayWrapper>
-    </>
+      <TodayServingsList />
+      <AddBtn type="button">
+        <StyledPlus /> Add water
+      </AddBtn>
+    </TodayWrapper>
   );
 };

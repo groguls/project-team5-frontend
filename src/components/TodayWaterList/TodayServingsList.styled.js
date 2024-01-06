@@ -4,13 +4,11 @@ export const TodayList = styled.ul`
   display: flex;
   flex-direction: column;
   width: 280px;
-  /* padding: 0 8px; */
   height: 212px;
   gap: 16px 26px;
 
   @media screen and (min-width: 768px) {
-    width: 646px;
-    height: 58px;
+    width: 656px;
     font-size: 26px;
     font-weight: 500;
     line-height: 32px;
@@ -20,7 +18,6 @@ export const TodayList = styled.ul`
 
   @media screen and (min-width: 1440px) {
     width: 538px;
-    height: 56px;
     gap: 16px 22px;
   }
 `;

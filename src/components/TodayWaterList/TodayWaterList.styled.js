@@ -3,10 +3,19 @@ import { styled } from 'styled-components';
 
 export const TodayWrapper = styled.div`
   width: 264px;
-  height: 258px;
+  height: 260px;
   display: flex;
   flex-direction: column;
-  overflow: scroll;
+  /* overflow-y: auto;
+  overflow-x: hidden; */
+
+  @media screen and (min-width: 768px) {
+    width: 656px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    width: 544px;
+  }
 `;
 
 export const Title = styled.h2`
@@ -28,7 +37,6 @@ export const AddBtn = styled.button`
   width: 114px;
   height: 24px;
   display: flex;
-  align-items: center;
   justify-content: start;
   margin-top: 16px;
   margin-bottom: 24px;
@@ -44,6 +52,7 @@ export const StyledPlus = styled(Plus)`
   margin-right: 8px;
   font-size: 18px;
   line-height: 24px;
+
   @media screen and (min-width: 768px) {
     width: 24px;
     height: 24px;

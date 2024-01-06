@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { getMonthInfo } from '../../redux/water/waterOperations';
-// import { getMonthInfo } from '../../redux/auth/operations';
 import { MonthInfoList } from './MonthInfo';
 import { updateMonthInfo } from '../../redux/water/waterSlice';
 import {
@@ -96,7 +95,7 @@ export const Pagination = () => {
   };
 
   return (
-    <div>
+    <>
       <WrapperTitle>
         <Title>Month</Title>
         <WrapperPagination>
@@ -114,6 +113,6 @@ export const Pagination = () => {
         </WrapperPagination>
       </WrapperTitle>
       <MonthInfoList />
-    </div>
+    </>
   );
 };

@@ -28,7 +28,7 @@ export const MonthInfoItem = ({ day }) => {
     toggleModal();
   };
   return (
-    <div>
+    <>
       <DayItem onClick={handleLiClick}>
         <DayNumber $daypercent={percentage}>{dayNumber}</DayNumber>
         <DayPercent> {percentage}</DayPercent>
@@ -39,6 +39,6 @@ export const MonthInfoItem = ({ day }) => {
           <DaysGeneralStats selectedDay={selectedDay} isClose={toggleModal} />
         </ModalDaysGeneralStats>
       )}
-    </div>
+    </>
   );
 };

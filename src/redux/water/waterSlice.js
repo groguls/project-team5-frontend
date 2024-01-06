@@ -42,7 +42,15 @@ const waterSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(getMonthInfo.fulfilled, (state, { payload }) => {
-        state.monthInfo = [...state.monthInfo, ...payload];
+        state.monthInfo = state.monthInfo.map(prevItem => {
+          const newData = payload.find(
+            newItem => newItem.date === prevItem.date
+          );
+          if (newData) {
+            return { ...prevItem, ...newData };
+          }
+          return prevItem;
+        });
         state.isLoading = false;
       })
       .addCase(getMonthInfo.rejected, (_, { payload }) => ({
@@ -53,8 +61,8 @@ const waterSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(getTodayInfo.fulfilled, (state, { payload }) => {
-        state.today.dailyWaterList = payload.dailyWaterList;
-        state.today.percent = payload.percent ?? 0;
+        state.today.dailyWaterList = payload[0].waterRecords;
+        state.today.percent = payload[0].percentage ?? 0;
         state.isLoading = false;
       })
       .addCase(getTodayInfo.rejected, (_, { payload }) => ({
