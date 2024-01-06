@@ -4,22 +4,41 @@ import { decrement, increment } from '../../redux/water/waterSlice';
 import Typography from 'components/Typography/Typography';
 import { Plus } from 'components/Icons/Plus/Plus';
 import { Minus } from 'components/Icons/Minus';
-import { Amounter, AddButton, AddWaterValue } from './AddWaterModal.styled';
+import {
+  Amounter,
+  AddButton,
+  AddWaterValue,
+  Article,
+} from './AddWaterModal.styled';
 
 export const AmountOfWater = () => {
   const waterVolume = useSelector(selectAddWater);
   const dispatch = useDispatch();
 
+  const handleDecrement = () => {
+    if (waterVolume > 50) {
+      dispatch(decrement(50));
+    }
+  };
+
+  const handleIncrement = () => {
+    dispatch(increment(50));
+  };
+
   return (
     <>
-      <Typography styled="ListTitle">Choose a value:</Typography>
-      <Typography styled="Text">Amount of water:</Typography>
+      <Article>
+        <Typography styled="ListTitle">Choose a value:</Typography>
+      </Article>
+      <Article>
+        <Typography styled="Text">Amount of water:</Typography>
+      </Article>
       <Amounter>
-        <AddButton onClick={() => dispatch(decrement(50))} type="button">
+        <AddButton onClick={handleDecrement} type="button">
           <Minus />
         </AddButton>
-        <AddWaterValue>{waterVolume >= 50 ? waterVolume : 0} ml</AddWaterValue>
-        <AddButton onClick={() => dispatch(increment(50))} type="button">
+        <AddWaterValue>{waterVolume} ml</AddWaterValue>
+        <AddButton onClick={handleIncrement} type="button">
           <Plus />
         </AddButton>
       </Amounter>

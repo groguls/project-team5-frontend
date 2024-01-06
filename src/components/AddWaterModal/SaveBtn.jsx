@@ -1,25 +1,30 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { selectAddWater } from '../../redux/selectors';
+import { selectAddWater, selectTimeOfPortion } from '../../redux/selectors';
 import { useModal } from '../ModalContextProvider/ModalContextProvider';
 import Button from 'components/Button/Button';
 import { addWater } from '../../redux/water/waterOperations';
-import { updatePortionInfo } from '../../redux/water/waterSlice';
+import {
+  updatePortionInfo,
+  updateTimeInfo,
+} from '../../redux/water/waterSlice';
 import { FormStyles, SaveBtnBox, SavedLabel } from './AddWaterModal.styled';
 import toast from 'react-hot-toast';
 
 export const SaveBtn = () => {
-  const waterVolume = useSelector(selectAddWater);
   const dispatch = useDispatch();
   const toggleModal = useModal();
+  const waterVolume = useSelector(selectAddWater);
+  const date = useSelector(selectTimeOfPortion);
 
   const handleSubmit = e => {
     e.preventDefault();
-    const addWaterRate = Number(e.target.elements.amount.value);
+    // const addWaterRate = Number(e.target.elements.amount.value);
 
-    dispatch(addWater(addWaterRate))
+    dispatch(addWater({ waterVolume, date }))
       .unwrap()
       .then(() => {
-        dispatch(updatePortionInfo(addWaterRate));
+        dispatch(updatePortionInfo(waterVolume));
+        dispatch(updateTimeInfo(date));
         toast.success('Water was successfully added');
         toggleModal();
       })
@@ -37,9 +42,12 @@ export const SaveBtn = () => {
           max={5000}
           min={1}
           value={waterVolume}
+          placeholder="0"
           readOnly
         />
-        <Button type="submit" label={'Save'} width="160px" />
+        <div style={{ margin: '0px' }}>
+          <Button type="submit" label={'Save'} width="160px" />
+        </div>
       </SaveBtnBox>
     </FormStyles>
   );
