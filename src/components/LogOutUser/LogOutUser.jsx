@@ -10,7 +10,7 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useModal } from '../ModalContextProvider/ModalContextProvider';
 
-export const LogOutUser = ({ onClose }) => {
+export const LogOutUser = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const toggleModal = useModal();
@@ -18,7 +18,6 @@ export const LogOutUser = ({ onClose }) => {
   const handleLogout = () => {
     toggleModal();
     dispatch(logOut());
-    onClose();
     navigate('/');
   };
   return (
