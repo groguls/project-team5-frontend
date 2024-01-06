@@ -13,11 +13,15 @@ export const ButtonGroup = styled.div`
   flex-direction: column-reverse;
   gap: 24px;
 
-  @media screen and (min-width: 321px) {
+  /* @media screen and (min-width: 321px) {
+    flex-direction: row;
+    justify-content: end;
+  } */
+  @media screen and (min-width: 768px) {
     flex-direction: row;
     justify-content: end;
   }
-  @media screen and (min-width: 769px) {
+  @media screen and (min-width: 1440px) {
     flex-direction: row;
     justify-content: start;
   }
