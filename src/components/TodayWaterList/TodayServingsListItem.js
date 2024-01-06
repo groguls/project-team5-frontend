@@ -1,6 +1,5 @@
 import { PencilSquare } from '../Icons/PencilSquare';
 
-import { Basket } from '../Icons/Basket';
 import {
   StyledGlassOfWater,
   TimeServing,
@@ -9,13 +8,10 @@ import {
   TodayItem,
   WaterVolume,
 } from './TodayServingsListItem.styled';
-
+import { Delete } from '../Icons/Delete';
 
 export const TodayServingListItem = ({ todayList }) => {
- 
-
   return (
-
     <>
       <TodayItem>
         <TodayData>
@@ -25,10 +21,9 @@ export const TodayServingListItem = ({ todayList }) => {
         </TodayData>
         <TodayIcons>
           <PencilSquare />
-          <Basket />
+          <Delete />
         </TodayIcons>
       </TodayItem>
     </>
-
   );
 };
