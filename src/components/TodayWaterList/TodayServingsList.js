@@ -1,5 +1,6 @@
 // import { useSelector } from 'react-redux';
 // import { selectWaterList } from '../../redux/selectors';
+import { TodayList } from './TodayServingsList.styled';
 import { TodayServingListItem } from './TodayServingsListItem';
 
 const dailyWaterList = [
@@ -18,15 +19,25 @@ const dailyWaterList = [
     waterVolume: 200,
     time: '16:00',
   },
+  {
+    _id: '658eabae4f2cacdd1d946929',
+    waterVolume: 200,
+    time: '16:00',
+  },
+  {
+    _id: '658eabae4f2cacdd1d946930',
+    waterVolume: 200,
+    time: '16:00',
+  },
 ];
 
 export const TodayServingsList = () => {
   //   const dailyWaterList = useSelector(selectWaterList);
   return (
-    <ul>
+    <TodayList>
       {dailyWaterList.map(today => (
-        <TodayServingListItem todayList={today} key={today.id} />
+        <TodayServingListItem todayList={today} key={today._id} />
       ))}
-    </ul>
+    </TodayList>
   );
 };

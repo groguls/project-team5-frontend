@@ -1,15 +1,28 @@
-import { GlassOfWater } from '../Icons/GlassOfWater';
 import { PencilSquare } from '../Icons/PencilSquare';
+import { Basket } from '../Icons/Basket';
+import {
+  StyledGlassOfWater,
+  TimeServing,
+  TodayData,
+  TodayIcons,
+  TodayItem,
+  WaterVolume,
+} from './TodayServingsListItem.styled';
 
 export const TodayServingListItem = ({ todayList }) => {
   return (
     <>
-      <li>
-        <GlassOfWater />
-        <p>{todayList.waterVolume + ' ml'}</p>
-        <p>{todayList.time}</p>
-        <PencilSquare />
-      </li>
+      <TodayItem>
+        <TodayData>
+          <StyledGlassOfWater />
+          <WaterVolume>{todayList.waterVolume + ' ml'}</WaterVolume>
+          <TimeServing>{todayList.time}</TimeServing>
+        </TodayData>
+        <TodayIcons>
+          <PencilSquare />
+          <Basket />
+        </TodayIcons>
+      </TodayItem>
     </>
   );
 };

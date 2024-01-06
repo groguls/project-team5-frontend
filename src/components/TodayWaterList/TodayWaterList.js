@@ -1,11 +1,21 @@
 import { TodayServingsList } from './TodayServingsList';
+import {
+  AddBtn,
+  StyledPlus,
+  Title,
+  TodayWrapper,
+} from './TodayWaterList.styled';
 
 export const TodayWaterList = () => {
   return (
-    <div>
-      <h3>Today</h3>
-      <TodayServingsList />
-      <button type="button">+ Add water</button>
-    </div>
+    <>
+      <Title>Today</Title>
+      <TodayWrapper>
+        <TodayServingsList />
+        <AddBtn type="button">
+          <StyledPlus /> Add water
+        </AddBtn>
+      </TodayWrapper>
+    </>
   );
 };
