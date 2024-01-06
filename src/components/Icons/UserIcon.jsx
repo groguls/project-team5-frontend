@@ -1,10 +1,10 @@
 import React from 'react';
 
-export function UserIcon() {
+export function UserIcon({width=28, height=28 }) {
   return (
     <svg
-      width="28"
-      height="28"
+      width={width}
+      height={height}
       viewBox="0 0 28 28"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -18,7 +18,7 @@ export function UserIcon() {
       </g>
       <defs>
         <clipPath id="clip0_139_528">
-          <rect width="28" height="28" fill="white" />
+          <rect width={width} height={height} fill="white" />
         </clipPath>
       </defs>
     </svg>

@@ -20,6 +20,7 @@ import { ArrowDown } from 'components/Icons/ArrowDown';
 import { UserLogo } from 'components/UserLogo/UserLogo';
 
 import { UserLogoModal } from 'components/UserLogoModal/UserLogoModal';
+import { SettingModal } from 'components/SettingModal/SettingModal';
 
 export const Header = () => {
   // const toggleModal = useModal();
@@ -28,25 +29,29 @@ export const Header = () => {
   const userName = useSelector(selectName);
   const userLogo = useSelector(selectUserLogo);
   const [logoModal, setLogoModal] = useState(false);
+  const [settingModal, setSettingModal] = useState(false);
 
   // const defaultName = 'V';
 
   const toggalModal = () => {
-    setLogoModal(logoModal => !logoModal);
+    setLogoModal(!logoModal);
   };
+
+  const switchSettingModal = () => {
+    setSettingModal(!settingModal);
+  }
 
   return (
     <HeaderContainer>
       <Link to="/">
         <Logo />
       </Link>
-
       {isLoggedIn ? (
         <UserLogoContainer onClick={toggalModal}>
           <UserName>{userName}</UserName>
           {userLogo ? <UserLogo /> : ''}
           <ArrowDown />
-          {logoModal && <UserLogoModal onClose={toggalModal} />}
+          {logoModal && <UserLogoModal onClose={toggalModal} openSettings={switchSettingModal}/>}
         </UserLogoContainer>
       ) : (
         <Link to="/signin">
@@ -56,6 +61,7 @@ export const Header = () => {
           </UserLogoContainer>
         </Link>
       )}
+      {settingModal && <SettingModal onClose={switchSettingModal}/>}
     </HeaderContainer>
   );
 };

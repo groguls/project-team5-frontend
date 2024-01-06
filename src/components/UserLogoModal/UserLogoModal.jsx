@@ -5,9 +5,12 @@ import { Logout } from '../Icons/Logout';
 import { useDispatch } from 'react-redux';
 import { logOut } from '../../redux/auth/operations';
 
-export const UserLogoModal = ({ onClose }) => {
+export const UserLogoModal = ({ onClose, openSettings }) => {
   const dispatch = useDispatch();
-  const UserInfoModal = () => {};
+  const UserInfoModal = () => {
+    onClose();
+    openSettings();
+  };
   // const UserLogoutModal = () => {};
 
   useEffect(() => {
