@@ -1,12 +1,11 @@
 import React from 'react';
 import { Svg } from './Plus.styled';
 
-export function Plus() {
+export function Plus({ className }) {
   return (
     <Svg
+      className={className}
       xmlns="http://www.w3.org/2000/svg"
-      width="16"
-      height="16"
       viewBox="0 0 16 16"
       // fill="currentColor"
     >

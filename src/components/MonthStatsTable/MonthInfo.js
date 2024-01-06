@@ -1,6 +1,3 @@
-// import { useSelector } from 'react-redux';
-// import { selectMonthInfo } from '../../redux/selectors';
-// import { DaysGeneralStats } from './DaysGeneralStats';
 import { useSelector } from 'react-redux';
 import { MonthInfoItem } from './MonthInfoItem';
 import { selectMonthInfo } from '../../redux/selectors';
