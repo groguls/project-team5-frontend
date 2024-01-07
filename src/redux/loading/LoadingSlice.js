@@ -10,9 +10,7 @@ export const LoadingSlice = createSlice({
       .addMatcher(
         action => {
           const result = action.type.match(/^user\/.+\/pending$/) || [];
-          if (result[0]) {
-            return true;
-          }
+          if (result[0]) return true;
           return false;
         },
         () => true
@@ -21,9 +19,7 @@ export const LoadingSlice = createSlice({
         action => {
           const result =
             action.type.match(/^user\/.+\/(rejected|fulfilled)/) || [];
-          if (result[0]) {
-            return true;
-          }
+          if (result[0]) return true;
           return false;
         },
         () => false

@@ -45,13 +45,14 @@ export const InputRange = styled.input`
     background: linear-gradient(
       to right,
       #9ebbff 0%,
-      #9ebbff ${props => props.value},
-      #d7e3ff ${props => props.value},
+      #9ebbff ${props => props.value}%,
+      #d7e3ff ${props => props.value}%,
       #d7e3ff 100%
     );
     margin-left: 10px;
     margin-bottom: 4px;
   }
+
   &[type='range']::-webkit-slider-thumb {
     width: 14px;
     height: 14px;
@@ -59,7 +60,6 @@ export const InputRange = styled.input`
     border-radius: 50%;
     border: solid 1px ${props => `${props.theme.colors.primaryBlue}`};
     appearance: none;
-    /* margin-top: -2px; */
   }
 
   @media screen and (min-width: 768px) {
