@@ -16,18 +16,13 @@ import {
 export const WaterPanel = () => {
   const currentDayValue = useSelector(selectorWaterInfo);
   const toggleModal = useModal();
+  const newValue = Number(currentDayValue.percent.split('%')[0]);
 
   return (
     <WaterContainer>
       <InputContainer>
         <Today>Today</Today>
-        <InputRange
-          type="range"
-          min="0"
-          max="100"
-          value={currentDayValue.percent}
-          disabled
-        />
+        <InputRange type="range" min="0" max="100" value={newValue} disabled />
         <PercentContainer>
           <span>0%</span>
           <span>50%</span>
