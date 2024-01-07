@@ -21,6 +21,7 @@ export const TodayServingListItem = ({ todayList }) => {
         </TodayData>
         <TodayIcons>
           <PencilSquare />
+
           <Delete />
         </TodayIcons>
       </TodayItem>

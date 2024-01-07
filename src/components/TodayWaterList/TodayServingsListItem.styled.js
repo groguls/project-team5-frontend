@@ -1,9 +1,8 @@
-
 import { styled } from 'styled-components';
 import { GlassOfWater } from '../Icons/GlassOfWater';
 
 export const TodayItem = styled.li`
-  width: 264px;
+  width: 254px;
   height: 26px;
   display: flex;
   flex-direction: row;
@@ -53,7 +52,5 @@ export const StyledGlassOfWater = styled(GlassOfWater)`
   @media screen and (min-width: 768px) {
     width: 36px;
     height: 36px;
-
-
   }
 `;
