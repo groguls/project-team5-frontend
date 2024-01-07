@@ -40,6 +40,7 @@ export const AddWaterModal = () => {
         toast.error(error);
       });
   };
+
   return (
     <FormStyles onSubmit={handleSubmit}>
       <AmountOfWater water={waterVolume} setWater={setWaterVolume} />

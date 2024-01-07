@@ -7,7 +7,7 @@ export const AddEnterValueWater = ({ water, setWater }) => {
     value = value ? Number(value).toString() : '';
 
     if (/^[0-9\b]*$/.test(value)) {
-      setWater(value);
+      setWater(Number(value));
     }
   };
 
