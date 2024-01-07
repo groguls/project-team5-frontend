@@ -38,23 +38,21 @@ a {
 `;
 
 export const Container = styled.div`
-  max-width: 320px;
-  /* padding-left: 20px;
-  padding-right: 20px; */
-  margin-left: auto;
-  margin-right: auto;
+  width: 320px;
+  margin: 24px auto 0;
+  padding: 0px 20px 40px;
 
   @media screen and (min-width: 768px) {
-    max-width: 768px;
-    /* padding-left: 32px;
-    padding-right: 32px; */
+    width: 768px;
+    margin: 40px auto 0;
+    padding: 0px 32px 44px;
   }
 
   @media screen and (min-width: 1440px) {
-    min-width: 1440px;
-    max-width: 100%;
-    height: calc(100vh - 85px);
-    /* padding-left: 112px;
-    padding-right: 112px; */
+    width: 1440px;
+    display: flex;
+    justify-content: space-between;
+    margin: 20px auto 0;
+    padding: 0px 112px 56px;
   }
 `;

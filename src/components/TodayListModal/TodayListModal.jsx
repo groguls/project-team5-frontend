@@ -2,10 +2,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useModal } from '../ModalContextProvider/ModalContextProvider';
 import { addWater } from '../../redux/water/waterOperations';
-import {
-  updatePortionInfo,
-  updateTimeInfo,
-} from '../../redux/water/waterSlice';
+import { addWaterRecord } from '../../redux/water/waterSlice';
 import { PreviousWaterData } from './PreviousWaterData';
 import { AmountOfWater } from './AmountOfWater';
 import { EditEnterValueWater } from './EditEnterValueWater';
@@ -39,8 +36,7 @@ export const TodayListModal = () => {
     dispatch(addWater({ waterVolume, date }))
       .unwrap()
       .then(() => {
-        dispatch(updatePortionInfo(waterVolume));
-        dispatch(updateTimeInfo(date));
+        dispatch(addWaterRecord({ waterVolume, date }));
         toast.success('Water was successfully added');
         toggleModal();
       })

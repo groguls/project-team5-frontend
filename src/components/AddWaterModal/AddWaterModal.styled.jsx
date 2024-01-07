@@ -103,8 +103,8 @@ export const SavedLabel = styled.div`
 `;
 
 export const LabelBox = styled.div`
-  display: 'flex';
-  align-items: 'center';
+  display: flex;
+  align-items: center;
 `;
 
 export const BtnBox = styled.div`
