@@ -5,8 +5,11 @@ import { Logout } from '../Icons/Logout';
 import { useModal } from '../ModalContextProvider/ModalContextProvider';
 import { LogOutUser } from 'components/LogOutUser/LogOutUser';
 
-export const UserLogoModal = ({ onClose }) => {
-  const UserInfoModal = () => {};
+export const UserLogoModal = ({ onClose, openSettings }) => {
+  const UserInfoModal = () => {
+    onClose();
+    openSettings();
+  };
   const toggleModal = useModal();
   // const UserLogoutModal = () => {};
 

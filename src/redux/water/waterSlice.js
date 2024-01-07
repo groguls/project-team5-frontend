@@ -38,19 +38,10 @@ const waterSlice = createSlice({
     },
 
     updatePortionInfo(state, action) {
-      const newVolume = action.payload;
-      if (newVolume >= 1 && newVolume <= 5000) {
-        state.waterNote.waterVolume = newVolume;
-      }
+      state.waterNote.waterVolume = action.payload;
     },
     updateTimeInfo(state, action) {
       state.waterNote.date = action.payload;
-    },
-    decrement: (state, { payload }) => {
-      state.waterNote.waterVolume -= payload;
-    },
-    increment: (state, { payload }) => {
-      state.waterNote.waterVolume += payload;
     },
   },
   extraReducers: builder => {
@@ -138,7 +129,5 @@ export const {
   updateMonthInfo,
   updatePortionInfo,
   updateTimeInfo,
-  decrement,
-  increment,
 } = waterSlice.actions;
 export const waterReducer = waterSlice.reducer;

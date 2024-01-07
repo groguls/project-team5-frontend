@@ -7,13 +7,13 @@ import {
   Title,
 } from 'components/SingUpForm/SingUpFormikForm.styled';
 import React, { useState } from 'react';
-// import { theme } from 'styles/theme';
+import axios from 'axios';
 
 const ForgotPasswordPage = () => {
   const [email, setEmail] = useState('');
   const [emailError, setEmailError] = useState('');
 
-  const handleEmailChange = e => {
+  const handleEmailChange = (e) => {
     const newEmail = e.target.value;
     setEmail(newEmail);
 
@@ -21,15 +21,21 @@ const ForgotPasswordPage = () => {
     setEmailError(emailPattern.test(newEmail) ? '' : 'Invalid email');
   };
 
-  const handleSendClick = async evt => {
+  const handleSendClick = async (evt) => {
     evt.preventDefault();
     if (!emailError) {
       try {
-        // Запит на бекенд
-        console.log('Email отправлен:', email);
+        await axios.post('https://watertracker-by-group5.onrender.com/api/users/settings/forgotPassword', {
+          email,
+        });
+
+        console.log('Email sent:', email);
+
+        // Очистим инпут после успешной отправки
+        setEmail('');
+        setEmailError('');
       } catch (error) {
         console.error('Error send email:', error);
-
         setEmailError('Error send email');
       }
     }
@@ -39,7 +45,7 @@ const ForgotPasswordPage = () => {
     <AuthLayout>
       <FormContainer>
         <Title>Forgot Password</Title>
-        <InputForm>
+        <InputForm style={{ marginBottom: emailError ? '10px' : '0px' }}>
           <label htmlFor="email">Enter your email</label>
           <InputNameEmail
             placeholderText={'Email'}
@@ -53,12 +59,7 @@ const ForgotPasswordPage = () => {
           />
         </InputForm>
 
-        <Button
-          label="Send"
-          // backgroundColor={theme.colors.primaryBlue}
-          // textColor={theme.colors.primaryWhite}
-          onClick={handleSendClick}
-        />
+        <Button label="Send" onClick={handleSendClick} />
       </FormContainer>
     </AuthLayout>
   );

@@ -3,9 +3,9 @@ import { styled } from 'styled-components';
 export const Backdrop = styled.div`
   position: fixed;
   top: 0;
-  left: 50%;
+  left: 0;
   height: 100vh;
-  width: 320px;
+  width: 100wh;
 
   background-color: transparent;
 

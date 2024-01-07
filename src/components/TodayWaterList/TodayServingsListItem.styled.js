@@ -6,6 +6,7 @@ export const TodayItem = styled.li`
   height: 26px;
   display: flex;
   flex-direction: row;
+  align-items: center;
   justify-content: space-between;
   border-bottom: 1px solid;
   border-color: ${props => `${props.theme.colors.secondaryBlue}`};

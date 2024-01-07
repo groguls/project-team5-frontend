@@ -1,6 +1,3 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { selectAddWater } from '../../redux/selectors';
-import { decrement, increment } from '../../redux/water/waterSlice';
 import Typography from 'components/Typography/Typography';
 import { Plus } from 'components/Icons/Plus/Plus';
 import { Minus } from 'components/Icons/Minus';
@@ -11,18 +8,17 @@ import {
   Article,
 } from './AddWaterModal.styled';
 
-export const AmountOfWater = () => {
-  const waterVolume = useSelector(selectAddWater);
-  const dispatch = useDispatch();
-
+export const AmountOfWater = ({ water, setWater }) => {
   const handleDecrement = () => {
-    if (waterVolume > 50) {
-      dispatch(decrement(50));
+    if (water > 50) {
+      setWater(water - 50);
     }
   };
 
   const handleIncrement = () => {
-    dispatch(increment(50));
+    if (water <= 5000) {
+      setWater(water + 50);
+    }
   };
 
   return (
@@ -37,7 +33,7 @@ export const AmountOfWater = () => {
         <AddButton onClick={handleDecrement} type="button">
           <Minus />
         </AddButton>
-        <AddWaterValue>{waterVolume} ml</AddWaterValue>
+        <AddWaterValue>{water}ml</AddWaterValue>
         <AddButton onClick={handleIncrement} type="button">
           <Plus />
         </AddButton>

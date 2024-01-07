@@ -21,13 +21,17 @@ export const Time = styled.div`
   color: ${props => `${props.theme.colors.primaryBlack}`};
 `;
 
+export const Article = styled.article`
+  margin-bottom: 16px;
+`;
+
 export const Amounter = styled.div`
   display: flex;
   align-items: center;
   margin-bottom: 24px;
 `;
 
-export const EditWaterValue = styled.input`
+export const EditWaterValue = styled.div`
   width: 92px;
   height: 36px;
   margin: 0 10px;
@@ -43,6 +47,24 @@ export const RecordingTime = styled.div`
   display: block;
   margin-bottom: 24px;
   color: ${props => `${props.theme.colors.primaryBlue}`};
+`;
+export const Select = styled.select`
+  padding: 12px 10px;
+  width: 100%;
+  border: 1px solid ${props => `${props.theme.colors.secondaryGrayBlue}`};
+  border-radius: 6px;
+
+  color: ${props => `${props.theme.colors.primaryBlue}`};
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.25;
+  letter-spacing: 0em;
+  text-align: left;
+
+  &:focus {
+    outline: none;
+    color: ${props => `${props.theme.colors.primaryBlue}`};
+  }
 `;
 
 export const EnterValueWater = styled.div`
@@ -104,14 +126,30 @@ export const FormStyles = styled.form`
   }
 `;
 
-export const SavedLabel = styled.p`
-  padding: 10px 30px 10px 0;
-  color: ${props => `${props.theme.colors.primaryBlue}`};
-`;
 export const SaveBtnBox = styled.div`
   display: flex;
   justify-content: end;
   align-items: center;
+  margin: 0;
+`;
+
+export const SavedLabel = styled.input`
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  margin: 0;
+  padding: 10px 0 10px 0;
+  border: transparent;
+  color: ${props => `${props.theme.colors.primaryBlue}`};
+`;
+
+export const LabelBox = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+export const BtnBox = styled.div`
+  margin: 0px;
 `;
 
 //Delete Water

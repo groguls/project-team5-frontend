@@ -19,18 +19,24 @@ import { ArrowDown } from 'components/Icons/ArrowDown';
 import { UserLogo } from 'components/UserLogo/UserLogo';
 
 import { UserLogoModal } from 'components/UserLogoModal/UserLogoModal';
+import { SettingModal } from 'components/SettingModal/SettingModal';
 
 export const Header = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
   const userName = useSelector(selectName);
   const userLogo = useSelector(selectUserLogo);
   const [logoModal, setLogoModal] = useState(false);
+  const [settingModal, setSettingModal] = useState(false);
 
   const defaultName = 'V';
 
   const toggleModal = () => {
-    setLogoModal(logoModal => !logoModal);
+    setLogoModal(!logoModal);
   };
+
+  const switchSettingModal = () => {
+    setSettingModal(!settingModal);
+  }
 
   return (
     <HeaderContainer>
@@ -43,7 +49,7 @@ export const Header = () => {
           <UserName>{userName ? userName : defaultName}</UserName>
           {userLogo ? <UserLogo /> : ''}
           <ArrowDown />
-          {logoModal && <UserLogoModal onClose={toggleModal} />}
+          {logoModal && <UserLogoModal onClose={toggleModal} openSettings={switchSettingModal}/>}
         </UserLogoContainer>
       ) : (
         <Link to="/signin">
@@ -53,6 +59,7 @@ export const Header = () => {
           </UserLogoContainer>
         </Link>
       )}
+      {settingModal && <SettingModal onClose={switchSettingModal}/>}
     </HeaderContainer>
   );
 };
