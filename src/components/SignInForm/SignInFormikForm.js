@@ -12,6 +12,7 @@ import {
   InputForm,
   Title,
 } from '../SingUpForm/SingUpFormikForm.styled';
+import { Container } from '../../styles/GlobalStyle';
 
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -50,43 +51,45 @@ export const SingInFormFormik = () => {
     },
   });
   return (
-    <FormContainer onSubmit={formik.handleSubmit}>
-      <Title>Sign In</Title>
-      <InputForm>
-        <label htmlFor="email">Enter your email</label>
-        <InputNameEmail
-          placeholderText={'E-mail'}
-          type={'email'}
-          value={formik.values.email}
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          error={formik.touched.email && Boolean(formik.errors.email)}
-          id={'email'}
-          helperText={'Invalid email.'}
-        />
-      </InputForm>
-      <InputForm style={{ marginTop: formik.errors.email ? '10px' : '0px' }}>
-        <label htmlFor="password">Enter your password</label>
-        <InputPassword
-          placeholderText={'Password'}
-          type={'password'}
-          value={formik.values.password}
-          onChange={formik.handleChange}
-          error={formik.touched.password && Boolean(formik.errors.password)}
-          id={'password'}
-          helperText={'Invalid password.'}
-        />
-      </InputForm>
+    <Container>
+      <FormContainer onSubmit={formik.handleSubmit}>
+        <Title>Sign In</Title>
+        <InputForm>
+          <label htmlFor="email">Enter your email</label>
+          <InputNameEmail
+            placeholderText={'E-mail'}
+            type={'email'}
+            value={formik.values.email}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            error={formik.touched.email && Boolean(formik.errors.email)}
+            id={'email'}
+            helperText={'Invalid email.'}
+          />
+        </InputForm>
+        <InputForm style={{ marginTop: formik.errors.email ? '10px' : '0px' }}>
+          <label htmlFor="password">Enter your password</label>
+          <InputPassword
+            placeholderText={'Password'}
+            type={'password'}
+            value={formik.values.password}
+            onChange={formik.handleChange}
+            error={formik.touched.password && Boolean(formik.errors.password)}
+            id={'password'}
+            helperText={'Invalid password.'}
+          />
+        </InputForm>
 
-      <ButtonSubmit
-        type="submit"
-        style={{ marginTop: formik.errors.password ? '10px' : '0px' }}
-      >
-        Sign In
-      </ButtonSubmit>
-      <ButtonLink>
-        <a href="signup">Sign Up</a>
-      </ButtonLink>
-    </FormContainer>
+        <ButtonSubmit
+          type="submit"
+          style={{ marginTop: formik.errors.password ? '10px' : '0px' }}
+        >
+          Sign In
+        </ButtonSubmit>
+        <ButtonLink>
+          <a href="signup">Sign Up</a>
+        </ButtonLink>
+      </FormContainer>
+    </Container>
   );
 };
