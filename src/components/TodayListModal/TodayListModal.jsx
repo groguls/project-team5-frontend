@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useModal } from '../ModalContextProvider/ModalContextProvider';
-import { addWater, editWater } from '../../redux/water/waterOperations';
+import { editWater } from '../../redux/water/waterOperations';
 import { addWaterRecord } from '../../redux/water/waterSlice';
 import { PreviousWaterData } from './PreviousWaterData';
 import { AmountOfWater } from './AmountOfWater';
