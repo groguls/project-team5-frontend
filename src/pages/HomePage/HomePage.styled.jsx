@@ -71,18 +71,41 @@ export const SectionDailyNorma = styled.section`
   }
 `;
 
+// export const SectionTodayCalendar = styled.section`
+//   height: max-content;
+//   padding: 24px 8px;
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   gap: 24px;
+//   box-shadow: 0px 4px 14px 0px #407bff4d;
+//   border-radius: 10px;
+//   background: ${props => `${props.theme.colors.secondaryGray}`};
+
+//   @media screen and (min-width: 768px) {
+//     padding: 32px 24px;
+//   }
+// `;
+
 export const SectionTodayCalendar = styled.section`
-  height: max-content;
+  max-width: 280px;
+  height: 836px;
   padding: 24px 8px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 24px;
+  /* gap: 24px; */
   box-shadow: 0px 4px 14px 0px #407bff4d;
   border-radius: 10px;
   background: ${props => `${props.theme.colors.secondaryGray}`};
 
   @media screen and (min-width: 768px) {
+    max-width: 704px;
+    height: 688px;
     padding: 32px 24px;
+  }
+  @media screen and (min-width: 1440px) {
+    max-width: 592px;
+    height: 680px;
   }
 `;
