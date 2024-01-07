@@ -11,6 +11,7 @@ const HomePage = lazy(() => import('../pages/HomePage/HomePage'));
 const SignInPage = lazy(() => import('../pages/SignInPage'));
 const SignUpPage = lazy(() => import('../pages/SignUpPage'));
 const ForgotPasswordPage = lazy(() => import('../pages/ForgotPasswordPage'));
+const NewPasswordPage = lazy(() => import('../pages/NewPasswordPage'));
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -43,6 +44,12 @@ export const App = () => {
               redirectTo="/"
               component={<ForgotPasswordPage />}
             />
+          }
+        />
+        <Route
+          path="settings/password"
+          element={
+            <RestrictedRoute redirectTo="/" component={<NewPasswordPage />} />
           }
         />
         <Route path="*" element={<Navigate to={'/'} />} />
