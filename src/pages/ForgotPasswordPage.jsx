@@ -7,11 +7,17 @@ import {
   Title,
 } from 'components/SingUpForm/SingUpFormikForm.styled';
 import React, { useState } from 'react';
-// import { theme } from 'styles/theme';
+import { useDispatch } from 'react-redux';
+import { sendForgotPasswordRequest } from '../redux/forgotPassword/forgotPasswordOperations';
+
+
+
 
 const ForgotPasswordPage = () => {
-  const [email, setEmail] = useState('');
-  const [emailError, setEmailError] = useState('');
+const dispatch = useDispatch();
+
+const [email, setEmail] = useState('');
+const [emailError, setEmailError] = useState('');
 
   const handleEmailChange = e => {
     const newEmail = e.target.value;
@@ -21,12 +27,11 @@ const ForgotPasswordPage = () => {
     setEmailError(emailPattern.test(newEmail) ? '' : 'Invalid email');
   };
 
-  const handleSendClick = async evt => {
+  const handleSendClick = async (evt) => {
     evt.preventDefault();
     if (!emailError) {
       try {
-        // Запит на бекенд
-        console.log('Email отправлен:', email);
+        dispatch(sendForgotPasswordRequest(email));
       } catch (error) {
         console.error('Error send email:', error);
 
@@ -35,11 +40,12 @@ const ForgotPasswordPage = () => {
     }
   };
 
+
   return (
     <AuthLayout>
       <FormContainer>
         <Title>Forgot Password</Title>
-        <InputForm>
+        <InputForm style={{ marginBottom: emailError ? '10px' : '0px' }}>
           <label htmlFor="email">Enter your email</label>
           <InputNameEmail
             placeholderText={'Email'}
@@ -55,8 +61,6 @@ const ForgotPasswordPage = () => {
 
         <Button
           label="Send"
-          // backgroundColor={theme.colors.primaryBlue}
-          // textColor={theme.colors.primaryWhite}
           onClick={handleSendClick}
         />
       </FormContainer>

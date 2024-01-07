@@ -24,28 +24,26 @@ export const WaterConsumptionTracker = () => {
         Record daily water intake and track
       </Typography>
       <Typography styled={'ListTitle'}>Tracker Benefits</Typography>
-      <ul>
-        <ListContainer>
-          <li>
-            <ListItemContainer>
-              <Calendar />
-              <Typography styled={'Text'}>Habit drive</Typography>
-            </ListItemContainer>
-          </li>
-          <li>
-            <ListItemContainer>
-              <Presentation />
-              <Typography styled={'Text'}>View statistic</Typography>
-            </ListItemContainer>
-          </li>
-          <li>
-            <ListItemContainer>
-              <Service />
-              <Typography styled={'Text'}>Personal rate setting</Typography>
-            </ListItemContainer>
-          </li>
-        </ListContainer>
-      </ul>
+      <ListContainer>
+        <li>
+          <ListItemContainer>
+            <Calendar />
+            <Typography styled={'Text'}>Habit drive</Typography>
+          </ListItemContainer>
+        </li>
+        <li>
+          <ListItemContainer>
+            <Presentation />
+            <Typography styled={'Text'}>View statistic</Typography>
+          </ListItemContainer>
+        </li>
+        <li>
+          <ListItemContainer>
+            <Service />
+            <Typography styled={'Text'}>Personal rate setting</Typography>
+          </ListItemContainer>
+        </li>
+      </ListContainer>
       <Button
         label={'Try tracker'}
         width={'324px'}
