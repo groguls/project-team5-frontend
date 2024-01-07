@@ -64,9 +64,14 @@ const waterSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(getTodayInfo.fulfilled, (state, { payload }) => {
-        state.today.dailyWaterList = payload[0].waterRecords;
-        state.today.percent = payload[0].percentage ?? 0;
-        state.isLoading = false;
+        if (payload.length === 0) {
+          state.today.dailyWaterList = [];
+          state.today.percent = 0;
+        } else {
+          state.today.dailyWaterList = payload[0].waterRecords;
+          state.today.percent = payload[0].percentage ?? 0;
+          state.isLoading = false;
+        }
       })
       .addCase(getTodayInfo.rejected, (_, { payload }) => ({
         ...initialState,

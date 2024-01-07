@@ -4,7 +4,6 @@ export const MonthStatsTable = () => {
   return (
     <div>
       <Pagination />
-      {/* <MonthInfoList /> */}
     </div>
   );
 };

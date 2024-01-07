@@ -4,7 +4,6 @@ export const TodayList = styled.ul`
   display: flex;
   flex-direction: column;
   width: 280px;
-  height: 212px;
   gap: 16px 26px;
 
   @media screen and (min-width: 768px) {

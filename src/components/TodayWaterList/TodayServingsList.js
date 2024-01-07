@@ -1,5 +1,3 @@
-// import { useSelector } from 'react-redux';
-// import { selectWaterList } from '../../redux/selectors';
 import { useSelector } from 'react-redux';
 import { TodayList } from './TodayServingsList.styled';
 import { TodayServingListItem } from './TodayServingsListItem';

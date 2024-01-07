@@ -3,11 +3,10 @@ import { styled } from 'styled-components';
 
 export const TodayWrapper = styled.div`
   width: 264px;
-  height: 260px;
+  height: 258px;
   display: flex;
   flex-direction: column;
-  /* overflow-y: auto;
-  overflow-x: hidden; */
+  margin-bottom: 16px;
 
   @media screen and (min-width: 768px) {
     width: 656px;
@@ -38,8 +37,8 @@ export const AddBtn = styled.button`
   height: 24px;
   display: flex;
   justify-content: start;
+  align-items: end;
   margin-top: 16px;
-  margin-bottom: 24px;
   background-color: transparent;
   border: none;
   color: ${props => `${props.theme.colors.primaryBlue}`};
@@ -56,5 +55,27 @@ export const StyledPlus = styled(Plus)`
   @media screen and (min-width: 768px) {
     width: 24px;
     height: 24px;
+  }
+`;
+
+export const Overflow = styled.div`
+  width: 264px;
+  height: 212px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  &::-webkit-scrollbar {
+    width: 4px;
+    border-radius: 8px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: ${props => `${props.theme.colors.secondaryBlue}`};
+    max-height: 100px;
+  }
+  &::-webkit-scrollbar-track {
+    height: 204px;
+  }
+  @media screen and (min-width: 768px) {
+    height: 220px;
   }
 `;
