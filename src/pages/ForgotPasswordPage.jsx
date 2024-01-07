@@ -7,19 +7,16 @@ import {
   Title,
 } from 'components/SingUpForm/SingUpFormikForm.styled';
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { sendForgotPasswordRequest } from '../redux/forgotPassword/forgotPasswordOperations';
-
-
-
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import toast from 'react-hot-toast';
 
 const ForgotPasswordPage = () => {
-const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const [email, setEmail] = useState('');
+  const [emailError, setEmailError] = useState('');
 
-const [email, setEmail] = useState('');
-const [emailError, setEmailError] = useState('');
-
-  const handleEmailChange = e => {
+  const handleEmailChange = (e) => {
     const newEmail = e.target.value;
     setEmail(newEmail);
 
@@ -31,15 +28,27 @@ const [emailError, setEmailError] = useState('');
     evt.preventDefault();
     if (!emailError) {
       try {
-        dispatch(sendForgotPasswordRequest(email));
+        await axios.post('https://watertracker-by-group5.onrender.com/api/users/settings/forgotPassword', {
+          email,
+        });
+
+        console.log('Email sent:', email);
+
+
+        setEmail('');
+        setEmailError('');
+
+
+        navigate('/signin');
       } catch (error) {
         console.error('Error send email:', error);
 
         setEmailError('Error send email');
+
+        toast.error("This email address is not registered")
       }
     }
   };
-
 
   return (
     <AuthLayout>
@@ -59,13 +68,11 @@ const [emailError, setEmailError] = useState('');
           />
         </InputForm>
 
-        <Button
-          label="Send"
-          onClick={handleSendClick}
-        />
+        <Button label="Send" onClick={handleSendClick} />
       </FormContainer>
     </AuthLayout>
   );
 };
 
 export default ForgotPasswordPage;
+
