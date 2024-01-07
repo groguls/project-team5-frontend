@@ -41,7 +41,7 @@ export const UserLogoModal = ({ onClose }) => {
         <Button
           type="button"
           onClick={() =>
-            toggleModal(<LogOutUser size={'small'} title={'Log Out'} />)
+            toggleModal(<LogOutUser size={'small'} title={'Log out'} />)
           }
         >
           <IconBox>
