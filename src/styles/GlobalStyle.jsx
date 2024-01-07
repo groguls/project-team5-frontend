@@ -18,6 +18,7 @@ body {
 
 button {
   font-family: 'Roboto', sans-serif;
+  cursor: pointer;
 }
   
 ul, 
