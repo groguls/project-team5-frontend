@@ -7,19 +7,13 @@ import {
   Title,
 } from 'components/SingUpForm/SingUpFormikForm.styled';
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { sendForgotPasswordRequest } from '../redux/forgotPassword/forgotPasswordOperations';
-
-
-
+import axios from 'axios';
 
 const ForgotPasswordPage = () => {
-const dispatch = useDispatch();
+  const [email, setEmail] = useState('');
+  const [emailError, setEmailError] = useState('');
 
-const [email, setEmail] = useState('');
-const [emailError, setEmailError] = useState('');
-
-  const handleEmailChange = e => {
+  const handleEmailChange = (e) => {
     const newEmail = e.target.value;
     setEmail(newEmail);
 
@@ -31,21 +25,27 @@ const [emailError, setEmailError] = useState('');
     evt.preventDefault();
     if (!emailError) {
       try {
-        dispatch(sendForgotPasswordRequest(email));
+        await axios.post('https://watertracker-by-group5.onrender.com/api/users/settings/forgotPassword', {
+          email,
+        });
+
+        console.log('Email sent:', email);
+
+        // Очистим инпут после успешной отправки
+        setEmail('');
+        setEmailError('');
       } catch (error) {
         console.error('Error send email:', error);
-
         setEmailError('Error send email');
       }
     }
   };
 
-
   return (
     <AuthLayout>
       <FormContainer>
         <Title>Forgot Password</Title>
-        <InputForm>
+        <InputForm style={{ marginBottom: emailError ? '10px' : '0px' }}>
           <label htmlFor="email">Enter your email</label>
           <InputNameEmail
             placeholderText={'Email'}
@@ -59,10 +59,7 @@ const [emailError, setEmailError] = useState('');
           />
         </InputForm>
 
-        <Button
-          label="Send"
-          onClick={handleSendClick}
-        />
+        <Button label="Send" onClick={handleSendClick} />
       </FormContainer>
     </AuthLayout>
   );
