@@ -5,6 +5,7 @@ import { refreshUser } from '../../redux/auth/operations';
 import toast from 'react-hot-toast';
 import { Radio } from '../Icons/Radio';
 import { RadioActive } from '../Icons/RadioActive';
+import { Loader } from 'components/Loader/Loader';
 
 import * as Yup from 'yup';
 import { useFormik } from 'formik';
@@ -36,6 +37,7 @@ import {
   SaveButton,
   SaveButtonWrapper,
   UserNoLogo,
+  SettingLoaderWrapper,
 } from './SettingModal.styled';
 import { Close } from '../Icons/Close';
 import { UserIcon } from '../Icons/UserIcon';
@@ -72,6 +74,7 @@ export const SettingModal = ({ onClose }) => {
   const [userPhoto, setUserPhoto] = useState(null);
   const [userPhotoFile, setUserPhotoFile] = useState(null);
   const [gender, setGender] = useState(0);
+  const [visibleLoader, setVisibleLoader] = useState(false);
 
   const user = useSelector(selectUser);
   const userName = useSelector(selectName);
@@ -109,11 +112,15 @@ export const SettingModal = ({ onClose }) => {
         data = { ...data, oldPassword: formOldPassword, newPassword: formNewPassword };
       }
 
+      setVisibleLoader(true);
       if (data) {
         try {
           await instance.patch('/users/settings', data);
         } catch (error) {
+          setVisibleLoader(false);
           toast.error(error.response.data.message);
+          actions.resetForm();
+          return;
         }
       }
 
@@ -131,13 +138,18 @@ export const SettingModal = ({ onClose }) => {
             }
           );
         } catch (error) {
+          setVisibleLoader(false);
           toast.error(error.message);
+          actions.resetForm();
+          return;
         }
       }
-
+      setVisibleLoader(false);
+      toast.success('Settings are changed');
       dispatch(refreshUser());
       actions.resetForm();
       defValuesFlag.current = true;
+      onClose();
     },
   });
 
@@ -182,7 +194,7 @@ export const SettingModal = ({ onClose }) => {
 
   useEffect(() => {
     const handleEscKeyDown = evt => {
-      if (evt.code === 'Escape') {
+      if (evt.code === 'Escape' && !visibleLoader) {
         onClose();
       }
     };
@@ -190,7 +202,7 @@ export const SettingModal = ({ onClose }) => {
     return () => {
       window.removeEventListener('keydown', handleEscKeyDown);
     };
-  }, [onClose]);
+  }, [onClose, visibleLoader]);
 
   return (
     <Overlay className="overlay" onClick={handleBackdropClick}>
@@ -312,6 +324,11 @@ export const SettingModal = ({ onClose }) => {
           <SaveButton type="submit">Save</SaveButton>
         </SaveButtonWrapper>
       </ModalForm>
+      {visibleLoader && (
+        <SettingLoaderWrapper>
+          <Loader />
+        </SettingLoaderWrapper>
+      )}
     </Overlay>
   );
 };
