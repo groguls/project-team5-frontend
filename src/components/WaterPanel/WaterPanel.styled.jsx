@@ -31,7 +31,7 @@ export const InputContainer = styled.div`
 
 export const Today = styled.p`
   color: ${props => `${props.theme.colors.primaryBlue}`};
-  font-size: 18px;
+  font-size: ${props => `${props.theme.fontSizes.listTitle}`};
   line-height: 1.3;
   margin-bottom: 8px;
 `;
@@ -45,8 +45,8 @@ export const InputRange = styled.input`
     background: linear-gradient(
       to right,
       #9ebbff 0%,
-      #9ebbff ${props => props.value}%,
-      #d7e3ff ${props => props.value}%,
+      #9ebbff ${props => props.value},
+      #d7e3ff ${props => props.value},
       #d7e3ff 100%
     );
     margin-left: 10px;
@@ -59,7 +59,7 @@ export const InputRange = styled.input`
     border-radius: 50%;
     border: solid 1px ${props => `${props.theme.colors.primaryBlue}`};
     appearance: none;
-    margin-top: -2px;
+    /* margin-top: -2px; */
   }
 
   @media screen and (min-width: 768px) {
@@ -102,9 +102,9 @@ export const PercentContainer = styled.div`
       top: 80%;
       left: 49.5%;
       transform: translate(-50%, -50%);
-      font-size: 16px;
+      font-size: ${props => `${props.theme.fontSizes.text}`};
       font-weight: 500;
-      line-height: 1.25;
+      line-height: ${props => `${props.theme.lineHeights.text}`};
     }
   }
 `;
@@ -112,7 +112,7 @@ export const PercentContainer = styled.div`
 export const AddBtn = styled.button`
   width: 100%;
   display: inline-flex;
-  padding: 10px 30px;
+  padding: 6px 76px;
   justify-content: center;
   align-items: center;
   height: 44px;
@@ -121,11 +121,14 @@ export const AddBtn = styled.button`
   border: none;
   background-color: ${props => `${props.theme.colors.primaryBlue}`};
   color: ${props => `${props.theme.colors.primaryWhite}`};
-  box-shadow: 0px 4px 8px 0px rgba(64, 123, 255, 0.34);
+  box-shadow: ${props => `${props.theme.shadows.normalButton}`};
   cursor: pointer;
 
   svg {
     stroke: ${props => `${props.theme.colors.primaryWhite}`};
+    margin: 0;
+    border: solid 2px ${props => `${props.theme.colors.primaryWhite}`};
+    border-radius: 50%;
   }
 
   &:hover,
@@ -134,13 +137,17 @@ export const AddBtn = styled.button`
 
     svg {
       stroke: ${props => `${props.theme.colors.secondaryOrange}`};
+      margin: 0;
+      border: solid 2px ${props => `${props.theme.colors.secondaryOrange}`};
     }
   }
   @media screen and (min-width: 768px) {
     width: 336px;
+    padding: 10px 104px;
   }
 
   @media screen and (min-width: 1440px) {
     width: 178px;
+    padding: 10px 30px;
   }
 `;

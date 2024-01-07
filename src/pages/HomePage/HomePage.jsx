@@ -10,6 +10,7 @@ import { TodayWaterList } from 'components/TodayWaterList/TodayWaterList';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { getTodayInfo } from '../../redux/water/waterOperations';
+import { Container } from '../../styles/GlobalStyle';
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -18,14 +19,16 @@ const Home = () => {
   }, [dispatch]);
   return (
     <MainContainer>
-      <SectionDailyNorma>
-        <DailyNorma />
-        <WaterPanel />
-      </SectionDailyNorma>
-      <SectionTodayCalendar>
-        <TodayWaterList />
-        <MonthStatsTable />
-      </SectionTodayCalendar>
+      <Container>
+        <SectionDailyNorma>
+          <DailyNorma />
+          <WaterPanel />
+        </SectionDailyNorma>
+        <SectionTodayCalendar>
+          <TodayWaterList />
+          <MonthStatsTable />
+        </SectionTodayCalendar>
+      </Container>
     </MainContainer>
   );
 };
