@@ -26,7 +26,6 @@ export const AddEnterValueWater = ({ water, setWater }) => {
           max={5000}
           min={1}
           step={1}
-          placeholder=""
           onChange={handleChange}
         />
       </label>

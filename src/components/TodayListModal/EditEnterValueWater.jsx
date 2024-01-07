@@ -7,7 +7,7 @@ export const EditEnterValueWater = ({ water, setWater }) => {
     value = value ? Number(value).toString() : '';
 
     if (/^[0-9\b]*$/.test(value) && value <= 5000) {
-      setWater(value);
+      setWater(Number(value));
     }
   };
 
@@ -26,7 +26,6 @@ export const EditEnterValueWater = ({ water, setWater }) => {
           max={5000}
           min={1}
           step={1}
-          placeholder="0"
           onChange={handleChange}
         />
       </label>
