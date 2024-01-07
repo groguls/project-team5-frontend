@@ -10,6 +10,8 @@ export const Overlay = styled.div`
   height: 100%;
   justify-content: center;
   align-items: center;
+  overflow-y: scroll;
+  overflow-x: hidden
 `;
 
 export const ModalForm = styled.form`
