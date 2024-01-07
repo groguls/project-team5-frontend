@@ -1,14 +1,17 @@
 import { PencilSquare } from '../Icons/PencilSquare';
 import { Delete } from '../Icons/Delete';
 import { useDispatch } from 'react-redux';
-import { deleteWater, editWater } from '../../redux/water/waterOperations';
+import {
+  deleteWater,
+  // editWater
+} from '../../redux/water/waterOperations';
 import { useModal } from '../ModalContextProvider/ModalContextProvider';
 import { DeleteWater } from '../TodayListModal/DeleteWater';
 import toast from 'react-hot-toast';
 
 import {
   DeleteWaterContainer,
-  EditWaterContainer,
+  // EditWaterContainer,
   StyledGlassOfWater,
   TimeServing,
   TodayData,
@@ -34,17 +37,17 @@ export const TodayServingListItem = ({ todayList }) => {
       });
   };
 
-  const handleEdit = id => {
-    dispatch(editWater(id))
-      .unwrap()
-      .then(data => {
-        toast.success('Update success');
-        toggleModal();
-      })
-      .catch(() => {
-        toast.error('Something went wrong');
-      });
-  };
+  // const handleEdit = id => {
+  //   dispatch(editWater(id))
+  //     .unwrap()
+  //     .then(data => {
+  //       toast.success('Update success');
+  //       toggleModal();
+  //     })
+  //     .catch(() => {
+  //       toast.error('Something went wrong');
+  //     });
+  // };
 
   return (
     <>
