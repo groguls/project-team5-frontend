@@ -10,7 +10,8 @@ export const StyledButton = styled.button`
   border-radius: 10px;
   border: none;
   height: 44px;
-
+  cursor: pointer;
+  
   /* Зміна бекграунду кнопки */
   background-color: ${props => props.$backgroundColor || '#407BFF'};
 
@@ -22,6 +23,7 @@ export const StyledButton = styled.button`
   font-size: 18px;
   font-weight: 500;
   line-height: 1.33;
+
 
   /* Зміна ширини кнопки */
   ${props =>

@@ -35,6 +35,7 @@ export const WaterPanel = () => {
         </PercentContainer>
       </InputContainer>
       <AddBtn
+
         onClick={() =>
           toggleModal(<AddWaterModal size={'medium'} title="Add water" />)
         }

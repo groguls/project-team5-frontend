@@ -1,26 +1,23 @@
 import { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { updateTimeInfo } from '../../redux/water/waterSlice';
 import Typography from 'components/Typography/Typography';
 import { RecordingTime, Select, Article } from './AddWaterModal.styled';
 
-export const AddWaterTime = () => {
-  const dispatch = useDispatch();
+export const AddWaterTime = ({ setDateValue }) => {
   const currentDate = new Date();
-  const formattedHour = currentDate.getHours().toString().padStart(2, '0');
+  const formattedHour = currentDate.getHours().toString();
   const formattedMin = currentDate.getMinutes().toString().padStart(2, '0');
   const currentTime = `${formattedHour}:${formattedMin}`;
 
   const [selectedTime, setSelectedTime] = useState('');
 
   useEffect(() => {
-    dispatch(updateTimeInfo(currentTime));
-  }, [dispatch, currentTime]);
+    setDateValue(currentTime);
+  }, [setDateValue, currentTime]);
 
   const handleTimeChange = e => {
     const value = e.target.value;
     setSelectedTime(value);
-    dispatch(updateTimeInfo(value));
+    setDateValue(value);
   };
 
   const options = [];

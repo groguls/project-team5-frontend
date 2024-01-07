@@ -76,6 +76,7 @@ export const AddButton = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 0;
   width: 44px;
   height: 44px;
   background-color: transparent;
@@ -91,14 +92,19 @@ export const SaveBtnBox = styled.div`
   margin: 0;
 `;
 
-export const SavedLabel = styled.input`
+export const SavedLabel = styled.div`
   display: flex;
   justify-content: end;
   align-items: center;
   margin: 0;
-  padding: 10px 0 10px 0;
+  padding: 10px 30px 10px 0;
   border: transparent;
   color: ${props => `${props.theme.colors.primaryBlue}`};
+`;
+
+export const LabelBox = styled.div`
+  display: 'flex';
+  align-items: 'center';
 `;
 
 export const BtnBox = styled.div`
@@ -137,24 +143,4 @@ export const Button = styled.button`
     line-height: 1.33;
   }
 `;
-export const FormStyles = styled.form`
-  /* label {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    margin-bottom: 24px;
-
-    font-size: 18px;
-    font-weight: 500;
-    line-height: 20px;
-    letter-spacing: 0em;
-    text-align: left;
-    color: ${props => `${props.theme.colors.primaryBlack}`};
-  } */
-
-  @media screen and (min-width: 768px) {
-    button {
-      margin-left: auto;
-    }
-  }
-`;
+export const FormStyles = styled.form``;
