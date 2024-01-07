@@ -8,8 +8,11 @@ import {
 } from 'components/SingUpForm/SingUpFormikForm.styled';
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import toast from 'react-hot-toast';
 
 const ForgotPasswordPage = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [emailError, setEmailError] = useState('');
 
@@ -31,12 +34,18 @@ const ForgotPasswordPage = () => {
 
         console.log('Email sent:', email);
 
-        // Очистим инпут после успешной отправки
+
         setEmail('');
         setEmailError('');
+
+
+        navigate('/signin');
       } catch (error) {
         console.error('Error send email:', error);
+
         setEmailError('Error send email');
+
+        toast.error("This email address is not registered")
       }
     }
   };
@@ -66,3 +75,4 @@ const ForgotPasswordPage = () => {
 };
 
 export default ForgotPasswordPage;
+
