@@ -4,20 +4,13 @@ export const Backdrop = styled.div`
   position: fixed;
   top: 0;
   left: 0;
-  height: 100vh;
-  width: 100wh;
+  height: 100%;
+  width: 100%;
 
   background-color: transparent;
 
   transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1) visibility 250ms
     cubic-bezier(0.4, 0, 0.2, 1);
-
-  @media screen and (min-width: 768px) {
-    width: 768px;
-  }
-  @media screen and (min-width: 1440px) {
-    width: 1440px;
-  }
 `;
 
 export const Modal = styled.div`

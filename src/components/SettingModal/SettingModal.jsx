@@ -44,7 +44,7 @@ import { UserIcon } from '../Icons/UserIcon';
 import { UploadPhoto } from 'components/Icons/UploadPhoto';
 import InputPasswordSetting from '../InputPasswordSetting/InputPasswordSetting';
 import { InputEmailNameSetting } from '../InputEmailNameSetting/InputEmailNameSetting';
-import { selectName, selectUser, selectEmail } from '../../redux/selectors';
+import { selectName, selectUser } from '../../redux/selectors';
 
 const genderList = ['girl', 'man'];
 
@@ -78,7 +78,6 @@ export const SettingModal = ({ onClose }) => {
 
   const user = useSelector(selectUser);
   const userName = useSelector(selectName);
-  const userEmail = useSelector(selectEmail);
 
   const defValuesFlag = useRef(true);
 
@@ -110,6 +109,19 @@ export const SettingModal = ({ onClose }) => {
       }
       if (formOldPassword.length > 0 && formNewPassword.length > 0 && formRepeatPassword.length > 0) {
         data = { ...data, oldPassword: formOldPassword, newPassword: formNewPassword };
+      }  else {
+        if (formOldPassword.length > 0 || formNewPassword.length > 0 || formRepeatPassword.length > 0) {
+          if (formOldPassword.length === 0) {
+            formik.errors.oldPassword = 'Fill in the field';
+          }
+          if (formNewPassword.length === 0) {
+            formik.errors.newPassword = 'Fill in the field';
+          }
+          if (formRepeatPassword.length === 0) {
+            formik.errors.repeatPassword = 'Fill in the field';
+          }
+          return;
+        }
       }
 
       setVisibleLoader(true);
@@ -154,8 +166,11 @@ export const SettingModal = ({ onClose }) => {
   });
 
   useEffect(() => {
-    console.log('userPhoto = ', userPhoto);
-  }, [userPhoto]);
+    document.body.style.overflow = 'hidden';
+    return (()=>{
+      document.body.style.overflow = '';
+    })
+  }, []);
 
   useEffect(() => {
     dispatch(refreshUser());
@@ -169,8 +184,6 @@ export const SettingModal = ({ onClose }) => {
 
   useEffect(() => {
     if (defValuesFlag.current && user.email) {
-      if (user.name) formik.values.name = user.name;
-      formik.values.email = user.email;
       const indexGender = genderList.indexOf(user.gender);
       if (user.gender) setGender(indexGender >= 0 || indexGender <= 1 ? indexGender : 0);
       defValuesFlag.current = false;
@@ -252,7 +265,7 @@ export const SettingModal = ({ onClose }) => {
               <PersonalInfoLabel>
                 Your name
                 <InputEmailNameSetting
-                  placeholderText="Name"
+                  placeholderText={user.name ? user.name : 'Enter Name'}
                   type={'name'}
                   value={formik.values.name}
                   onChange={formik.handleChange}
@@ -265,7 +278,7 @@ export const SettingModal = ({ onClose }) => {
               <PersonalInfoLabel>
                 E-mail
                 <InputEmailNameSetting
-                  placeholderText={userEmail}
+                  placeholderText={user.email}
                   type={'email'}
                   value={formik.values.email}
                   onChange={formik.handleChange}
