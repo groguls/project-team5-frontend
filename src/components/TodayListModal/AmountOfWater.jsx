@@ -1,24 +1,44 @@
+import { useDispatch, useSelector } from 'react-redux';
+import { selectAddWater } from '../../redux/selectors';
+import { decrement, increment } from '../../redux/water/waterSlice';
 import Typography from 'components/Typography/Typography';
-// import { useState } from 'react';
 import { Plus } from 'components/Icons/Plus/Plus';
 import { Minus } from 'components/Icons/Minus';
-import { Amounter, AddButton, EditWaterValue } from './TodayListModal.styled';
+import {
+  Amounter,
+  AddButton,
+  EditWaterValue,
+  Article,
+} from './TodayListModal.styled';
 
 export const AmountOfWater = () => {
-  // const [counter, setCounter] = useState('250');
-  const addWaterIncrement = () => {};
+  const waterVolume = useSelector(selectAddWater);
+  const dispatch = useDispatch();
+
+  const handleDecrement = () => {
+    if (waterVolume > 50) {
+      dispatch(decrement(50));
+    }
+  };
+
+  const handleIncrement = () => {
+    dispatch(increment(50));
+  };
+
   return (
     <>
-      <Typography styled="ListTitle">Correct entered data:</Typography>
-
-      <Typography styled="Text">Amount of water:</Typography>
-
+      <Article>
+        <Typography styled="ListTitle">Correct entered data:</Typography>
+      </Article>
+      <Article>
+        <Typography styled="Text">Amount of water:</Typography>
+      </Article>
       <Amounter>
-        <AddButton onClick={addWaterIncrement} type="button">
+        <AddButton onClick={handleDecrement} type="button">
           <Minus />
         </AddButton>
-        <EditWaterValue placeholder="250 ml"></EditWaterValue>
-        <AddButton type="button">
+        <EditWaterValue>{waterVolume} ml</EditWaterValue>
+        <AddButton onClick={handleIncrement} type="button">
           <Plus />
         </AddButton>
       </Amounter>

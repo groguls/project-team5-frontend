@@ -31,6 +31,7 @@ export const TodayServingListItem = ({ todayList }) => {
         toast.error('Something went wrong');
       });
   };
+
   return (
     <>
       <TodayItem>

@@ -29,6 +29,7 @@ export const getTodayInfo = createAsyncThunk(
 export const addWater = createAsyncThunk(
   'water/addWater',
   async (amount, thunkAPI) => {
+    console.log('amount:', amount);
     try {
       const { data } = await instance.post('/water', amount);
       return data;
