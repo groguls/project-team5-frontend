@@ -12,6 +12,7 @@ import {
 } from './SingUpFormikForm.styled';
 
 import { signUp } from '../../redux/auth/operations';
+import { Container } from '../../styles/GlobalStyle';
 
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -57,60 +58,64 @@ export const SingUpFormFormik = () => {
     },
   });
   return (
-    <FormContainer onSubmit={formik.handleSubmit}>
-      <Title>Sign Up</Title>
-      <InputForm>
-        <label htmlFor="email">Enter your email</label>
-        <InputNameEmail
-          placeholderText={'E-mail'}
-          type={'email'}
-          value={formik.values.email}
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          error={formik.touched.email && Boolean(formik.errors.email)}
-          id={'email'}
-          helperText={'Invalid email format'}
-        />
-      </InputForm>
-      <InputForm style={{ marginTop: formik.errors.email ? '10px' : '0px' }}>
-        <label htmlFor="password">Enter your password</label>
-        <InputPassword
-          placeholderText={'Password'}
-          type={'password'}
-          value={formik.values.password}
-          onChange={formik.handleChange}
-          error={formik.touched.password && Boolean(formik.errors.password)}
-          id={'password'}
-          helperText={'Must be at least 8 characters long'}
-          onBlur={formik.handleBlur}
-        />
-      </InputForm>
+    <Container>
+      <FormContainer onSubmit={formik.handleSubmit}>
+        <Title>Sign Up</Title>
+        <InputForm>
+          <label htmlFor="email">Enter your email</label>
+          <InputNameEmail
+            placeholderText={'E-mail'}
+            type={'email'}
+            value={formik.values.email}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            error={formik.touched.email && Boolean(formik.errors.email)}
+            id={'email'}
+            helperText={'Invalid email format'}
+          />
+        </InputForm>
+        <InputForm style={{ marginTop: formik.errors.email ? '10px' : '0px' }}>
+          <label htmlFor="password">Enter your password</label>
+          <InputPassword
+            placeholderText={'Password'}
+            type={'password'}
+            value={formik.values.password}
+            onChange={formik.handleChange}
+            error={formik.touched.password && Boolean(formik.errors.password)}
+            id={'password'}
+            helperText={'Must be at least 8 characters long'}
+            onBlur={formik.handleBlur}
+          />
+        </InputForm>
 
-      <InputForm style={{ marginTop: formik.errors.password ? '10px' : '0px' }}>
-        <label htmlFor="email">Repeat password</label>
-        <InputPassword
-          placeholderText={'Repeat password'}
-          type={'password'}
-          value={formik.values.repeatPassword}
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          error={
-            formik.touched.repeatPassword &&
-            Boolean(formik.errors.repeatPassword)
-          }
-          id={'repeatPassword'}
-          helperText={'Passwords must match'}
-        />
-      </InputForm>
-      <ButtonSubmit
-        type="submit"
-        style={{ marginTop: formik.errors.repeatPassword ? '10px' : '0px' }}
-      >
-        Sign Up
-      </ButtonSubmit>
-      <ButtonLink>
-        <a href="signin">Sign In</a>
-      </ButtonLink>
-    </FormContainer>
+        <InputForm
+          style={{ marginTop: formik.errors.password ? '10px' : '0px' }}
+        >
+          <label htmlFor="email">Repeat password</label>
+          <InputPassword
+            placeholderText={'Repeat password'}
+            type={'password'}
+            value={formik.values.repeatPassword}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            error={
+              formik.touched.repeatPassword &&
+              Boolean(formik.errors.repeatPassword)
+            }
+            id={'repeatPassword'}
+            helperText={'Passwords must match'}
+          />
+        </InputForm>
+        <ButtonSubmit
+          type="submit"
+          style={{ marginTop: formik.errors.repeatPassword ? '10px' : '0px' }}
+        >
+          Sign Up
+        </ButtonSubmit>
+        <ButtonLink>
+          <a href="signin">Sign In</a>
+        </ButtonLink>
+      </FormContainer>
+    </Container>
   );
 };
