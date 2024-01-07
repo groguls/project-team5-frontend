@@ -28,7 +28,7 @@ export const Header = () => {
   const [logoModal, setLogoModal] = useState(false);
   const [settingModal, setSettingModal] = useState(false);
 
-  const defaultName = 'V';
+  // const defaultName = 'V';
 
   const toggleModal = () => {
     setLogoModal(!logoModal);
@@ -36,7 +36,7 @@ export const Header = () => {
 
   const switchSettingModal = () => {
     setSettingModal(!settingModal);
-  }
+  };
 
   return (
     <HeaderContainer>
@@ -46,10 +46,15 @@ export const Header = () => {
 
       {isLoggedIn ? (
         <UserLogoContainer onClick={toggleModal}>
-          <UserName>{userName ? userName : defaultName}</UserName>
+          <UserName>{userName}</UserName>
           {userLogo ? <UserLogo /> : ''}
           <ArrowDown />
-          {logoModal && <UserLogoModal onClose={toggleModal} openSettings={switchSettingModal}/>}
+          {logoModal && (
+            <UserLogoModal
+              onClose={toggleModal}
+              openSettings={switchSettingModal}
+            />
+          )}
         </UserLogoContainer>
       ) : (
         <Link to="/signin">
@@ -59,7 +64,7 @@ export const Header = () => {
           </UserLogoContainer>
         </Link>
       )}
-      {settingModal && <SettingModal onClose={switchSettingModal}/>}
+      {settingModal && <SettingModal onClose={switchSettingModal} />}
     </HeaderContainer>
   );
 };
