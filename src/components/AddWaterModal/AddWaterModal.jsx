@@ -26,6 +26,7 @@ export const AddWaterModal = () => {
   const handleSubmit = e => {
     e.preventDefault();
 
+
     dispatch(addWater(newRecord));
     toast.success('Water was successfully added');
     toggleModal();
@@ -40,6 +41,7 @@ export const AddWaterModal = () => {
     //     .catch(error => {
     //       toast.error(error);
     //     });
+
   };
 
   return (

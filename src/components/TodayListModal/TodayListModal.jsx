@@ -8,21 +8,14 @@ import { AmountOfWater } from './AmountOfWater';
 import { EditEnterValueWater } from './EditEnterValueWater';
 import { EditWaterTime } from './EditWaterTime';
 import Button from 'components/Button/Button';
-// import {
-//   FormStyles,
-//   SaveBtnBox,
-//   SavedLabel,
-//   LabelBox,
-//   BtnBox,
-// } from '../AddWaterModal.styled';
-import toast from 'react-hot-toast';
 import {
-  BtnBox,
   FormStyles,
-  LabelBox,
   SaveBtnBox,
   SavedLabel,
+  LabelBox,
+  BtnBox,
 } from './TodayListModal.styled';
+import toast from 'react-hot-toast';
 
 export const TodayListModal = ({ selectedRecord }) => {
   // const { id, waterVolume, time } = selectedRecord;
