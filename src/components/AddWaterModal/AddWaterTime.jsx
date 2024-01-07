@@ -43,7 +43,7 @@ export const AddWaterTime = ({ setDateValue }) => {
       }
     }
   }
-  console.log(selectedTime);
+
   return (
     <RecordingTime>
       <Article>
