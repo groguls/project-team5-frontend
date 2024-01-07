@@ -1,4 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import { nanoid } from 'nanoid';
 
 import { instance } from '../auth/operations';
 
@@ -7,6 +8,7 @@ export const getMonthInfo = createAsyncThunk(
   async (currentMonth, thunkAPI) => {
     try {
       const { data } = await instance.get(`/water/${currentMonth}`);
+      console.log(data);
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -19,6 +21,7 @@ export const getTodayInfo = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const { data } = await instance.get('/water');
+      console.log(data);
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -28,10 +31,11 @@ export const getTodayInfo = createAsyncThunk(
 
 export const addWater = createAsyncThunk(
   'water/addWater',
-  async (amount, thunkAPI) => {
-    console.log('amount:', amount);
+  async (newRecord, thunkAPI) => {
     try {
-      const { data } = await instance.post('/water', amount);
+      const { data } = await instance.post('/water', {
+        ...newRecord,
+      });
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useModal } from '../ModalContextProvider/ModalContextProvider';
-import { editWater } from '../../redux/water/waterOperations';
+import { addWater } from '../../redux/water/waterOperations';
 import { addWaterRecord } from '../../redux/water/waterSlice';
 import { AmountOfWater } from './AmountOfWater';
 import { AddWaterTime } from './AddWaterTime';
@@ -21,20 +21,25 @@ export const AddWaterModal = () => {
   const toggleModal = useModal();
   const [waterVolume, setWaterVolume] = useState(50);
   const [date, setDate] = useState('');
-
+  const newRecord = { waterVolume: waterVolume, date: date };
+  console.log(newRecord);
   const handleSubmit = e => {
     e.preventDefault();
 
-    dispatch(editWater({ waterVolume, date }))
-      .unwrap()
-      .then(() => {
-        dispatch(addWaterRecord({ waterVolume, date }));
-        toast.success('Water was successfully added');
-        toggleModal();
-      })
-      .catch(error => {
-        toast.error(error);
-      });
+    dispatch(addWater(newRecord));
+    toast.success('Water was successfully added');
+    toggleModal();
+
+    //   dispatch(addWater({ waterVolume, date }))
+    //     .unwrap()
+    //     .then(() => {
+    //       // dispatch(addWaterRecord({ waterVolume, date }));
+    //       toast.success('Water was successfully added');
+    //       toggleModal();
+    //     })
+    //     .catch(error => {
+    //       toast.error(error);
+    //     });
   };
 
   return (

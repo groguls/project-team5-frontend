@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useModal } from '../ModalContextProvider/ModalContextProvider';
-import { addWater } from '../../redux/water/waterOperations';
+import { addWater, editWater } from '../../redux/water/waterOperations';
 import { addWaterRecord } from '../../redux/water/waterSlice';
 import { PreviousWaterData } from './PreviousWaterData';
 import { AmountOfWater } from './AmountOfWater';
@@ -24,7 +24,8 @@ import {
   SavedLabel,
 } from './TodayListModal.styled';
 
-export const TodayListModal = () => {
+export const TodayListModal = ({ selectedRecord }) => {
+  // const { id, waterVolume, time } = selectedRecord;
   const dispatch = useDispatch();
   const toggleModal = useModal();
   const [waterVolume, setWaterVolume] = useState(50);
@@ -33,7 +34,7 @@ export const TodayListModal = () => {
   const handleSubmit = e => {
     e.preventDefault();
 
-    dispatch(addWater({ waterVolume, date }))
+    dispatch(editWater({ waterVolume, date }))
       .unwrap()
       .then(() => {
         dispatch(addWaterRecord({ waterVolume, date }));

@@ -15,8 +15,6 @@ const initialState = {
     percent: 0,
     dailyWaterList: [],
   },
-  waterVolume: 50,
-  date: '',
   isLoading: false,
   error: null,
 };
@@ -33,10 +31,6 @@ const waterSlice = createSlice({
     },
     updateMonthInfo(state, action) {
       state.monthInfo = action.payload;
-    },
-    addWaterRecord(state, action) {
-      state.waterVolume = action.payload.waterVolume;
-      state.date = action.payload.date;
     },
   },
   extraReducers: builder => {
