@@ -16,6 +16,7 @@ import {
 export const WaterPanel = () => {
   const currentDayValue = useSelector(selectorWaterInfo);
   const toggleModal = useModal();
+
   const newValue = Number(parseInt(currentDayValue.percent));
 
   return (
