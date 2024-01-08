@@ -59,8 +59,12 @@ export const Pagination = () => {
 
   useEffect(() => {
     dispatch(updateMonthInfo(arrayOfObjects));
-    dispatch(getMonthInfo(`${currYear}-${currMonth.toString()}`));
-  }, [dispatch, arrayOfObjects, currMonth, currYear]);
+    dispatch(
+      getMonthInfo(
+        `${currYear}-${currentMonthforList.toString().padStart(2, '0')}`
+      )
+    );
+  }, [dispatch, arrayOfObjects, currentMonthforList, currYear]);
 
   const nextMonth = () => {
     if (currMonth === 11) {
