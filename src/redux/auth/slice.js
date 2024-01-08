@@ -19,8 +19,13 @@ const initialState = {
   token: null,
   isLoggedIn: false,
   isRefreshing: false,
+  error: null,
 };
 
+const handleRejected = (state, action) => {
+  state.isLoading = false;
+  state.error = action.payload;
+};
 const authSlice = createSlice({
   name: 'auth',
   initialState,
@@ -30,11 +35,13 @@ const authSlice = createSlice({
         state.user = payload.user;
         state.token = payload.token;
         state.isLoggedIn = true;
+        state.error = '';
       })
       .addCase(signIn.fulfilled, (state, { payload }) => {
         state.user = payload.user;
         state.token = payload.token;
         state.isLoggedIn = true;
+        state.error = '';
       })
       .addCase(logOut.fulfilled, state => {
         state.user = { name: null, email: null };
@@ -54,7 +61,9 @@ const authSlice = createSlice({
       })
       .addCase(updateWaterRate.fulfilled, (state, { payload }) => {
         state.user.waterRate = payload.waterRate;
-      });
+      })
+      .addCase(signIn.rejected, handleRejected)
+      .addCase(signUp.rejected, handleRejected);
   },
 });
 

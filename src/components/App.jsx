@@ -47,7 +47,7 @@ export const App = () => {
           }
         />
         <Route
-          path="settings/password"
+          path="settings/password/:id"
           element={
             <RestrictedRoute redirectTo="/" component={<NewPasswordPage />} />
           }

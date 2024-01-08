@@ -6,6 +6,7 @@ export const DayItem = styled.li`
   display: flex;
   flex-direction: column;
   gap: 4px;
+  cursor: pointer;
 
   @media screen and (min-width: 768px) {
     width: 34px;

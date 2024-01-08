@@ -22,6 +22,7 @@ export const TodayItem = styled.li`
 `;
 
 export const WaterVolume = styled.p`
+  width: 60px;
   display: flex;
   flex-direction: row;
   font-size: 18px;
