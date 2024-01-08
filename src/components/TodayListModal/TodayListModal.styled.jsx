@@ -12,6 +12,11 @@ export const PreviousDataBox = styled.div`
   border-radius: ${props => `${props.theme.radii.normal}`};
 `;
 
+export const GlassBox = styled.div`
+  width: 36px;
+  height: 36px;
+`;
+
 export const ValueWater = styled.div`
   margin-right: 16px;
   margin-left: 12px;

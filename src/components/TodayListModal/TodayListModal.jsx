@@ -40,7 +40,7 @@ export const TodayListModal = ({ selectedRecord }) => {
   };
   return (
     <FormStyles onSubmit={handleSubmit}>
-      <PreviousWaterData />
+      <PreviousWaterData selectedRecord={selectedRecord} />
       <AmountOfWater water={waterVolume} setWater={setWaterVolume} />
       <EditWaterTime dateValue={date} setDateValue={setDate} />
       <EditEnterValueWater water={waterVolume} setWater={setWaterVolume} />
