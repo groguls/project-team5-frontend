@@ -1,6 +1,6 @@
 import { createSelector } from '@reduxjs/toolkit';
 
-export const selectIsLoading = state => state.loading;
+export const selectIsLoading = state => state.auth.isLoading;
 
 // user selecctors
 export const selectUser = state => state.auth.user;
@@ -30,4 +30,3 @@ export const selectAddWater = state => state.water.waterVolume;
 export const selectTimeOfPortion = state => state.water.date;
 
 export const selectError = state => state.auth.error;
-
