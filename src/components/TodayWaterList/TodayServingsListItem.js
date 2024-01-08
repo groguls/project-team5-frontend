@@ -25,6 +25,10 @@ export const TodayServingListItem = ({ todayList }) => {
   const dispatch = useDispatch();
   const toggleModal = useModal();
 
+  // const handleLiClick = () => {
+  //   toggleModal();
+  // };
+
   const handleDelete = id => {
     dispatch(deleteWater(id))
       .unwrap()
