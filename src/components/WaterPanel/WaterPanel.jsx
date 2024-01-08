@@ -1,9 +1,8 @@
 import { useModal } from '../ModalContextProvider/ModalContextProvider';
 import { useSelector } from 'react-redux';
-import { selectorWaterInfo, selectWaterList } from '../../redux/selectors';
+import { selectorWaterInfo } from '../../redux/selectors';
 import { Plus } from 'components/Icons/Plus/Plus';
-// import { AddWaterModal } from '../AddWaterModal/AddWaterModal';
-import { TodayListModal } from 'components/TodayListModal/TodayListModal';
+import { AddWaterModal } from '../AddWaterModal/AddWaterModal';
 
 import {
   AddBtn,
@@ -19,8 +18,6 @@ export const WaterPanel = () => {
   const toggleModal = useModal();
   const newValue = Number(parseInt(currentDayValue.percent));
 
-  const dailyWaterList = useSelector(selectWaterList);
-
   return (
     <WaterContainer>
       <InputContainer>
@@ -34,19 +31,9 @@ export const WaterPanel = () => {
       </InputContainer>
       <AddBtn
         onClick={() =>
-          toggleModal(
-            <TodayListModal
-              size={'medium'}
-              title="Edit the entered amount of water"
-              selectedRecord={dailyWaterList}
-            />
-          )
+          toggleModal(<AddWaterModal size={'medium'} title="Add water" />)
         }
         type="button"
-        // onClick={() =>
-        //   toggleModal(<AddWaterModal size={'medium'} title="Add water" />)
-        // }
-        // type="button"
       >
         <Plus aria-label="add_water" />
         Add water
