@@ -40,6 +40,10 @@ export const UserLogoContainer = styled.div`
 
 export const UserName = styled.p``;
 
+export const DefaultNeme = styled.p`
+  text-transform: uppercase;
+`;
+
 export const Button = styled.button`
   width: 48px;
   background-color: transparent;
