@@ -28,3 +28,5 @@ export const selectIsWaterLoading = state => state.water.isLoading;
 
 export const selectAddWater = state => state.water.waterVolume;
 export const selectTimeOfPortion = state => state.water.date;
+
+export const selectError = state => state.auth.error;

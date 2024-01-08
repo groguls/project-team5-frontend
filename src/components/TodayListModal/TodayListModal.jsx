@@ -31,7 +31,7 @@ export const TodayListModal = ({ selectedRecord }) => {
       .unwrap()
       .then(() => {
         dispatch(addWaterRecord({ waterVolume, date }));
-        toast.success('Water was successfully added');
+        toast.success('Water was successfully updated');
         toggleModal();
       })
       .catch(error => {
