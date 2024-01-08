@@ -11,7 +11,6 @@ export const UserLogoModal = ({ onClose, openSettings }) => {
     openSettings();
   };
   const toggleModal = useModal();
-  // const UserLogoutModal = () => {};
 
   useEffect(() => {
     const handleEscKeyDown = evt => {
