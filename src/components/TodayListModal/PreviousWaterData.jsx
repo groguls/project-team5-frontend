@@ -1,18 +1,28 @@
 import { useSelector } from 'react-redux';
-import { selectAddWater, selectTimeOfPortion } from '../../redux/selectors';
+import { selectWaterList } from '../../redux/selectors';
 import { GlassOfWater } from 'components/Icons/GlassOfWater';
-import { PreviousDataBox, ValueWater, Time } from './TodayListModal.styled';
+import {
+  PreviousDataBox,
+  ValueWater,
+  Time,
+  GlassBox,
+} from './TodayListModal.styled';
 
-export const PreviousWaterData = () => {
-  const waterVolume = useSelector(selectAddWater);
-  const date = useSelector(selectTimeOfPortion);
+export const PreviousWaterData = ({ id, water, time }) => {
+  const dailyWaterList = useSelector(selectWaterList);
+  const waterData = dailyWaterList.find(item => item.id === id);
 
   return (
     <>
       <PreviousDataBox>
-        <GlassOfWater />
-        <ValueWater>{waterVolume}ml</ValueWater>
-        <Time>{date}</Time>
+        <GlassBox>
+          <GlassOfWater />
+        </GlassBox>
+        <ValueWater>
+          {waterData?.water}
+          ml
+        </ValueWater>
+        <Time>{waterData?.time}</Time>
       </PreviousDataBox>
     </>
   );
