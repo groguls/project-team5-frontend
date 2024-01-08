@@ -1,6 +1,6 @@
 import { createSelector } from '@reduxjs/toolkit';
 
-export const selectIsLoading = state => state.loading;
+export const selectIsLoading = state => state.auth.isLoading;
 
 // user selecctors
 export const selectUser = state => state.auth.user;
