@@ -7,7 +7,6 @@ export const getMonthInfo = createAsyncThunk(
   async (currentMonth, thunkAPI) => {
     try {
       const { data } = await instance.get(`/water/${currentMonth}`);
-      console.log(data);
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -20,7 +19,6 @@ export const getTodayInfo = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const { data } = await instance.get('/water');
-      console.log(data);
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

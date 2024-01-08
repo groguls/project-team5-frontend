@@ -21,24 +21,12 @@ export const AddWaterModal = () => {
   const [waterVolume, setWaterVolume] = useState(50);
   const [date, setDate] = useState('');
   const newRecord = { waterVolume: waterVolume, date: date };
-  console.log(newRecord);
   const handleSubmit = e => {
     e.preventDefault();
 
     dispatch(addWater(newRecord));
     toast.success('Water was successfully added');
     toggleModal();
-
-    //   dispatch(addWater({ waterVolume, date }))
-    //     .unwrap()
-    //     .then(() => {
-    //       // dispatch(addWaterRecord({ waterVolume, date }));
-    //       toast.success('Water was successfully added');
-    //       toggleModal();
-    //     })
-    //     .catch(error => {
-    //       toast.error(error);
-    //     });
   };
 
   return (

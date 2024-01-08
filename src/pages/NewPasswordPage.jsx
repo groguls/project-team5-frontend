@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import AuthLayout from '../components/AuthLayout/AuthLayout';
 import Button from 'components/Button/Button';
 import {
@@ -9,10 +10,12 @@ import {
   Title,
 } from 'components/SingUpForm/SingUpFormikForm.styled';
 import InputPassword from 'components/InputPassword/InputPassword';
+import { Container } from 'styles/GlobalStyle';
 
 const passwordRegex = /^.{8,64}$/;
 
 const NewPasswordPage = () => {
+  const { id } = useParams();
   const navigate = useNavigate();
   const [password, setPassword] = useState('');
   const [repeatPassword, setRepeatPassword] = useState('');
@@ -52,7 +55,7 @@ const NewPasswordPage = () => {
     }
 
     try {
-      const id = 'your_user_id';
+
       await axios.post(`https://watertracker-by-group5.onrender.com/api/users/settings/password?id=${id}`, {
         newPassword: password,
       });
@@ -78,6 +81,7 @@ const NewPasswordPage = () => {
 
   return (
     <AuthLayout>
+      <Container>
       <FormContainer>
         <Title>Change Password</Title>
         <InputForm style={{ marginBottom: passwordsMatchError ? '10px' : '0px' }}>
@@ -105,6 +109,7 @@ const NewPasswordPage = () => {
 
         <Button label="Send" onClick={handleSendClick} disabled={isSubmitDisabled} />
       </FormContainer>
+      </Container>
     </AuthLayout>
   );
 };

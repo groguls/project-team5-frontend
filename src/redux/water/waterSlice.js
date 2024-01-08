@@ -62,8 +62,8 @@ const waterSlice = createSlice({
           state.today.dailyWaterList = [];
           state.today.percent = 0;
         } else {
-          state.today.dailyWaterList = payload[0].waterRecords;
-          state.today.percent = payload[0].percentage ?? 0;
+          state.today.dailyWaterList = payload.waterRecords;
+          state.today.percent = payload.percentage ?? 0;
           state.isLoading = false;
         }
       })
@@ -86,9 +86,10 @@ const waterSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(deleteWater.fulfilled, (state, { payload }) => {
-        state.today.dailyWaterList = state.today.dailyWaterList.filter(
-          data => data._id !== payload.removedId
+        const index = state.today.dailyWaterList.findIndex(
+          data => data._id === payload._id
         );
+        state.today.dailyWaterList.splice(index, 1);
         state.isLoading = false;
       })
       .addCase(deleteWater.rejected, (state, { payload }) => {
