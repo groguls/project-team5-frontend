@@ -1,6 +1,7 @@
 import * as Yup from 'yup';
 import { useFormik } from 'formik';
-import { useDispatch } from 'react-redux';
+import toast from 'react-hot-toast';
+import { useDispatch, useSelector } from 'react-redux';
 import { InputNameEmail } from 'components/InputEmailName/InputEmailName';
 import InputPassword from 'components/InputPassword/InputPassword';
 import {
@@ -13,6 +14,7 @@ import {
 
 import { signUp } from '../../redux/auth/operations';
 import { Container } from '../../styles/GlobalStyle';
+import { selectError } from '../../redux/selectors';
 
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -36,7 +38,7 @@ const formSchema = Yup.object().shape({
 
 export const SingUpFormFormik = () => {
   const dispatch = useDispatch();
-
+  const errorMessage = useSelector(selectError);
   const formik = useFormik({
     initialValues: {
       email: '',
@@ -45,16 +47,18 @@ export const SingUpFormFormik = () => {
     },
     validationSchema: formSchema,
     onSubmit: async (values, actions) => {
-      dispatch(
-        signUp({
-          email: values.email,
-          password: values.password,
-        })
-      );
+      try {
+        await dispatch(
+          signUp({
+            email: values.email,
+            password: values.password,
+          })
+        ).unwrap();
+        toast.success('SignUp was successful');
+      } catch (error) {
+        toast.error(errorMessage || 'Email in use');
+      }
       actions.resetForm();
-      console.log('Sign up successful!');
-      console.log(values.email);
-      console.log(values.password);
     },
   });
   return (

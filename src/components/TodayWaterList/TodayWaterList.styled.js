@@ -42,6 +42,7 @@ export const AddBtn = styled.button`
   background-color: transparent;
   border: none;
   color: ${props => `${props.theme.colors.primaryBlue}`};
+  cursor: pointer;
 `;
 
 export const StyledPlus = styled(Plus)`
@@ -76,6 +77,10 @@ export const Overflow = styled.div`
     height: 204px;
   }
   @media screen and (min-width: 768px) {
-    height: 220px;
+    width: 656px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    width: 544px;
   }
 `;
