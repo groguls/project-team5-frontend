@@ -11,7 +11,7 @@ import toast from 'react-hot-toast';
 
 import {
   DeleteWaterContainer,
-  // EditWaterContainer,
+  EditWaterContainer,
   StyledGlassOfWater,
   TimeServing,
   TodayData,
@@ -56,25 +56,29 @@ export const TodayServingListItem = ({ todayList }) => {
   return (
     <>
       <TodayItem>
+        {/* <button
+          style={{ width: '24px', height: '24px', background: 'blue' }}
+          onClick={() =>
+            toggleModal(
+              <TodayListModal
+                size={'medium'}
+                title="Edit the entered amount of water"
+                editEntry={() => handleEdit(todayList._id)}
+                selectedRecord={todayList}
+              />
+            )
+          }
+        /> */}
         <TodayData>
           <StyledGlassOfWater />
           <WaterVolume>{todayList.waterVolume + ' ml'}</WaterVolume>
           <TimeServing>{todayList.time}</TimeServing>
         </TodayData>
         <TodayIcons>
-          {/* <EditWaterContainer
-            onClick={() =>
-              toggleModal(
-                <TodayListModal
-                  size={'small'}
-                  title={'Delete entry'}
-                  editEntry={() => handleEdit(todayList._id)}
-                />
-              )
-            }
-          >
+          <EditWaterContainer>
+            {/*  */}
             <PencilSquare />
-          </EditWaterContainer> */}
+          </EditWaterContainer>
           <PencilSquare />
           <DeleteWaterContainer
             onClick={() =>

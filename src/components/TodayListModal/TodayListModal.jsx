@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useModal } from '../ModalContextProvider/ModalContextProvider';
 import { editWater } from '../../redux/water/waterOperations';
-import { addWaterRecord } from '../../redux/water/waterSlice';
 import { PreviousWaterData } from './PreviousWaterData';
 import { AmountOfWater } from './AmountOfWater';
 import { EditEnterValueWater } from './EditEnterValueWater';
@@ -18,20 +17,22 @@ import {
 import toast from 'react-hot-toast';
 
 export const TodayListModal = ({ selectedRecord }) => {
-  // const { id, waterVolume, time } = selectedRecord;
+  const id = selectedRecord._id;
   const dispatch = useDispatch();
   const toggleModal = useModal();
-  const [waterVolume, setWaterVolume] = useState(50);
+  const [waterVolume, setWaterVolume] = useState(250);
   const [date, setDate] = useState('');
+  const newWater = { waterVolume, date, id };
 
   const handleSubmit = e => {
     e.preventDefault();
 
-    dispatch(editWater({ waterVolume, date }))
+    dispatch(editWater({ newWater }))
       .unwrap()
       .then(() => {
-        dispatch(addWaterRecord({ waterVolume, date }));
+
         toast.success('Water was successfully updated');
+
         toggleModal();
       })
       .catch(error => {
@@ -40,7 +41,7 @@ export const TodayListModal = ({ selectedRecord }) => {
   };
   return (
     <FormStyles onSubmit={handleSubmit}>
-      <PreviousWaterData />
+      <PreviousWaterData selectedRecord={selectedRecord} />
       <AmountOfWater water={waterVolume} setWater={setWaterVolume} />
       <EditWaterTime dateValue={date} setDateValue={setDate} />
       <EditEnterValueWater water={waterVolume} setWater={setWaterVolume} />
