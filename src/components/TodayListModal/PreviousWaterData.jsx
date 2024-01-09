@@ -10,8 +10,8 @@ export const PreviousWaterData = ({ selectedRecord }) => {
   const { waterVolume, date } = selectedRecord;
 
   const dateObject = new Date(date);
-  const hour = dateObject.getHours().toString();
-  const min = dateObject.getMinutes().toString().padStart(2, '0');
+  const hour = dateObject.getUTCHours().toString();
+  const min = dateObject.getUTCMinutes().toString().padStart(2, '0');
 
   return (
     <>
