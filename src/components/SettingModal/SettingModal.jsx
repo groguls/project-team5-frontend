@@ -178,7 +178,7 @@ export const SettingModal = ({ onClose }) => {
 
   useEffect(() => {
     if (user.avatarURL) {
-      setUserPhoto('https://watertracker-by-group5.onrender.com/' + user.avatarURL);
+      setUserPhoto(user.avatarURL);
     }
   }, [user.avatarURL]);
 
