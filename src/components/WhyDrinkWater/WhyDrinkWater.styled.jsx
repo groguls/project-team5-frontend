@@ -20,6 +20,7 @@ export const WhyDrinkWaterContainer = styled.div`
 
   h3 {
     margin-bottom: 12px;
+    font-weight: 500;
   }
   ul {
     display: flex;
