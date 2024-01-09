@@ -2,7 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 export const instance = axios.create({
-  baseURL: 'https://watertracker-by-group5.onrender.com/api',
+  baseURL: 'http://localhost:5000/api',
 });
 
 const setAuthHeader = token => {

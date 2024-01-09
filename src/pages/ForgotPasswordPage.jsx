@@ -19,7 +19,7 @@ const ForgotPasswordPage = () => {
   const [email, setEmail] = useState('');
   const [emailError, setEmailError] = useState('');
 
-  const handleEmailChange = (e) => {
+  const handleEmailChange = e => {
     const newEmail = e.target.value;
     setEmail(newEmail);
 
@@ -27,24 +27,26 @@ const ForgotPasswordPage = () => {
     setEmailError(emailPattern.test(newEmail) ? '' : 'Invalid email');
   };
 
-  const handleSendClick = async (evt) => {
+  const handleSendClick = async evt => {
     evt.preventDefault();
     if (!emailError) {
       try {
-        await axios.post('https://watertracker-by-group5.onrender.com/api/users/settings/forgotPassword', {
-          email,
-        });
+        await axios.post(
+          'https://watertracker-by-group5.onrender.com/api/users/settings/forgotPassword',
+          {
+            email,
+          }
+        );
         console.log('Email sent:', email);
         setEmail('');
         setEmailError('');
 
         navigate('/signin');
-
       } catch (error) {
         console.error('Error send email:', error);
 
         setEmailError('Error send email');
-        toast.error("This email address is not registered")
+        toast.error('This email address is not registered');
       }
     }
   };
@@ -52,31 +54,30 @@ const ForgotPasswordPage = () => {
   return (
     <AuthLayout>
       <Container>
-      <FormContainer>
-        <Title>Forgot Password</Title>
-        <InputForm style={{ marginBottom: emailError ? '10px' : '0px' }}>
-          <label htmlFor="email">Enter your email</label>
-          <InputNameEmail
-            placeholderText={'Email'}
-            type={'email'}
-            value={email}
-            onChange={handleEmailChange}
-            onBlur={() => {}}
-            id={'email'}
-            error={!!emailError}
-            helperText={emailError}
-          />
-        </InputForm>
+        <FormContainer>
+          <Title>Forgot Password</Title>
+          <InputForm style={{ marginBottom: emailError ? '10px' : '0px' }}>
+            <label htmlFor="email">Enter your email</label>
+            <InputNameEmail
+              placeholderText={'Email'}
+              type={'email'}
+              value={email}
+              onChange={handleEmailChange}
+              onBlur={() => {}}
+              id={'email'}
+              error={!!emailError}
+              helperText={emailError}
+            />
+          </InputForm>
 
-        <Button label="Send" onClick={handleSendClick} />
-        <ButtonLink>
-        <a href="signin">Sign In</a>
-        </ButtonLink>
-      </FormContainer>
+          <Button label="Send" onClick={handleSendClick} />
+          <ButtonLink>
+            <a href="signin">Sign In</a>
+          </ButtonLink>
+        </FormContainer>
       </Container>
     </AuthLayout>
   );
 };
 
 export default ForgotPasswordPage;
-

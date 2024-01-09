@@ -15,28 +15,28 @@ import { Container } from 'styles/GlobalStyle';
 const passwordRegex = /^.{8,64}$/;
 
 const NewPasswordPage = () => {
-  const { id } = useParams();
+  const { confirmationToken } = useParams();
   const navigate = useNavigate();
   const [password, setPassword] = useState('');
   const [repeatPassword, setRepeatPassword] = useState('');
   const [passwordsMatchError, setPasswordsMatchError] = useState('');
   const [formError, setFormError] = useState('');
 
-  const handlePasswordChange = (e) => {
+  const handlePasswordChange = e => {
     const newPassword = e.target.value;
     setPassword(newPassword);
     setPasswordsMatchError('');
     setFormError('');
   };
 
-  const handleRepeatPasswordChange = (e) => {
+  const handleRepeatPasswordChange = e => {
     const newRepeatPassword = e.target.value;
     setRepeatPassword(newRepeatPassword);
     setPasswordsMatchError('');
     setFormError('');
   };
 
-  const handleSendClick = async (evt) => {
+  const handleSendClick = async evt => {
     evt.preventDefault();
 
     if (!password || !repeatPassword) {
@@ -55,10 +55,12 @@ const NewPasswordPage = () => {
     }
 
     try {
-
-      await axios.post(`https://watertracker-by-group5.onrender.com/api/users/settings/password?id=${id}`, {
-        newPassword: password,
-      });
+      await axios.patch(
+        `https://groguls.github.io/project-team5-frontend/api/users/settings/password/${confirmationToken}`,
+        {
+          newPassword: password,
+        }
+      );
 
       console.log('New password sent successfully');
 
@@ -77,38 +79,49 @@ const NewPasswordPage = () => {
     setFormError('');
   };
 
-  const isSubmitDisabled = !password || !repeatPassword || password !== repeatPassword;
+  const isSubmitDisabled =
+    !password || !repeatPassword || password !== repeatPassword;
 
   return (
     <AuthLayout>
       <Container>
-      <FormContainer>
-        <Title>Change Password</Title>
-        <InputForm style={{ marginBottom: passwordsMatchError ? '10px' : '0px' }}>
-          <label htmlFor="password">New Password:</label>
-          <InputPassword
-            placeholderText="New Password"
-            type="password"
-            value={password}
-            onChange={handlePasswordChange}
+        <FormContainer>
+          <Title>Change Password</Title>
+          <InputForm
+            style={{ marginBottom: passwordsMatchError ? '10px' : '0px' }}
+          >
+            <label htmlFor="password">New Password:</label>
+            <InputPassword
+              placeholderText="New Password"
+              type="password"
+              value={password}
+              onChange={handlePasswordChange}
+            />
+          </InputForm>
+
+          <InputForm
+            style={{ marginBottom: passwordsMatchError ? '10px' : '0px' }}
+          >
+            <label htmlFor="repeatPassword">Repeat New Password:</label>
+            <InputPassword
+              placeholderText="Repeat New Password"
+              type="password"
+              value={repeatPassword}
+              onChange={handleRepeatPasswordChange}
+            />
+            {passwordsMatchError && (
+              <div style={{ color: 'red' }}>{passwordsMatchError}</div>
+            )}
+          </InputForm>
+
+          {formError && <div style={{ color: 'red' }}>{formError}</div>}
+
+          <Button
+            label="Send"
+            onClick={handleSendClick}
+            disabled={isSubmitDisabled}
           />
-        </InputForm>
-
-        <InputForm style={{ marginBottom: passwordsMatchError ? '10px' : '0px' }}>
-          <label htmlFor="repeatPassword">Repeat New Password:</label>
-          <InputPassword
-            placeholderText="Repeat New Password"
-            type="password"
-            value={repeatPassword}
-            onChange={handleRepeatPasswordChange}
-          />
-          {passwordsMatchError && <div style={{ color: 'red' }}>{passwordsMatchError}</div>}
-        </InputForm>
-
-        {formError && <div style={{ color: 'red' }}>{formError}</div>}
-
-        <Button label="Send" onClick={handleSendClick} disabled={isSubmitDisabled} />
-      </FormContainer>
+        </FormContainer>
       </Container>
     </AuthLayout>
   );
