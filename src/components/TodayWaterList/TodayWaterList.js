@@ -8,7 +8,7 @@ import {
   Title,
   TodayWrapper,
 } from './TodayWaterList.styled';
-import { AddWaterModal } from 'components/AddWaterModal/AddWaterModal';
+import { AddWaterModal } from 'components/AddWaterModal/WaterAdd';
 
 export const TodayWaterList = () => {
   const toggleModal = useModal();
