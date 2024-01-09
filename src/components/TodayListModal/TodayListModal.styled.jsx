@@ -65,6 +65,7 @@ export const Select = styled.select`
   line-height: 1.25;
   letter-spacing: 0em;
   text-align: left;
+  cursor: pointer;
 
   &:focus {
     outline: none;
@@ -90,6 +91,7 @@ export const Input = styled.input`
   line-height: 1.25;
   letter-spacing: 0em;
   text-align: left;
+  cursor: pointer;
 
   &:focus {
     outline: none;
