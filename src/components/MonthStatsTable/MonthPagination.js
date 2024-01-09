@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { getMonthInfo } from '../../redux/water/waterOperations';
 import { MonthInfoList } from './MonthInfo';
 import { updateMonthInfo } from '../../redux/water/waterSlice';
@@ -12,6 +12,7 @@ import {
 } from './MonthPagination.styled';
 import { CalendarArrowLeft } from 'components/Icons/CalendarArrowLeft';
 import { CalendarArrowRight } from 'components/Icons/CalendarArrowRight';
+import { selectWaterList } from '../../redux/selectors';
 
 const monthNames = [
   'January',
@@ -57,6 +58,7 @@ export const Pagination = () => {
     percentage: '', // Set your initial value for percentage
   }));
 
+  const dailyWaterList = useSelector(selectWaterList);
   useEffect(() => {
     dispatch(updateMonthInfo(arrayOfObjects));
     dispatch(
@@ -64,7 +66,7 @@ export const Pagination = () => {
         `${currYear}-${currentMonthforList.toString().padStart(2, '0')}`
       )
     );
-  }, [dispatch, arrayOfObjects, currentMonthforList, currYear]);
+  }, [dispatch, arrayOfObjects, currentMonthforList, currYear, dailyWaterList]);
 
   const nextMonth = () => {
     if (currMonth === 11) {

@@ -1,7 +1,7 @@
 import * as Yup from 'yup';
 import { useFormik } from 'formik';
 import toast from 'react-hot-toast';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { InputNameEmail } from 'components/InputEmailName/InputEmailName';
 import InputPassword from 'components/InputPassword/InputPassword';
 
@@ -14,8 +14,6 @@ import {
   Title,
 } from '../SingUpForm/SingUpFormikForm.styled';
 import { Container } from '../../styles/GlobalStyle';
-
-import { selectError } from '../../redux/selectors';
 
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -36,24 +34,22 @@ const formSchema = Yup.object().shape({
 
 export const SingInFormFormik = () => {
   const dispatch = useDispatch();
-  const errorMessage = useSelector(selectError);
   const formik = useFormik({
     initialValues: {
       email: '',
       password: '',
     },
     validationSchema: formSchema,
-    onSubmit: (values, actions) => {
-      dispatch(
+    onSubmit: async (values, actions) => {
+      await dispatch(
         signIn({
           email: values.email,
           password: values.password,
         })
       )
         .unwrap()
-        .then(() => toast.success('SignIn was successfull'))
         .catch(error => {
-          toast.error(errorMessage || 'Invalid email or password');
+          toast.error(error);
         });
       actions.resetForm();
     },
