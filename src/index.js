@@ -9,6 +9,8 @@ import { ThemeProvider } from 'styled-components';
 import { theme } from 'styles/theme';
 import { GlobalStyle } from 'styles/GlobalStyle';
 import { ModalContextProvider } from 'components/ModalContextProvider/ModalContextProvider';
+import { LocalizationProvider } from '@mui/x-date-pickers';
+import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -16,10 +18,12 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <PersistGate persistor={persistor}>
         <BrowserRouter basename="/project-team5-frontend">
           <ThemeProvider theme={theme}>
-            <ModalContextProvider>
-              <GlobalStyle />
-              <App />
-            </ModalContextProvider>
+            <LocalizationProvider dateAdapter={AdapterDateFns}>
+              <ModalContextProvider>
+                <GlobalStyle />
+                <App />
+              </ModalContextProvider>
+            </LocalizationProvider>
           </ThemeProvider>
         </BrowserRouter>
       </PersistGate>

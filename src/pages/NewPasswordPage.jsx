@@ -11,6 +11,7 @@ import {
 } from 'components/SingUpForm/SingUpFormikForm.styled';
 import InputPassword from 'components/InputPassword/InputPassword';
 import { Container } from 'styles/GlobalStyle';
+import toast from 'react-hot-toast';
 
 const passwordRegex = /^.{8,64}$/;
 
@@ -61,13 +62,13 @@ const NewPasswordPage = () => {
           newPassword: password,
         }
       );
-
-      console.log('New password sent successfully');
+      toast.success('Your password has been changed!')
 
       clearForm();
       navigate('/signin');
     } catch (error) {
-      console.error('Error sending new password:', error);
+
+      toast.error('Error sending new password:')
       setFormError('Error sending new password. Please try again.');
     }
   };

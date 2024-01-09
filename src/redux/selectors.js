@@ -11,7 +11,7 @@ export const selectName = state => {
   return state.auth.user.name;
 };
 
-export const selectUserLogo = state => state.auth.user.avatar;
+export const selectUserLogo = state => state.auth.user.avatarURL;
 export const selectDailyNorma = state => state.auth.user.waterRate;
 
 export const selectIsAuth = createSelector(

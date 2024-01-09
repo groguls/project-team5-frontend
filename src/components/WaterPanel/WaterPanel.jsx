@@ -2,7 +2,7 @@ import { useModal } from '../ModalContextProvider/ModalContextProvider';
 import { useSelector } from 'react-redux';
 import { selectorWaterInfo } from '../../redux/selectors';
 import { Plus } from 'components/Icons/Plus/Plus';
-import { AddWaterModal } from '../AddWaterModal/AddWaterModal';
+import { AddWaterModal } from 'components/AddWaterModal/AddWaterModal';
 
 import {
   AddBtn,

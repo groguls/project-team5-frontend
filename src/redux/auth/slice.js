@@ -12,7 +12,7 @@ const initialState = {
     name: null,
     email: null,
     password: null,
-    avatar: null,
+    avatarURL: null,
     gender: null,
     dailyNorma: null,
   },

@@ -16,17 +16,18 @@ export const WaterConsumptionTrackerContainer = styled.div`
   }
 
   @media screen and (min-width: 1440px) {
-    max-width: 439px;
+    width: 439px;
   }
   h1 {
     margin-bottom: 16px;
-    letter-spacing: -1.1px;
   }
   h2 {
     margin-bottom: 24px;
+    font-weight: 400;
   }
   h3 {
     margin-bottom: 12px;
+    font-weight: 500;
   }
 `;
 
