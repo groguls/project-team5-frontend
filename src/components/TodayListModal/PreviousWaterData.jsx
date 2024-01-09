@@ -13,9 +13,6 @@ export const PreviousWaterData = ({ selectedRecord }) => {
   const hour = dateObject.getHours().toString();
   const min = dateObject.getMinutes().toString().padStart(2, '0');
 
-  // const dailyWaterList = useSelector(selectWaterList);
-  // const waterData = dailyWaterList.find(item => item.id === _id);
-
   return (
     <>
       <PreviousDataBox>
