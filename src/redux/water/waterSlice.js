@@ -71,13 +71,10 @@ const waterSlice = createSlice({
         ...initialState,
         error: payload,
       }))
-      .addCase(
-        addWater.fulfilled,
-        (state, { payload: { waterVolume, date, _id } }) => {
-          state.today.dailyWaterList.push({ waterVolume, date, _id });
-          state.isLoading = false;
-        }
-      )
+      .addCase(addWater.fulfilled, (state, { payload }) => {
+        state.today.dailyWaterList = payload.waterRecords;
+        state.isLoading = false;
+      })
       .addCase(addWater.rejected, (_, { payload }) => ({
         ...initialState,
         error: payload,

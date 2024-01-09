@@ -27,22 +27,7 @@ const theme = createTheme({
   },
 });
 
-const textFieldStyle = {
-  width: '256px',
-  height: '44px',
-
-  [theme.breakpoints.down('sm')]: {
-    width: '256px',
-  },
-  [theme.breakpoints.up('md')]: {
-    width: '392px',
-  },
-  [theme.breakpoints.up('lg')]: {
-    width: '392px',
-  },
-};
-
-export const InputEmailNameSetting = ({
+export const InputWaterVolume = ({
   placeholderText,
   error,
   type,
@@ -58,7 +43,6 @@ export const InputEmailNameSetting = ({
     <ThemeProvider theme={theme}>
       <TextField
         sx={{
-          ...textFieldStyle,
           '& .MuiInputBase-input': {
             color: theme.colors.secondaryBlue,
             padding: '12px 10px 12px 10px',

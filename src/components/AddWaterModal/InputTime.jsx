@@ -1,5 +1,6 @@
 import React from 'react';
-import { TextField, createTheme, ThemeProvider } from '@mui/material';
+import { createTheme, ThemeProvider } from '@mui/material';
+import { TimePicker } from '@mui/x-date-pickers';
 
 const theme = createTheme({
   breakpoints: {
@@ -27,38 +28,24 @@ const theme = createTheme({
   },
 });
 
-const textFieldStyle = {
-  width: '256px',
-  height: '44px',
-
-  [theme.breakpoints.down('sm')]: {
-    width: '256px',
-  },
-  [theme.breakpoints.up('md')]: {
-    width: '392px',
-  },
-  [theme.breakpoints.up('lg')]: {
-    width: '392px',
-  },
-};
-
-export const InputEmailNameSetting = ({
-  placeholderText,
-  error,
-  type,
+export const InputTime = ({
+  id,
   name,
-  value,
+  defaultValue,
+  ampm,
+  openTo,
+  views,
+  format,
+  disableFuture,
+  type,
+  error,
   onChange,
   onBlur,
-  id,
-  helperText,
-  ...otherProps
 }) => {
   return (
     <ThemeProvider theme={theme}>
-      <TextField
+      <TimePicker
         sx={{
-          ...textFieldStyle,
           '& .MuiInputBase-input': {
             color: theme.colors.secondaryBlue,
             padding: '12px 10px 12px 10px',
@@ -113,18 +100,19 @@ export const InputEmailNameSetting = ({
             marginTop: '2px',
           },
         }}
+        ampm={ampm}
+        openTo={openTo}
+        views={views}
+        format={format}
+        disableFuture={disableFuture}
         id={id}
-        placeholder={placeholderText}
         variant="outlined"
         error={error}
-        helperText={error ? `${helperText}` : ''}
         type={type}
         name={name}
-        value={value}
-        autoComplete="off"
+        defaultValue={defaultValue}
         onChange={onChange}
         onBlur={onBlur}
-        inputProps={{ ...otherProps }}
       />
     </ThemeProvider>
   );
