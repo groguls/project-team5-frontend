@@ -1,6 +1,6 @@
 import { createSelector } from '@reduxjs/toolkit';
 
-export const selectIsLoading = state => state.loading;
+export const selectIsLoading = state => state.auth.isLoading;
 
 // user selecctors
 export const selectUser = state => state.auth.user;
@@ -8,7 +8,7 @@ export const selectIsLoggedIn = state => state.auth.isLoggedIn;
 export const selectToken = state => state.auth.token;
 export const selectEmail = state => state.auth.user.email;
 export const selectName = state => {
-  return state.auth.user.name || state.auth.user.email?.split('@')[0];
+  return state.auth.user.name;
 };
 
 export const selectUserLogo = state => state.auth.user.avatar;
@@ -26,7 +26,6 @@ export const selectorWaterInfo = state => state.water.today;
 export const selectWaterList = state => state.water.today.dailyWaterList;
 export const selectIsWaterLoading = state => state.water.isLoading;
 export const selectDayPercent = state => state.water.today.percent;
-
 export const selectAddWater = state => state.water.waterVolume;
 export const selectTimeOfPortion = state => state.water.date;
 

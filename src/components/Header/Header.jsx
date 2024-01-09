@@ -7,11 +7,13 @@ import {
   HeaderContainer,
   UserLogoContainer,
   UserName,
+  DefaultNeme,
 } from './Header.styled';
 import {
   selectIsLoggedIn,
   selectName,
   selectUserLogo,
+  selectEmail,
 } from '../../redux/selectors';
 
 import { UserIcon } from 'components/Icons/UserIcon';
@@ -24,11 +26,10 @@ import { SettingModal } from 'components/SettingModal/SettingModal';
 export const Header = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
   const userName = useSelector(selectName);
+  const userEmail = useSelector(selectEmail);
   const userLogo = useSelector(selectUserLogo);
   const [logoModal, setLogoModal] = useState(false);
   const [settingModal, setSettingModal] = useState(false);
-
-  // const defaultName = 'V';
 
   const toggleModal = () => {
     setLogoModal(!logoModal);
@@ -46,7 +47,11 @@ export const Header = () => {
 
       {isLoggedIn ? (
         <UserLogoContainer onClick={toggleModal}>
-          <UserName>{userName}</UserName>
+          {userName ? (
+            <UserName>{userName}</UserName>
+          ) : (
+            <DefaultNeme>{userEmail[0]}</DefaultNeme>
+          )}
           {userLogo ? <UserLogo /> : ''}
           <ArrowDown />
           {logoModal && (

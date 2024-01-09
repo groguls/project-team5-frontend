@@ -6,27 +6,22 @@ export const Backdrop = styled.div`
   left: 0;
   height: 100%;
   width: 100%;
-
   background-color: transparent;
-
   transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1) visibility 250ms
     cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: auto;
 `;
 
 export const Modal = styled.div`
   width: 118px;
-
-  /* transform: translate(0%, 0%); */
   z-index: 2000;
   display: flex;
   flex-direction: column;
-  background: #ffffff;
+  background-color: #ffffff;
   border: none;
   border-radius: 10px;
   box-shadow: ${props => `${props.theme.shadows.userModal}`};
-
   transition: all;
-
   position: absolute;
   top: 48px;
   right: 0%;
@@ -47,6 +42,7 @@ export const Button = styled.button`
   font-weight: ${props => `${props.theme.fontWeights.regular}`};
   line-height: ${props => `${props.theme.lineHeights.text}`};
   border: none;
+  border-radius: 10px;
   margin: auto;
   padding: 16px 16px 16px 16px;
   cursor: pointer;
@@ -57,7 +53,7 @@ export const Button = styled.button`
 
   &:focus,
   &:hover {
-    border-radius: 4px;
+    border-radius: 10px;
     box-shadow: 0px 4px 14px 0px rgba(64, 123, 255, 0.54);
   }
 
