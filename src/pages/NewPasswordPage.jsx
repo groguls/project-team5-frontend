@@ -56,7 +56,7 @@ const NewPasswordPage = () => {
 
     try {
       await axios.patch(
-        `https://groguls.github.io/project-team5-frontend/api/users/settings/password/${confirmationToken}`,
+        `https://watertracker-by-group5.onrender.com/api/users/settings/password/${confirmationToken}`,
         {
           newPassword: password,
         }
