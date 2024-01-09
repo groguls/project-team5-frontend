@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useModal } from '../ModalContextProvider/ModalContextProvider';
-import { addWater } from '../../redux/water/waterOperations';
+import { addWater, getTodayInfo } from '../../redux/water/waterOperations';
 import { AmountOfWater } from './AmountOfWater';
 import { AddWaterTime } from './AddWaterTime';
 import { AddEnterValueWater } from './AddEnterValueWater';
@@ -25,6 +25,8 @@ export const AddWaterModal = () => {
     e.preventDefault();
 
     dispatch(addWater(newRecord));
+    dispatch(getTodayInfo());
+
     toast.success('Water was successfully added');
     toggleModal();
   };

@@ -114,11 +114,5 @@ const waterSlice = createSlice({
   },
 });
 
-export const {
-  updateDailyNorma,
-  updateMonthInfo,
-  updatePortionInfo,
-  updateTimeInfo,
-  addWaterRecord,
-} = waterSlice.actions;
+export const { updateDailyNorma, updateMonthInfo } = waterSlice.actions;
 export const waterReducer = waterSlice.reducer;

@@ -42,6 +42,7 @@ export const WrapperPagination = styled.div`
 `;
 
 export const ButtonCurrentMonth = styled.button`
+  width: 120px;
   font-size: 16px;
   font-weight: 400;
   line-height: 20px;

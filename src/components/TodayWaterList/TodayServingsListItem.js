@@ -3,11 +3,13 @@ import { Delete } from '../Icons/Delete';
 import { useDispatch } from 'react-redux';
 import {
   deleteWater,
-  // editWater
+  editWater,
+  getTodayInfo,
 } from '../../redux/water/waterOperations';
 import { useModal } from '../ModalContextProvider/ModalContextProvider';
 import { DeleteWater } from '../TodayListModal/DeleteWater';
 import toast from 'react-hot-toast';
+import { format } from 'date-fns';
 
 import {
   DeleteWaterContainer,
@@ -19,20 +21,16 @@ import {
   TodayItem,
   WaterVolume,
 } from './TodayServingsListItem.styled';
-// import { TodayListModal } from '../TodayListModal/TodayListModal';
+import { TodayListModal } from 'components/TodayListModal/TodayListModal';
 
 export const TodayServingListItem = ({ todayList }) => {
   const dispatch = useDispatch();
   const toggleModal = useModal();
-
-  // const handleLiClick = () => {
-  //   toggleModal();
-  // };
-
   const handleDelete = id => {
     dispatch(deleteWater(id))
       .unwrap()
       .then(data => {
+        dispatch(getTodayInfo());
         toast.success('Delete success');
         toggleModal();
       })
@@ -41,45 +39,43 @@ export const TodayServingListItem = ({ todayList }) => {
       });
   };
 
-  // const handleEdit = id => {
-  //   dispatch(editWater(id))
-  //     .unwrap()
-  //     .then(data => {
-  //       toast.success('Update success');
-  //       toggleModal();
-  //     })
-  //     .catch(() => {
-  //       toast.error('Something went wrong');
-  //     });
-  // };
+  const handleEdit = id => {
+    dispatch(editWater(id))
+      .unwrap()
+      .then(data => {
+        dispatch(getTodayInfo());
+        toast.success('Update success');
+        toggleModal();
+      })
+      .catch(() => {
+        toast.error('Something went wrong');
+      });
+  };
 
   return (
     <>
       <TodayItem>
-        {/* <button
-          style={{ width: '24px', height: '24px', background: 'blue' }}
-          onClick={() =>
-            toggleModal(
-              <TodayListModal
-                size={'medium'}
-                title="Edit the entered amount of water"
-                editEntry={() => handleEdit(todayList._id)}
-                selectedRecord={todayList}
-              />
-            )
-          }
-        /> */}
         <TodayData>
           <StyledGlassOfWater />
           <WaterVolume>{todayList.waterVolume + ' ml'}</WaterVolume>
-          <TimeServing>{todayList.time}</TimeServing>
+          <TimeServing>{format(new Date(todayList.date), 'HH:mm')}</TimeServing>
         </TodayData>
         <TodayIcons>
-          <EditWaterContainer>
-            {/*  */}
+          <EditWaterContainer
+            onClick={() =>
+              toggleModal(
+                <TodayListModal
+                  size={'small'}
+                  title={'Edit the entred amount of water'}
+                  editEntry={() => handleEdit(todayList._id)}
+                  selectedRecord={todayList}
+                />
+              )
+            }
+          >
             <PencilSquare />
           </EditWaterContainer>
-          <PencilSquare />
+          {/* <PencilSquare /> */}
           <DeleteWaterContainer
             onClick={() =>
               toggleModal(

@@ -33,6 +33,7 @@ export const addWater = createAsyncThunk(
       const { data } = await instance.post('/water', {
         ...newRecord,
       });
+      thunkAPI.dispatch(getTodayInfo());
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -61,6 +62,7 @@ export const editWater = createAsyncThunk(
         waterVolume: newWater.waterVolume,
         date: newWater.date,
       });
+      console.log(data);
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
