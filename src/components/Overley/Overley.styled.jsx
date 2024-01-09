@@ -15,7 +15,11 @@ export const OverlayStyle = styled.div`
   background-color: ${({ $isLogoModal }) =>
     $isLogoModal ? 'transparent' : '#000000cc'};
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 768px) and (max-width: 1024px) {
+    padding-top: 100px;
+  }
+
+  @media screen and (min-width: 1025px) {
     padding-inline: 32px;
   }
 `;
