@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const PreviousDataBox = styled.div`
   display: flex;
   align-items: center;
-  width: 254px;
+  width: 250px;
   height: 52px;
   margin-bottom: 24px;
   padding: 8px 24px;
