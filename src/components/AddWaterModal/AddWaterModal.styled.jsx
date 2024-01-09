@@ -140,7 +140,6 @@ export const Button = styled.button`
   }
 
   @media (min-width: 768px) {
-    /* width: 56px; */
     font-size: 18px;
     line-height: 1.33;
   }
