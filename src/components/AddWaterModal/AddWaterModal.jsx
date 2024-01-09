@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useModal } from '../ModalContextProvider/ModalContextProvider';
 import { addWater } from '../../redux/water/waterOperations';
-
 import {
   Amounter,
   AddButton,
@@ -17,11 +16,9 @@ import {
   AmountWraper,
 } from './AddWaterModal.styled';
 import toast from 'react-hot-toast';
-
 import Typography from 'components/Typography/Typography';
 import { Minus } from 'components/Icons/Minus';
 import { Plus } from 'components/Icons/Plus/Plus';
-
 import { InputTime } from 'components/AddWaterModal/InputTime';
 import { InputWaterVolume } from 'components/AddWaterModal/InputWaterVolume';
 

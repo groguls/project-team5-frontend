@@ -30,7 +30,7 @@ export const addWater = createAsyncThunk(
   'water/addWater',
   async (newRecord, thunkAPI) => {
     try {
-      const { data } = await instance.post('/water', {
+      await instance.post('/water', {
         ...newRecord,
       });
       thunkAPI.dispatch(getTodayInfo());
