@@ -7,7 +7,7 @@ export const Amounter = styled.div`
 `;
 
 export const Article = styled.article`
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 `;
 
 export const AddWaterValue = styled.div`

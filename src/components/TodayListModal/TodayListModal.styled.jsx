@@ -27,7 +27,7 @@ export const Time = styled.div`
 `;
 
 export const Article = styled.article`
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 `;
 
 export const Amounter = styled.div`
