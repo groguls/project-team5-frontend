@@ -10,15 +10,23 @@ import {
 
 export const AmountOfWater = ({ water, setWater }) => {
   const handleDecrement = () => {
-    if (water > 50) {
-      setWater(water - 50);
-    }
+    setWater(prevWater => {
+      const decrementedValue = Math.max(
+        0,
+        Math.floor((prevWater - 1) / 50) * 50
+      );
+      return decrementedValue;
+    });
   };
 
   const handleIncrement = () => {
-    if (water <= 5000) {
-      setWater(water + 50);
-    }
+    setWater(prevWater => {
+      const incrementedValue = Math.min(
+        5000,
+        Math.ceil((prevWater + 1) / 50) * 50
+      );
+      return incrementedValue;
+    });
   };
 
   return (
