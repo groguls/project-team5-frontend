@@ -65,7 +65,7 @@ export const TodayServingListItem = ({ todayList }) => {
             onClick={() =>
               toggleModal(
                 <TodayListModal
-                  size={'big'}
+                  size={'medium'}
                   title={'Edit the entred amount of water'}
                   editEntry={() => handleEdit(todayList._id)}
                   selectedRecord={todayList}
