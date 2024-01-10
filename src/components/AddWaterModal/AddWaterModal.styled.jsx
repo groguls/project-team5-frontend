@@ -1,3 +1,4 @@
+import { GlassOfWater } from 'components/Icons/GlassOfWater';
 import styled from 'styled-components';
 
 export const Amounter = styled.div`
@@ -93,10 +94,10 @@ export const SubmitBtn = styled.button`
   border-radius: 10px;
   color: ${props => `${props.theme.colors.primaryWhite}`};
   text-align: center;
-  font-size: ${props => `${props.theme.fontSizes.listTitle}`};
+  font-size: ${props => `${props.theme.fontSizes.text}`};
   font-style: normal;
   font-weight: 500;
-  line-height: 1.33;
+  line-height: ${props => `${props.theme.lineHeights.text}`};
   border: none;
   background: ${props => `${props.theme.colors.primaryBlue}`};
   box-shadow: 0px 4px 8px 0px rgba(64, 123, 255, 0.34);
@@ -113,8 +114,11 @@ export const SubmitBtn = styled.button`
   }
 
   width: 100%;
+
   @media screen and (min-width: 768px) {
     width: 160px;
+    font-size: ${props => `${props.theme.fontSizes.listTitle}`};
+    line-height: ${props => `${props.theme.lineHeights.info}`};
   }
 `;
 
@@ -122,4 +126,44 @@ export const FormStyled = styled.form`
   display: flex;
   flex-direction: column;
   gap: 24px;
+`;
+
+export const PreviousDataBox = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 256px;
+  height: 52px;
+  padding: 8px 24px;
+  color: ${props => `${props.theme.colors.primaryBlue}`};
+  background-color: ${props => `${props.theme.colors.secondaryGray}`};
+  border-radius: ${props => `${props.theme.radii.normal}`};
+
+  @media screen and (min-width: 768px) {
+    width: 254px;
+  }
+`;
+
+export const StyledGlassOfWater = styled(GlassOfWater)`
+  width: 36px;
+  height: 36px;
+`;
+
+export const RecordWraper = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  gap: 16px;
+`;
+
+export const ValueWater = styled.div`
+  font-size: ${props => `${props.theme.fontSizes.listTitle}`};
+  font-weight: ${props => `${props.theme.fontWeights.regular}`};
+  line-height: ${props => `${props.theme.lineHeights.info}`};
+`;
+
+export const Time = styled.div`
+  font-size: ${props => `${props.theme.fontSizes.info}`};
+  font-weight: ${props => `${props.theme.fontWeights.regular}`};
+  line-height: 2;
+  color: ${props => `${props.theme.colors.primaryBlack}`};
 `;

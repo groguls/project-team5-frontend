@@ -32,6 +32,7 @@ export const InputWaterVolume = ({
   error,
   type,
   name,
+  defaultValue,
   value,
   onChange,
   onBlur,
@@ -104,6 +105,7 @@ export const InputWaterVolume = ({
         helperText={error ? `${helperText}` : ''}
         type={type}
         name={name}
+        defaultValue={defaultValue}
         value={value}
         autoComplete="off"
         onChange={onChange}
