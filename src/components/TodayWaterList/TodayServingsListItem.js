@@ -10,7 +10,6 @@ import { useModal } from '../ModalContextProvider/ModalContextProvider';
 import { DeleteWater } from '../TodayListModal/DeleteWater';
 import toast from 'react-hot-toast';
 import { format } from 'date-fns';
-
 import {
   DeleteWaterContainer,
   EditWaterContainer,
@@ -21,7 +20,7 @@ import {
   TodayItem,
   WaterVolume,
 } from './TodayServingsListItem.styled';
-import { TodayListModal } from 'components/TodayListModal/TodayListModal';
+import { EditWaterModal } from 'components/AddWaterModal/EditWaterModal';
 
 export const TodayServingListItem = ({ todayList }) => {
   const dispatch = useDispatch();
@@ -64,8 +63,8 @@ export const TodayServingListItem = ({ todayList }) => {
           <EditWaterContainer
             onClick={() =>
               toggleModal(
-                <TodayListModal
-                  size={'big'}
+                <EditWaterModal
+                  size={'medium'}
                   title={'Edit the entred amount of water'}
                   editEntry={() => handleEdit(todayList._id)}
                   selectedRecord={todayList}

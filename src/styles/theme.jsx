@@ -19,6 +19,7 @@ export const theme = Object.freeze({
     subtitle: '26px',
     listTitle: '18px',
     text: '16px',
+    info: '12px',
   },
 
   fontWeights: {
@@ -32,6 +33,7 @@ export const theme = Object.freeze({
     subtitle: 1.2,
     listTitle: 1.1,
     text: 1.25,
+    info: 1.33,
   },
 
   shadows: {

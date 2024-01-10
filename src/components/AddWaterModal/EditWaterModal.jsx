@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useModal } from '../ModalContextProvider/ModalContextProvider';
-import { addWater } from '../../redux/water/waterOperations';
+import { editWater } from '../../redux/water/waterOperations';
 import {
   Amounter,
   AddButton,
@@ -14,6 +14,10 @@ import {
   SubmitBtn,
   AmountLabelContainer,
   AmountWraper,
+  PreviousDataBox,
+  ValueWater,
+  Time,
+  StyledGlassOfWater,
 } from './AddWaterModal.styled';
 import toast from 'react-hot-toast';
 import Typography from 'components/Typography/Typography';
@@ -21,12 +25,15 @@ import { Minus } from 'components/Icons/Minus';
 import { Plus } from 'components/Icons/Plus/Plus';
 import { InputTime } from 'components/AddWaterModal/InputTime';
 import { InputWaterVolume } from 'components/AddWaterModal/InputWaterVolume';
+import { format, parseISO } from 'date-fns';
 
-export const AddWaterModal = () => {
+export const EditWaterModal = ({ selectedRecord }) => {
+  const { waterVolume: prevVolume, date: prevDate, _id } = selectedRecord;
   const dispatch = useDispatch();
   const toggleModal = useModal();
-  const [waterVolume, setWaterVolume] = useState(0);
-  const [inputWaterVolume, setInputWaterVolume] = useState(0);
+  const [waterVolume, setWaterVolume] = useState(prevVolume);
+  const [inputWaterVolume, setInputWaterVolume] = useState(prevVolume);
+  const time = format(parseISO(prevDate), 'HH:mm');
 
   const handleSubmit = evt => {
     evt.preventDefault();
@@ -35,10 +42,16 @@ export const AddWaterModal = () => {
     const date = form.elements.date.value;
     const waterVolume = +form.elements.waterVolume.value;
 
-    dispatch(addWater({ waterVolume, date }));
-    toast.success('Water was successfully added');
-    form.reset();
-    toggleModal();
+    dispatch(editWater({ waterVolume, date, _id }))
+      .unwrap()
+      .then(() => {
+        toast.success('Water was successfully updated');
+
+        toggleModal();
+      })
+      .catch(error => {
+        toast.error(error);
+      });
   };
 
   const handleWaterButtons = action => {
@@ -61,6 +74,16 @@ export const AddWaterModal = () => {
   return (
     <>
       <FormStyled onSubmit={handleSubmit}>
+        <PreviousDataBox>
+          <StyledGlassOfWater />
+
+          <ValueWater>
+            {prevVolume}
+            ml
+          </ValueWater>
+          <Time>{time}</Time>
+        </PreviousDataBox>
+
         <AmountWraper>
           <Typography styled="ListTitle">Choose a value:</Typography>
           <AmountLabelContainer>
@@ -86,13 +109,13 @@ export const AddWaterModal = () => {
             </Amounter>
           </AmountLabelContainer>
         </AmountWraper>
-        <TimeLabelContainer htmlFor="addTime">
+        <TimeLabelContainer htmlFor="editTime">
           <Typography styled="Text">Recording time:</Typography>
 
           <InputTime
-            id="addTime"
+            id="editTime"
             name="date"
-            defaultValue={new Date()}
+            defaultValue={parseISO(prevDate)}
             ampm={false}
             openTo="hours"
             views={['hours', 'minutes']}
@@ -100,7 +123,7 @@ export const AddWaterModal = () => {
             disableFuture={true}
           />
         </TimeLabelContainer>
-        <EnterLabelContainer htmlFor="waterVolume">
+        <EnterLabelContainer htmlFor="editWaterVolume">
           <Typography styled="ListTitle">
             Enter the value of the water used:
           </Typography>
@@ -108,7 +131,7 @@ export const AddWaterModal = () => {
           <InputWaterVolume
             type="number"
             name="waterVolume"
-            id="waterVolume"
+            id="editWaterVolume"
             value={Number(inputWaterVolume).toString()}
             max={5000}
             min={0}
