@@ -112,6 +112,7 @@ export const AddWaterModal = () => {
             views={['hours', 'minutes']}
             format="HH:mm"
             disableFuture={true}
+            timezone={'UTC'}
           />
         </TimeLabelContainer>
         <EnterLabelContainer htmlFor="waterVolume">

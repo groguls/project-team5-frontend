@@ -11,6 +11,7 @@ import { GlobalStyle } from 'styles/GlobalStyle';
 import { ModalContextProvider } from 'components/ModalContextProvider/ModalContextProvider';
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
+import { uk } from 'date-fns/locale';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -18,7 +19,10 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <PersistGate persistor={persistor}>
         <BrowserRouter basename="/project-team5-frontend">
           <ThemeProvider theme={theme}>
-            <LocalizationProvider dateAdapter={AdapterDateFns}>
+            <LocalizationProvider
+              dateAdapter={AdapterDateFns}
+              adapterLocale={uk}
+            >
               <ModalContextProvider>
                 <GlobalStyle />
                 <App />
