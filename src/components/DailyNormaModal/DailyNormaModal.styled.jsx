@@ -162,3 +162,10 @@ export const CalculateInput = styled.input`
     color: ${props => `${props.theme.colors.primaryBlue}`};
   }
 `;
+
+export const ValidationError = styled.p`
+  color: ${props => `${props.theme.colors.secondaryRed}`};
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 128.571%;
+`;

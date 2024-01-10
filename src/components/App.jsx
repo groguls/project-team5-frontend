@@ -23,10 +23,15 @@ export const App = () => {
     dispatch(refreshUser());
   }, [dispatch]);
 
-  return !isRefreshing ? (
+  return (
     <Routes>
       <Route path="/" element={<Layout />}>
-        <Route index element={isAuth ? <HomePage /> : <WelcomePage />} />
+        <Route
+          index
+          element={
+            isAuth ? <HomePage /> : !isRefreshing ? <WelcomePage /> : <Loader />
+          }
+        />
         <Route
           path="signin"
           element={
@@ -57,7 +62,5 @@ export const App = () => {
         <Route path="*" element={<Navigate to={'/'} />} />
       </Route>
     </Routes>
-  ) : (
-    <Loader />
   );
 };
