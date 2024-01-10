@@ -1,9 +1,10 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { lazy, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectIsAuth } from '../redux/selectors';
+import { selectIsAuth, selectIsRefreshing } from '../redux/selectors';
 import { Layout } from './Layout/Layout';
 import { refreshUser } from '../redux/auth/operations';
+import { Loader } from './Loader/Loader';
 
 const RestrictedRoute = lazy(() => import('./RestrictedRoute'));
 const WelcomePage = lazy(() => import('../pages/WelcomePage/WelcomePage'));
@@ -16,12 +17,13 @@ const NewPasswordPage = lazy(() => import('../pages/NewPasswordPage'));
 export const App = () => {
   const dispatch = useDispatch();
   const isAuth = useSelector(selectIsAuth);
+  const isRefreshing = useSelector(selectIsRefreshing);
 
   useEffect(() => {
     dispatch(refreshUser());
   }, [dispatch]);
 
-  return (
+  return !isRefreshing ? (
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={isAuth ? <HomePage /> : <WelcomePage />} />
@@ -55,5 +57,7 @@ export const App = () => {
         <Route path="*" element={<Navigate to={'/'} />} />
       </Route>
     </Routes>
+  ) : (
+    <Loader />
   );
 };
