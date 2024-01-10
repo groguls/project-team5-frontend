@@ -21,6 +21,7 @@ import { Minus } from 'components/Icons/Minus';
 import { Plus } from 'components/Icons/Plus/Plus';
 import { InputTime } from 'components/AddWaterModal/InputTime';
 import { InputWaterVolume } from 'components/AddWaterModal/InputWaterVolume';
+import { Info } from 'components/Typography/Typography.styled';
 
 export const AddWaterModal = () => {
   const dispatch = useDispatch();
@@ -85,7 +86,9 @@ export const AddWaterModal = () => {
               >
                 <Minus />
               </AddButton>
-              <AddWaterValue>{waterVolume}ml</AddWaterValue>
+              <AddWaterValue>
+                <Info styled={'Info'}>{waterVolume}ml</Info>
+              </AddWaterValue>
               <AddButton
                 onClick={() => {
                   handleWaterButtons('increment');

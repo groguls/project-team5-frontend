@@ -26,6 +26,7 @@ import { Plus } from 'components/Icons/Plus/Plus';
 import { InputTime } from 'components/AddWaterModal/InputTime';
 import { InputWaterVolume } from 'components/AddWaterModal/InputWaterVolume';
 import { format, parseISO } from 'date-fns';
+import { Info } from 'components/Typography/Typography.styled';
 
 export const EditWaterModal = ({ selectedRecord }) => {
   const { waterVolume: prevVolume, date: prevDate, _id } = selectedRecord;
@@ -102,7 +103,9 @@ export const EditWaterModal = ({ selectedRecord }) => {
               >
                 <Minus />
               </AddButton>
-              <AddWaterValue>{waterVolume}ml</AddWaterValue>
+              <AddWaterValue>
+                <Info styled={'Info'}>{waterVolume}ml</Info>
+              </AddWaterValue>
               <AddButton
                 onClick={() => {
                   handleWaterButtons('increment');

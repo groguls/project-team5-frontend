@@ -1,4 +1,10 @@
-import { MainTitle, Subtitle, ListTitle, Text } from './Typography.styled';
+import {
+  MainTitle,
+  Subtitle,
+  ListTitle,
+  Text,
+  Info,
+} from './Typography.styled';
 
 const Typography = ({ children, styled }) => {
   // передаємо у своєму компоненті пропсу styled один з варіантів
@@ -13,6 +19,8 @@ const Typography = ({ children, styled }) => {
       return <ListTitle>{children}</ListTitle>;
     case 'Text':
       return <Text>{children}</Text>;
+    case 'Info':
+      return <Info>{children}</Info>;
     default:
       return children;
   }
