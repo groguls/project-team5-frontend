@@ -54,18 +54,18 @@ const passwordRegex = /^.{8,64}$/;
 const formSchema = Yup.object().shape({
   name: Yup.string(),
   email: Yup.string().matches(emailRegex, {
-    message: `Invalid email.Please enter a valid email in the format: example@example.com.`,
+    message: `Valid email format: example@example.com.`,
   }),
   oldPassword: Yup.string().matches(passwordRegex, {
-    message: `Invalid password. Password must be at least 8 characters long.`,
+    message: `Password from 8 to 64 characters.`,
   }),
   newPassword: Yup.string().matches(passwordRegex, {
-    message: `Invalid password. Password must be at least 8 characters long.`,
+    message: `Password from 8 to 64 characters.`,
   }),
   repeatPassword: Yup.string()
     .oneOf([Yup.ref('newPassword'), null], 'Passwords must match')
     .matches(passwordRegex, {
-      message: `Invalid password. Password must be at least 8 characters long.`,
+      message: `Password from 8 to 64 characters.`,
     }),
 });
 
@@ -107,10 +107,22 @@ export const SettingModal = ({ onClose }) => {
       if (formEmail.length > 0 && user.email !== formEmail) {
         data = { ...data, email: formEmail };
       }
-      if (formOldPassword.length > 0 && formNewPassword.length > 0 && formRepeatPassword.length > 0) {
-        data = { ...data, oldPassword: formOldPassword, newPassword: formNewPassword };
-      }  else {
-        if (formOldPassword.length > 0 || formNewPassword.length > 0 || formRepeatPassword.length > 0) {
+      if (
+        formOldPassword.length > 0 &&
+        formNewPassword.length > 0 &&
+        formRepeatPassword.length > 0
+      ) {
+        data = {
+          ...data,
+          oldPassword: formOldPassword,
+          newPassword: formNewPassword,
+        };
+      } else {
+        if (
+          formOldPassword.length > 0 ||
+          formNewPassword.length > 0 ||
+          formRepeatPassword.length > 0
+        ) {
           if (formOldPassword.length === 0) {
             formik.errors.oldPassword = 'Fill in the field';
           }
@@ -167,9 +179,9 @@ export const SettingModal = ({ onClose }) => {
 
   useEffect(() => {
     document.body.style.overflow = 'hidden';
-    return (()=>{
+    return () => {
       document.body.style.overflow = '';
-    })
+    };
   }, []);
 
   useEffect(() => {
@@ -185,7 +197,8 @@ export const SettingModal = ({ onClose }) => {
   useEffect(() => {
     if (defValuesFlag.current && user.email) {
       const indexGender = genderList.indexOf(user.gender);
-      if (user.gender) setGender(indexGender >= 0 || indexGender <= 1 ? indexGender : 0);
+      if (user.gender)
+        setGender(indexGender >= 0 || indexGender <= 1 ? indexGender : 0);
       defValuesFlag.current = false;
     }
   }, [formik.values, user]);
@@ -238,7 +251,11 @@ export const SettingModal = ({ onClose }) => {
             <UploadPhotoButton>
               <UploadPhoto src={userPhoto} alt={userName} />
               Upload a photo
-              <UploadPhotoInput type="file" accept="image/*" onChange={handlerSetUserPhoto} />
+              <UploadPhotoInput
+                type="file"
+                accept="image/*"
+                onChange={handlerSetUserPhoto}
+              />
             </UploadPhotoButton>
           </UploadPhotoWrapper>
         </PhotoWrapper>
@@ -250,13 +267,23 @@ export const SettingModal = ({ onClose }) => {
                 <RadioLabel>
                   {gender === 0 && <RadioActive />}
                   {gender === 1 && <Radio />}
-                  <RadioInput type="radio" name="gender" value="0" onChange={handlerSetGender} />
+                  <RadioInput
+                    type="radio"
+                    name="gender"
+                    value="0"
+                    onChange={handlerSetGender}
+                  />
                   Girl
                 </RadioLabel>
                 <RadioLabel>
                   {gender === 1 && <RadioActive />}
                   {gender === 0 && <Radio />}
-                  <RadioInput type="radio" name="gender" value="1" onChange={handlerSetGender} />
+                  <RadioInput
+                    type="radio"
+                    name="gender"
+                    value="1"
+                    onChange={handlerSetGender}
+                  />
                   Man
                 </RadioLabel>
               </RadioWrapper>
@@ -299,7 +326,10 @@ export const SettingModal = ({ onClose }) => {
                 type={'password'}
                 value={formik.values.oldPassword}
                 onChange={formik.handleChange}
-                error={formik.touched.oldPassword && Boolean(formik.errors.oldPassword)}
+                error={
+                  formik.touched.oldPassword &&
+                  Boolean(formik.errors.oldPassword)
+                }
                 id={'oldPassword'}
                 helperText={formik.errors.oldPassword}
                 onBlur={formik.handleBlur}
@@ -312,7 +342,10 @@ export const SettingModal = ({ onClose }) => {
                 type={'password'}
                 value={formik.values.newPassword}
                 onChange={formik.handleChange}
-                error={formik.touched.newPassword && Boolean(formik.errors.newPassword)}
+                error={
+                  formik.touched.newPassword &&
+                  Boolean(formik.errors.newPassword)
+                }
                 id={'newPassword'}
                 helperText={formik.errors.newPassword}
                 onBlur={formik.handleBlur}
@@ -325,7 +358,10 @@ export const SettingModal = ({ onClose }) => {
                 type={'password'}
                 value={formik.values.repeatPassword}
                 onChange={formik.handleChange}
-                error={formik.touched.repeatPassword && Boolean(formik.errors.repeatPassword)}
+                error={
+                  formik.touched.repeatPassword &&
+                  Boolean(formik.errors.repeatPassword)
+                }
                 id={'repeatPassword'}
                 helperText={formik.errors.repeatPassword}
                 onBlur={formik.handleBlur}

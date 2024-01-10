@@ -31,3 +31,11 @@ export const Text = styled.p`
   font-weight: ${props => `${props.theme.fontWeights.regular}`};
   line-height: ${props => `${props.theme.lineHeights.text}`};
 `;
+
+export const Info = styled.p`
+  font: ${props => `${props.theme.fonts.body}`};
+  color: ${props => `${props.theme.colors.primaryBlue}`};
+  font-size: ${props => `${props.theme.fontSizes.listTitle}`};
+  font-weight: ${props => `${props.theme.fontWeights.bold}`};
+  line-height: ${props => `${props.theme.lineHeights.info}`};
+`;

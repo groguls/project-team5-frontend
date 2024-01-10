@@ -26,6 +26,7 @@ import { Plus } from 'components/Icons/Plus/Plus';
 import { InputTime } from 'components/AddWaterModal/InputTime';
 import { InputWaterVolume } from 'components/AddWaterModal/InputWaterVolume';
 import { format, parseISO } from 'date-fns';
+import { Info } from 'components/Typography/Typography.styled';
 
 export const EditWaterModal = ({ selectedRecord }) => {
   const { waterVolume: prevVolume, date: prevDate, _id } = selectedRecord;
@@ -38,9 +39,14 @@ export const EditWaterModal = ({ selectedRecord }) => {
   const handleSubmit = evt => {
     evt.preventDefault();
 
-    const form = evt.target;
-    const date = form.elements.date.value;
-    const waterVolume = +form.elements.waterVolume.value;
+    const form = evt.target.elements;
+    const date = form.date.value;
+    const waterVolume = +form.waterVolume.value;
+
+    if (!waterVolume) {
+      toast.error('Please set the volume of water consumed');
+      return;
+    }
 
     dispatch(editWater({ waterVolume, date, _id }))
       .unwrap()
@@ -97,7 +103,9 @@ export const EditWaterModal = ({ selectedRecord }) => {
               >
                 <Minus />
               </AddButton>
-              <AddWaterValue>{waterVolume}ml</AddWaterValue>
+              <AddWaterValue>
+                <Info styled={'Info'}>{waterVolume}ml</Info>
+              </AddWaterValue>
               <AddButton
                 onClick={() => {
                   handleWaterButtons('increment');
