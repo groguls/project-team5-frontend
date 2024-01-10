@@ -58,29 +58,3 @@ export const StyledPlus = styled(Plus)`
     height: 24px;
   }
 `;
-
-export const Overflow = styled.div`
-  width: 264px;
-  height: 212px;
-  overflow-y: auto;
-  overflow-x: hidden;
-  &::-webkit-scrollbar {
-    width: 4px;
-    border-radius: 8px;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background-color: ${props => `${props.theme.colors.secondaryBlue}`};
-    max-height: 100px;
-  }
-  &::-webkit-scrollbar-track {
-    height: 204px;
-  }
-  @media screen and (min-width: 768px) {
-    width: 656px;
-  }
-
-  @media screen and (min-width: 1440px) {
-    width: 544px;
-  }
-`;

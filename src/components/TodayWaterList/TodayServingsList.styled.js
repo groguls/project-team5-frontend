@@ -5,6 +5,20 @@ export const TodayList = styled.ul`
   flex-direction: column;
   width: 280px;
   gap: 16px 26px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  &::-webkit-scrollbar {
+    width: 4px;
+    border-radius: 8px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: ${props => `${props.theme.colors.secondaryBlue}`};
+    max-height: 100px;
+  }
+  &::-webkit-scrollbar-track {
+    height: 204px;
+  }
 
   @media screen and (min-width: 768px) {
     width: 656px;

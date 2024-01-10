@@ -27,6 +27,7 @@ export const WaterVolume = styled.p`
   flex-direction: row;
   font-size: 18px;
   line-height: 24px;
+  font-weight: 400;
   color: ${props => `${props.theme.colors.primaryBlue}`};
 `;
 
@@ -35,6 +36,7 @@ export const TimeServing = styled.p`
   flex-direction: row; */
   font-size: 12px;
   line-height: 24px;
+  font-weight: 400;
   color: ${props => `${props.theme.colors.primaryBlack}`};
 `;
 
@@ -51,6 +53,7 @@ export const TodayIcons = styled.div`
 export const StyledGlassOfWater = styled(GlassOfWater)`
   width: 26px;
   height: 26px;
+  align-items: center;
   @media screen and (min-width: 768px) {
     width: 36px;
     height: 36px;
