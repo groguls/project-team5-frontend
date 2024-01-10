@@ -41,6 +41,7 @@ export const InputTime = ({
   error,
   onChange,
   onBlur,
+  timezone,
 }) => {
   return (
     <ThemeProvider theme={theme}>
@@ -113,6 +114,7 @@ export const InputTime = ({
         defaultValue={defaultValue}
         onChange={onChange}
         onBlur={onBlur}
+        timezone={timezone}
       />
     </ThemeProvider>
   );

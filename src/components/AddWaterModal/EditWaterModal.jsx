@@ -25,8 +25,9 @@ import { Minus } from 'components/Icons/Minus';
 import { Plus } from 'components/Icons/Plus/Plus';
 import { InputTime } from 'components/AddWaterModal/InputTime';
 import { InputWaterVolume } from 'components/AddWaterModal/InputWaterVolume';
-import { format, parseISO } from 'date-fns';
+import { formatInTimeZone } from 'date-fns-tz';
 import { Info } from 'components/Typography/Typography.styled';
+import { parseISO, subHours } from 'date-fns';
 
 export const EditWaterModal = ({ selectedRecord }) => {
   const { waterVolume: prevVolume, date: prevDate, _id } = selectedRecord;
@@ -34,7 +35,11 @@ export const EditWaterModal = ({ selectedRecord }) => {
   const toggleModal = useModal();
   const [waterVolume, setWaterVolume] = useState(prevVolume);
   const [inputWaterVolume, setInputWaterVolume] = useState(prevVolume);
-  const time = format(parseISO(prevDate), 'HH:mm');
+
+  const time = formatInTimeZone(parseISO(prevDate), 'UTC', 'HH:mm');
+
+  const UTCDate = parseISO(prevDate);
+  const formattedDate = subHours(UTCDate, 1);
 
   const handleSubmit = evt => {
     evt.preventDefault();
@@ -123,12 +128,13 @@ export const EditWaterModal = ({ selectedRecord }) => {
           <InputTime
             id="editTime"
             name="date"
-            defaultValue={parseISO(prevDate)}
+            defaultValue={formattedDate}
             ampm={false}
             openTo="hours"
             views={['hours', 'minutes']}
             format="HH:mm"
             disableFuture={true}
+            timezone={'UTC'}
           />
         </TimeLabelContainer>
         <EnterLabelContainer htmlFor="editWaterVolume">
