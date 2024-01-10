@@ -1,6 +1,7 @@
 import { styled } from 'styled-components';
 
 export const DayItem = styled.li`
+  /* position: relative; */
   width: 32px;
   height: 52px;
   display: flex;

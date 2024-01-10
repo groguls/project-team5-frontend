@@ -27,6 +27,7 @@ export const WaterVolume = styled.p`
   flex-direction: row;
   font-size: 18px;
   line-height: 24px;
+  font-weight: ${props => props.theme.fontWeights.regular};
   color: ${props => `${props.theme.colors.primaryBlue}`};
 `;
 
@@ -35,6 +36,7 @@ export const TimeServing = styled.p`
   flex-direction: row; */
   font-size: 12px;
   line-height: 24px;
+  font-weight: ${props => props.theme.fontWeights.regular};
   color: ${props => `${props.theme.colors.primaryBlack}`};
 `;
 

@@ -38,9 +38,14 @@ export const EditWaterModal = ({ selectedRecord }) => {
   const handleSubmit = evt => {
     evt.preventDefault();
 
-    const form = evt.target;
-    const date = form.elements.date.value;
-    const waterVolume = +form.elements.waterVolume.value;
+    const form = evt.target.elements;
+    const date = form.date.value;
+    const waterVolume = +form.waterVolume.value;
+
+    if (!waterVolume) {
+      toast.error('Please set the volume of water consumed');
+      return;
+    }
 
     dispatch(editWater({ waterVolume, date, _id }))
       .unwrap()

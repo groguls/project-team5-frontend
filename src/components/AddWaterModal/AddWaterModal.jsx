@@ -31,14 +31,25 @@ export const AddWaterModal = () => {
   const handleSubmit = evt => {
     evt.preventDefault();
 
-    const form = evt.target;
-    const date = form.elements.date.value;
-    const waterVolume = +form.elements.waterVolume.value;
+    const form = evt.target.elements;
+    const date = form.date.value;
+    const waterVolume = +form.waterVolume.value;
 
-    dispatch(addWater({ waterVolume, date }));
-    toast.success('Water was successfully added');
-    form.reset();
-    toggleModal();
+    if (!waterVolume) {
+      toast.error('Please set the volume of water consumed');
+      return;
+    }
+
+    dispatch(addWater({ waterVolume, date }))
+      .unwrap()
+      .then(() => {
+        toast.success('Water was successfully added');
+
+        toggleModal();
+      })
+      .catch(error => {
+        toast.error(error);
+      });
   };
 
   const handleWaterButtons = action => {
