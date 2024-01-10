@@ -7,6 +7,7 @@ export const Amounter = styled.div`
   gap: 7px;
 `;
 
+
 export const AmountWraper = styled.div`
   display: flex;
   flex-direction: column;
@@ -23,6 +24,7 @@ export const TimeLabelContainer = styled.label`
   display: flex;
   flex-direction: column;
   gap: 12px;
+
 `;
 
 export const AddWaterValue = styled.div`
@@ -105,8 +107,10 @@ export const SubmitBtn = styled.button`
     box-shadow: 0px 4px 14px 0px rgba(64, 123, 255, 0.54);
   }
 
+
   &:active {
     box-shadow: none;
+
   }
 
   width: 100%;

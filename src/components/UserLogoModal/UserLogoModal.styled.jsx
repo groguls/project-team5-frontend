@@ -44,7 +44,7 @@ export const Button = styled.button`
   border: none;
   border-radius: 10px;
   margin: auto;
-  padding: 16px 16px 16px 16px;
+  padding: 16px;
   cursor: pointer;
 
   &:nth-child(2) {

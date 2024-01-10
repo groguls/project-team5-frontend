@@ -63,7 +63,9 @@ export const TodayServingListItem = ({ todayList }) => {
           <EditWaterContainer
             onClick={() =>
               toggleModal(
+
                 <EditWaterModal
+
                   size={'medium'}
                   title={'Edit the entred amount of water'}
                   editEntry={() => handleEdit(todayList._id)}
