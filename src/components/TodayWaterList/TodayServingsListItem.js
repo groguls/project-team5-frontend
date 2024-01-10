@@ -9,7 +9,6 @@ import {
 import { useModal } from '../ModalContextProvider/ModalContextProvider';
 import { DeleteWater } from '../TodayListModal/DeleteWater';
 import toast from 'react-hot-toast';
-import { format } from 'date-fns';
 import {
   DeleteWaterContainer,
   EditWaterContainer,
@@ -50,22 +49,24 @@ export const TodayServingListItem = ({ todayList }) => {
         toast.error('Something went wrong');
       });
   };
+  const date = new Date(todayList.date);
+  const hours = String(date.getUTCHours()).padStart(2, '0');
+  const minutes = String(date.getUTCMinutes()).padStart(2, '0');
 
+  const formattedTime = `${hours}:${minutes}`;
   return (
     <>
       <TodayItem>
         <TodayData>
           <StyledGlassOfWater />
           <WaterVolume>{todayList.waterVolume + ' ml'}</WaterVolume>
-          <TimeServing>{format(new Date(todayList.date), 'HH:mm')}</TimeServing>
+          <TimeServing>{formattedTime}</TimeServing>
         </TodayData>
         <TodayIcons>
           <EditWaterContainer
             onClick={() =>
               toggleModal(
-
                 <EditWaterModal
-
                   size={'medium'}
                   title={'Edit the entred amount of water'}
                   editEntry={() => handleEdit(todayList._id)}
