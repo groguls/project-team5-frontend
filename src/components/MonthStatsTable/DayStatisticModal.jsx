@@ -47,7 +47,7 @@ export const DayStatisticModal = ({ selectedDay, dayBlockRef }) => {
         </ModalContentItem>
         <ModalContentItem>
           Daily norma:
-          <ContentItemDetails>{dailyNorma + ' L'}</ContentItemDetails>
+          <ContentItemDetails>{dailyNorma / 1000 + ' L'}</ContentItemDetails>
         </ModalContentItem>
         <ModalContentItem>
           Fulfillment of the daily norm:
